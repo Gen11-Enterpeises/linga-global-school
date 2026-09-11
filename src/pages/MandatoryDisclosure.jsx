@@ -154,14 +154,15 @@ function DocumentCard({ item }) {
   return (
     <div
       className="
-        group flex flex-col gap-5 rounded-2xl
-        border border-black/10
+        group flex flex-col gap-5
+        rounded-2xl border border-black/10
         bg-white p-5
         transition-all duration-300
         hover:-translate-y-1
         hover:border-black/20
         hover:shadow-xl
-        md:flex-row md:items-center md:justify-between md:p-6
+        md:flex-row md:items-center
+        md:justify-between md:p-6
       "
     >
       <div className="flex min-w-0 gap-4">
@@ -187,6 +188,7 @@ function DocumentCard({ item }) {
             {item.label}
           </p>
 
+          {/* Only show this when there is no file AND no result */}
           {!item.file && !item.result && (
             <p className="mt-1 text-xs text-black/40">
               Document link not available
@@ -195,7 +197,7 @@ function DocumentCard({ item }) {
         </div>
       </div>
 
-      {/* 100% RESULT */}
+      {/* 100% FOR LAST THREE-YEAR RESULT */}
       {item.result && (
         <span
           className="
@@ -251,6 +253,7 @@ function DocumentCard({ item }) {
 function ResultTable({ title, results }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+
       <div className="border-b border-black/10 px-5 py-5 md:px-6">
         <h3 className="font-display text-xl text-[#1c1b1a]">
           {title}
@@ -259,8 +262,10 @@ function ResultTable({ title, results }) {
 
       <div className="overflow-x-auto">
         <table className="w-full min-w-[520px] border-collapse">
+
           <thead>
             <tr className="bg-[#f4f1ea] text-left">
+
               <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider text-black/60">
                 Year
               </th>
@@ -276,6 +281,7 @@ function ResultTable({ title, results }) {
               <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider text-black/60">
                 Pass Percentage
               </th>
+
             </tr>
           </thead>
 
@@ -283,12 +289,17 @@ function ResultTable({ title, results }) {
             {results.map((row, index) => (
               <tr
                 key={row[0]}
-                className={`border-b border-black/5 last:border-0 ${
-                  index % 2 === 0
-                    ? 'bg-white'
-                    : 'bg-black/[0.015]'
-                }`}
+                className={`
+                  border-b border-black/5
+                  last:border-0
+                  ${
+                    index % 2 === 0
+                      ? 'bg-white'
+                      : 'bg-black/[0.015]'
+                  }
+                `}
               >
+
                 <td className="px-5 py-4 text-sm font-medium text-[#1c1b1a]">
                   {row[0]}
                 </td>
@@ -304,9 +315,11 @@ function ResultTable({ title, results }) {
                 <td className="px-5 py-4 text-sm font-semibold text-[#1c1b1a]">
                   {row[3]}
                 </td>
+
               </tr>
             ))}
           </tbody>
+
         </table>
       </div>
     </div>
@@ -334,11 +347,13 @@ export default function MandatoryDisclosure() {
           md:px-8 md:pb-28 md:pt-40
         "
       >
+
         <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#d9a566]/10 blur-3xl" />
 
         <div className="absolute -bottom-40 left-1/3 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl">
+
           <p className="mb-4 text-sm uppercase tracking-[0.25em] text-[#d9a566]">
             CBSE Mandatory Disclosure
           </p>
@@ -353,6 +368,7 @@ export default function MandatoryDisclosure() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
+
             <span className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/70">
               Affiliation No. 1930701
             </span>
@@ -360,6 +376,7 @@ export default function MandatoryDisclosure() {
             <span className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/70">
               School Code 55610
             </span>
+
           </div>
         </div>
       </section>
@@ -375,7 +392,9 @@ export default function MandatoryDisclosure() {
         ================================= */}
 
         <section className="mb-20">
+
           <div className="mb-8">
+
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               A
             </p>
@@ -383,10 +402,13 @@ export default function MandatoryDisclosure() {
             <h2 className="font-display text-3xl md:text-4xl">
               General Information
             </h2>
+
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-black/10 bg-white">
+
             {GENERAL_INFORMATION.map((item, index) => (
+
               <div
                 key={item.label}
                 className={`
@@ -400,6 +422,7 @@ export default function MandatoryDisclosure() {
                   }
                 `}
               >
+
                 <p className="text-xs font-semibold uppercase tracking-wider text-black/45">
                   {item.label}
                 </p>
@@ -407,8 +430,11 @@ export default function MandatoryDisclosure() {
                 <p className="text-sm leading-6 text-[#1c1b1a] md:text-[15px]">
                   {item.value}
                 </p>
+
               </div>
+
             ))}
+
           </div>
         </section>
 
@@ -417,7 +443,9 @@ export default function MandatoryDisclosure() {
         ================================= */}
 
         <section className="mb-20">
+
           <div className="mb-8">
+
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               B
             </p>
@@ -429,13 +457,18 @@ export default function MandatoryDisclosure() {
             <p className="mt-3 max-w-2xl text-sm leading-6 text-black/55">
               Statutory and compliance documents made available by the school.
             </p>
+
           </div>
 
           <div className="space-y-3">
             {DOCUMENTS.map((item) => (
-              <DocumentCard key={item.number} item={item} />
+              <DocumentCard
+                key={item.number}
+                item={item}
+              />
             ))}
           </div>
+
         </section>
 
         {/* =================================
@@ -443,7 +476,9 @@ export default function MandatoryDisclosure() {
         ================================= */}
 
         <section className="mb-20">
+
           <div className="mb-8">
+
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               C
             </p>
@@ -451,13 +486,20 @@ export default function MandatoryDisclosure() {
             <h2 className="font-display text-3xl md:text-4xl">
               Results and Academics
             </h2>
+
           </div>
 
           <div className="space-y-3">
+
             {ACADEMIC_DOCUMENTS.map((item) => (
-              <DocumentCard key={item.number} item={item} />
+              <DocumentCard
+                key={item.number}
+                item={item}
+              />
             ))}
+
           </div>
+
         </section>
 
         {/* =================================
@@ -465,7 +507,9 @@ export default function MandatoryDisclosure() {
         ================================= */}
 
         <section className="mb-20">
+
           <div className="mb-8">
+
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               D
             </p>
@@ -473,9 +517,11 @@ export default function MandatoryDisclosure() {
             <h2 className="font-display text-3xl md:text-4xl">
               Staff
             </h2>
+
           </div>
 
           <DocumentCard item={STAFF_DOCUMENT} />
+
         </section>
 
         {/* =================================
@@ -483,7 +529,9 @@ export default function MandatoryDisclosure() {
         ================================= */}
 
         <section className="mb-20">
+
           <div className="mb-8">
+
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               Board Examination Results
             </p>
@@ -496,9 +544,11 @@ export default function MandatoryDisclosure() {
               Board examination results as provided in the school's mandatory
               disclosure information.
             </p>
+
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
+
             <ResultTable
               title="Class X — Board Results"
               results={CLASS_X_RESULTS}
@@ -508,14 +558,17 @@ export default function MandatoryDisclosure() {
               title="Class XII — Board Results"
               results={CLASS_XII_RESULTS}
             />
+
           </div>
+
         </section>
 
         {/* =================================
-            MAIN DISCLOSURE PDF
+            SARAS 6.0 PDF
         ================================= */}
 
         <section>
+
           <div
             className="
               relative overflow-hidden
@@ -525,6 +578,7 @@ export default function MandatoryDisclosure() {
               md:p-8
             "
           >
+
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#d9a566]/10 blur-3xl" />
 
             <div className="relative">
@@ -532,6 +586,7 @@ export default function MandatoryDisclosure() {
               {/* PDF HEADER */}
 
               <div className="mb-6">
+
                 <p className="mb-2 text-xs uppercase tracking-[0.2em] text-[#d9a566]">
                   Official Document
                 </p>
@@ -544,6 +599,7 @@ export default function MandatoryDisclosure() {
                   View the complete mandatory disclosure document provided by
                   Linga Global School.
                 </p>
+
               </div>
 
               {/* =================================
@@ -558,8 +614,9 @@ export default function MandatoryDisclosure() {
                   bg-white
                 "
               >
+
                 <iframe
-                  src="/Mandatory%20Disclosure%20Details%20SARAS%206.0.pdf"
+                  src="/MandatoryDisclosureDetailsSARAS6.0.pdf"
                   title="Mandatory Disclosure Details SARAS 6.0"
                   className="
                     block
@@ -569,6 +626,7 @@ export default function MandatoryDisclosure() {
                     md:h-[800px]
                   "
                 />
+
               </div>
 
               {/* =================================
@@ -576,8 +634,9 @@ export default function MandatoryDisclosure() {
               ================================= */}
 
               <div className="mt-5 flex justify-end">
+
                 <a
-                  href="/Mandatory%20Disclosure%20Details%20SARAS%206.0.pdf"
+                  href="/MandatoryDisclosureDetailsSARAS6.0.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
@@ -597,10 +656,12 @@ export default function MandatoryDisclosure() {
                   <span>Open PDF in New Tab</span>
                   <span>↗</span>
                 </a>
+
               </div>
 
             </div>
           </div>
+
         </section>
 
       </div>
