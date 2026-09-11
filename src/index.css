@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* =========================================
+   LINGA GLOBAL SCHOOL — GLOBAL THEME
+   ========================================= */
+
+:root {
+  --school-black: #090908;
+  --school-charcoal: #151412;
+
+  --school-gold: #d6a447;
+  --school-gold-dark: #a87928;
+  --school-gold-light: #e1b45d;
+
+  --school-cream: #f4f1ea;
+  --school-white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--school-black);
+  color: var(--school-cream);
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--school-gold);
+  color: var(--school-black);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--school-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--school-gold-dark);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--school-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
