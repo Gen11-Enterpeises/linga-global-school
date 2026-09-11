@@ -146,17 +146,44 @@ const STAFF_DOCUMENT = {
   file: '/8 staff details.pdf',
 }
 
+/* =========================================
+   DOCUMENT CARD
+========================================= */
+
 function DocumentCard({ item }) {
   return (
-    <div className="group flex flex-col gap-5 rounded-2xl border border-black/10 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-black/20 hover:shadow-xl md:flex-row md:items-center md:justify-between md:p-6">
-      
+    <div
+      className="
+        group flex flex-col gap-5 rounded-2xl
+        border border-black/10
+        bg-white p-5
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:border-black/20
+        hover:shadow-xl
+        md:flex-row md:items-center md:justify-between md:p-6
+      "
+    >
       <div className="flex min-w-0 gap-4">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1c1b1a] text-xs font-medium text-white">
+        <div
+          className="
+            flex h-10 w-10 shrink-0
+            items-center justify-center
+            rounded-full bg-[#1c1b1a]
+            text-xs font-medium text-white
+          "
+        >
           {item.number}
         </div>
 
         <div className="min-w-0">
-          <p className="text-sm font-medium leading-6 text-[#1c1b1a] md:text-[15px]">
+          <p
+            className="
+              text-sm font-medium leading-6
+              text-[#1c1b1a]
+              md:text-[15px]
+            "
+          >
             {item.label}
           </p>
 
@@ -168,22 +195,47 @@ function DocumentCard({ item }) {
         </div>
       </div>
 
+      {/* 100% RESULT */}
       {item.result && (
-        <span className="shrink-0 text-sm font-semibold text-[#b8872f]">
+        <span
+          className="
+            shrink-0
+            text-sm font-semibold
+            text-[#b8872f]
+            md:text-base
+          "
+        >
           {item.result}
         </span>
       )}
 
+      {/* PDF BUTTON */}
       {item.file && (
         <a
           href={item.file}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-black/15 px-4 py-2.5 text-sm font-medium text-[#1c1b1a] transition-all duration-300 hover:bg-[#1c1b1a] hover:text-white"
+          className="
+            inline-flex w-fit shrink-0
+            items-center gap-2
+            rounded-full
+            border border-black/15
+            px-4 py-2.5
+            text-sm font-medium
+            text-[#1c1b1a]
+            transition-all duration-300
+            hover:bg-[#1c1b1a]
+            hover:text-white
+          "
         >
           <span>View PDF</span>
 
-          <span className="transition-transform duration-300 group-hover:translate-x-1">
+          <span
+            className="
+              transition-transform duration-300
+              group-hover:translate-x-1
+            "
+          >
             →
           </span>
         </a>
@@ -192,10 +244,13 @@ function DocumentCard({ item }) {
   )
 }
 
+/* =========================================
+   RESULT TABLE
+========================================= */
+
 function ResultTable({ title, results }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
-      
       <div className="border-b border-black/10 px-5 py-5 md:px-6">
         <h3 className="font-display text-xl text-[#1c1b1a]">
           {title}
@@ -204,10 +259,8 @@ function ResultTable({ title, results }) {
 
       <div className="overflow-x-auto">
         <table className="w-full min-w-[520px] border-collapse">
-          
           <thead>
             <tr className="bg-[#f4f1ea] text-left">
-              
               <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider text-black/60">
                 Year
               </th>
@@ -223,7 +276,6 @@ function ResultTable({ title, results }) {
               <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider text-black/60">
                 Pass Percentage
               </th>
-
             </tr>
           </thead>
 
@@ -237,7 +289,6 @@ function ResultTable({ title, results }) {
                     : 'bg-black/[0.015]'
                 }`}
               >
-                
                 <td className="px-5 py-4 text-sm font-medium text-[#1c1b1a]">
                   {row[0]}
                 </td>
@@ -253,30 +304,41 @@ function ResultTable({ title, results }) {
                 <td className="px-5 py-4 text-sm font-semibold text-[#1c1b1a]">
                   {row[3]}
                 </td>
-
               </tr>
             ))}
           </tbody>
-
         </table>
       </div>
     </div>
   )
 }
 
+/* =========================================
+   MAIN PAGE
+========================================= */
+
 export default function MandatoryDisclosure() {
   return (
     <main className="min-h-screen bg-[#f4f1ea] text-[#1c1b1a]">
 
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-[#1c1b1a] px-5 pb-20 pt-32 text-white md:px-8 md:pb-28 md:pt-40">
-        
+      {/* =================================
+          HERO
+      ================================= */}
+
+      <section
+        className="
+          relative overflow-hidden
+          bg-[#1c1b1a]
+          px-5 pb-20 pt-32
+          text-white
+          md:px-8 md:pb-28 md:pt-40
+        "
+      >
         <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#d9a566]/10 blur-3xl" />
 
         <div className="absolute -bottom-40 left-1/3 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl">
-          
           <p className="mb-4 text-sm uppercase tracking-[0.25em] text-[#d9a566]">
             CBSE Mandatory Disclosure
           </p>
@@ -291,7 +353,6 @@ export default function MandatoryDisclosure() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            
             <span className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/70">
               Affiliation No. 1930701
             </span>
@@ -299,19 +360,22 @@ export default function MandatoryDisclosure() {
             <span className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/70">
               School Code 55610
             </span>
-
           </div>
         </div>
       </section>
 
-      {/* MAIN CONTENT */}
+      {/* =================================
+          MAIN CONTENT
+      ================================= */}
+
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
 
-        {/* GENERAL INFORMATION */}
+        {/* =================================
+            GENERAL INFORMATION
+        ================================= */}
+
         <section className="mb-20">
-          
           <div className="mb-8">
-            
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               A
             </p>
@@ -319,21 +383,23 @@ export default function MandatoryDisclosure() {
             <h2 className="font-display text-3xl md:text-4xl">
               General Information
             </h2>
-
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-black/10 bg-white">
-            
             {GENERAL_INFORMATION.map((item, index) => (
               <div
                 key={item.label}
-                className={`grid gap-2 px-5 py-5 md:grid-cols-[38%_62%] md:px-7 ${
-                  index !== GENERAL_INFORMATION.length - 1
-                    ? 'border-b border-black/8'
-                    : ''
-                }`}
+                className={`
+                  grid gap-2 px-5 py-5
+                  md:grid-cols-[38%_62%]
+                  md:px-7
+                  ${
+                    index !== GENERAL_INFORMATION.length - 1
+                      ? 'border-b border-black/8'
+                      : ''
+                  }
+                `}
               >
-                
                 <p className="text-xs font-semibold uppercase tracking-wider text-black/45">
                   {item.label}
                 </p>
@@ -341,18 +407,17 @@ export default function MandatoryDisclosure() {
                 <p className="text-sm leading-6 text-[#1c1b1a] md:text-[15px]">
                   {item.value}
                 </p>
-
               </div>
             ))}
-
           </div>
         </section>
 
-        {/* DOCUMENTS */}
+        {/* =================================
+            DOCUMENTS
+        ================================= */}
+
         <section className="mb-20">
-          
           <div className="mb-8">
-            
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               B
             </p>
@@ -364,7 +429,6 @@ export default function MandatoryDisclosure() {
             <p className="mt-3 max-w-2xl text-sm leading-6 text-black/55">
               Statutory and compliance documents made available by the school.
             </p>
-
           </div>
 
           <div className="space-y-3">
@@ -372,14 +436,14 @@ export default function MandatoryDisclosure() {
               <DocumentCard key={item.number} item={item} />
             ))}
           </div>
-
         </section>
 
-        {/* RESULTS & ACADEMICS */}
+        {/* =================================
+            RESULTS & ACADEMICS
+        ================================= */}
+
         <section className="mb-20">
-          
           <div className="mb-8">
-            
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               C
             </p>
@@ -387,7 +451,6 @@ export default function MandatoryDisclosure() {
             <h2 className="font-display text-3xl md:text-4xl">
               Results and Academics
             </h2>
-
           </div>
 
           <div className="space-y-3">
@@ -395,14 +458,14 @@ export default function MandatoryDisclosure() {
               <DocumentCard key={item.number} item={item} />
             ))}
           </div>
-
         </section>
 
-        {/* STAFF */}
+        {/* =================================
+            STAFF
+        ================================= */}
+
         <section className="mb-20">
-          
           <div className="mb-8">
-            
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               D
             </p>
@@ -410,18 +473,17 @@ export default function MandatoryDisclosure() {
             <h2 className="font-display text-3xl md:text-4xl">
               Staff
             </h2>
-
           </div>
 
           <DocumentCard item={STAFF_DOCUMENT} />
-
         </section>
 
-        {/* BOARD RESULTS */}
+        {/* =================================
+            BOARD RESULTS
+        ================================= */}
+
         <section className="mb-20">
-          
           <div className="mb-8">
-            
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/40">
               Board Examination Results
             </p>
@@ -434,11 +496,9 @@ export default function MandatoryDisclosure() {
               Board examination results as provided in the school's mandatory
               disclosure information.
             </p>
-
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
-            
             <ResultTable
               title="Class X — Board Results"
               results={CLASS_X_RESULTS}
@@ -448,22 +508,30 @@ export default function MandatoryDisclosure() {
               title="Class XII — Board Results"
               results={CLASS_XII_RESULTS}
             />
-
           </div>
-
         </section>
 
-        {/* MAIN DISCLOSURE PDF */}
+        {/* =================================
+            MAIN DISCLOSURE PDF
+        ================================= */}
+
         <section>
-          
-          <div className="relative overflow-hidden rounded-3xl bg-[#1c1b1a] p-7 text-white md:p-10">
-            
+          <div
+            className="
+              relative overflow-hidden
+              rounded-3xl
+              bg-[#1c1b1a]
+              p-5 text-white
+              md:p-8
+            "
+          >
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#d9a566]/10 blur-3xl" />
 
-            <div className="relative flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
-              
-              <div>
-                
+            <div className="relative">
+
+              {/* PDF HEADER */}
+
+              <div className="mb-6">
                 <p className="mb-2 text-xs uppercase tracking-[0.2em] text-[#d9a566]">
                   Official Document
                 </p>
@@ -476,22 +544,63 @@ export default function MandatoryDisclosure() {
                   View the complete mandatory disclosure document provided by
                   Linga Global School.
                 </p>
-
               </div>
 
-              <a
-                href="/Mandatory Disclosure Details SARAS 6.0.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-fit shrink-0 items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#1c1b1a] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              {/* =================================
+                  PDF VIEWER
+              ================================= */}
+
+              <div
+                className="
+                  overflow-hidden
+                  rounded-2xl
+                  border border-white/10
+                  bg-white
+                "
               >
-                <span>Open Disclosure PDF</span>
-                <span>↗</span>
-              </a>
+                <iframe
+                  src="/Mandatory%20Disclosure%20Details%20SARAS%206.0.pdf"
+                  title="Mandatory Disclosure Details SARAS 6.0"
+                  className="
+                    block
+                    h-[550px]
+                    w-full
+                    border-0
+                    md:h-[800px]
+                  "
+                />
+              </div>
+
+              {/* =================================
+                  OPEN PDF BUTTON
+              ================================= */}
+
+              <div className="mt-5 flex justify-end">
+                <a
+                  href="/Mandatory%20Disclosure%20Details%20SARAS%206.0.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex
+                    items-center
+                    gap-3
+                    rounded-full
+                    bg-white
+                    px-5 py-3
+                    text-sm font-semibold
+                    text-[#1c1b1a]
+                    transition-all duration-300
+                    hover:-translate-y-1
+                    hover:shadow-xl
+                  "
+                >
+                  <span>Open PDF in New Tab</span>
+                  <span>↗</span>
+                </a>
+              </div>
 
             </div>
           </div>
-
         </section>
 
       </div>
