@@ -1,135 +1,384 @@
 import { motion } from 'framer-motion'
 
-const DISCLOSURE_DATA = [
-  ['NAME OF THE SCHOOL', 'LINGA GLOBAL SCHOOL'],
-  ['AFFILIATION NO.', '1930701'],
-  ['SCHOOL CODE', '55610'],
-  ['COMPLETE ADDRESS', 'Krishnankoil, Virudhunagar District, Tamil Nadu'],
-  ['PRINCIPAL', 'Ms. Alka Sharma'],
-  ['PRINCIPAL CONTACT', '+91 73 73 72 72 90'],
-  ['SCHOOL EMAIL', 'info@lingaschool.org'],
-  ['BOARD', 'CBSE'],
-  ['YEAR OF ESTABLISHMENT', '2015'],
-  ['LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY', '100%'],
+const PDF = (filename) => `/${encodeURIComponent(filename)}`
+
+const DOCUMENTS = [
+  {
+    no: '1',
+    title:
+      'COPIES OF AFFILIATION/UPGRADATION LETTER AND RECENT EXTENSION OF AFFILIATION, IF ANY',
+    file: 'LETTER DETAILS ,OASIS 6.0 CBSE.pdf',
+  },
+  {
+    no: '2',
+    title:
+      'COPIES OF SOCIETIES/TRUST/COMPANY REGISTRATION/RENEWAL CERTIFICATE, AS APPLICABLE*',
+    file: '2. TRUST_DEED.pdf',
+  },
+  {
+    no: '3',
+    title:
+      'COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE, BY THE STATE GOVT./UT*',
+    file: 'COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUE.pdf',
+  },
+  {
+    no: '4',
+    title:
+      'COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND IT’S RENEWAL IF APPLICABLE*',
+    file: 'Recognition.pdf',
+  },
+  {
+    no: '5',
+    title:
+      'COPY OF VALID BUILDING SAFETY CERTIFICATE AS PER THE NATIONAL BUILDING CODE*',
+    file: '5 BUILDING SAFETY CERTIFICATE.pdf',
+  },
+  {
+    no: '6',
+    title:
+      'COPY OF VALID FIRE SAFETY CERTIFICATE ISSUED BY THE COMPETENT AUTHORITY*',
+    file: '6 Fire safety.pdf',
+  },
+  {
+    no: '7',
+    title:
+      'COPY OF THE SELF CERTIFICATION SUBMITTED BY THE SCHOOL FOR AFFILIATION/UPGRADATION/EXTENSION OF AFFILIATION*',
+    file: 'deocertificate.pdf',
+  },
+  {
+    no: '8',
+    title:
+      'COPIES OF VALID WATER, HEALTH AND SANITATION CERTIFICATES',
+    file: '7 sanitary.pdf',
+  },
 ]
+
+const ACADEMIC_DOCUMENTS = [
+  {
+    no: '1',
+    title: 'FEE STRUCTURE OF THE SCHOOL*',
+    link: '/admissions',
+    external: false,
+  },
+  {
+    no: '2',
+    title: 'ANNUAL ACADEMIC CALENDER*',
+    file: 'calendar2026.pdf',
+  },
+  {
+    no: '3',
+    title: 'LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)*',
+    file: 'SMC.pdf',
+  },
+  {
+    no: '4',
+    title: 'LIST OF PARENTS TEACHERS ASSOCIATION (PTA) MEMBERS*',
+    file: 'ptamemberdetails.pdf',
+  },
+]
+
+const GENERAL_INFORMATION = [
+  ['NAME OF THE SCHOOL', 'LINGA GLOBAL SCHOOL'],
+  ['AFFILIATION NO. (IF APPLICABLE)', '1930701'],
+  ['SCHOOL CODE (IF APPLICABLE)', '55610'],
+  [
+    'COMPLETE ADDRESS WITH PIN CODE',
+    'LINGA GLOBAL SCHOOL, ANANDNAGAR, RENGAPPANAICKERPATTI PANCHAYAT, KUNNUR VILLAGE, SRIVILLIPUTTUR TALUK, VIRUDHUNAGAR - 626126, VIRUDHUNAGAR, TAMILNADU - 626126',
+  ],
+  ['PRINCIPAL NAME', 'ALKA SHARMA'],
+  ['PRINCIPAL QUALIFICATION', 'M.A., B. Ed., PHD'],
+  ['SCHOOL EMAIL ID', 'info@lingaschool.org'],
+  ['CONTACT', '+91 73 73 72 72 90'],
+]
+
+const STAFF_DETAILS = [
+  ['PRINCIPAL', 'Ms. ALKA SHARMA'],
+  ['TOTAL NO. OF TEACHERS', '52'],
+  ['PGT', '14'],
+  ['TGT', '12'],
+  ['PRT', '18'],
+  ['TEACHERS SECTION RATIO', '1:30'],
+  ['SPECIAL EDUCATOR', '1'],
+  ['COUNSELLOR AND WELLNESS TEACHER', '1'],
+]
+
+const INFRASTRUCTURE_DETAILS = [
+  ['TOTAL CAMPUS AREA', '11300 sq mtr'],
+  ['NO. AND SIZE OF CLASSROOMS', '32 & 1254'],
+  [
+    'NO. AND SIZE OF LABORATORIES INCLUDING COMPUTER LABS',
+    '7 & 1980',
+  ],
+  ['INTERNET FACILITY', 'YES'],
+  ['NO. OF GIRLS TOILETS', '30'],
+  ['NO. OF BOYS TOILETS', '30'],
+]
+
+function DocumentButton({ file, label = 'View PDF' }) {
+  return (
+    <a
+      href={PDF(file)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex shrink-0 items-center justify-center rounded-full border border-[#b8872f]/50 bg-[#b8872f] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
+    >
+      {label}
+    </a>
+  )
+}
+
+function SectionTitle({ number, children }) {
+  return (
+    <div className="mb-8 flex items-center gap-4">
+      <span className="font-display text-sm font-semibold text-[#b8872f]">
+        {number}
+      </span>
+
+      <div className="h-px w-10 bg-[#b8872f]" />
+
+      <h2 className="font-display text-2xl font-semibold tracking-tight text-[#171512] md:text-3xl">
+        {children}
+      </h2>
+    </div>
+  )
+}
+
+function InfoTable({ rows }) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)]">
+      {rows.map(([label, value], index) => (
+        <div
+          key={label}
+          className={`grid grid-cols-1 md:grid-cols-[36%_64%] ${
+            index !== rows.length - 1 ? 'border-b border-black/10' : ''
+          }`}
+        >
+          <div className="bg-[#f7f4ed] px-5 py-4 text-xs font-bold uppercase tracking-[0.08em] text-[#6d604e] md:px-6">
+            {label}
+          </div>
+
+          <div className="break-words px-5 py-4 text-sm leading-6 text-[#27231d] md:px-6">
+            {value}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function DocumentList({ documents }) {
+  return (
+    <div className="space-y-4">
+      {documents.map((doc) => (
+        <div
+          key={doc.no}
+          className="group flex flex-col gap-5 rounded-2xl border border-black/10 bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b8872f]/35 hover:shadow-[0_16px_45px_rgba(0,0,0,0.08)] sm:flex-row sm:items-center sm:justify-between md:p-6"
+        >
+          <div className="flex min-w-0 gap-4">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#b8872f]/10 text-sm font-bold text-[#a87928]">
+              {doc.no}
+            </div>
+
+            <p className="text-sm font-medium leading-6 text-[#27231d] md:text-[15px]">
+              {doc.title}
+            </p>
+          </div>
+
+          {doc.external === false ? (
+            <a
+              href={doc.link}
+              className="inline-flex shrink-0 items-center justify-center rounded-full border border-[#b8872f]/50 bg-[#b8872f] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
+            >
+              View
+            </a>
+          ) : (
+            <DocumentButton file={doc.file} />
+          )}
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default function MandatoryDisclosure() {
   return (
-    <main className="min-h-screen bg-[#f4f1ea] text-[#151412]">
+    <main className="min-h-screen bg-[#f4f1ea] text-[#171512]">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-[#090908] px-5 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
+        <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-[#b8872f]/10 blur-3xl" />
+        <div className="absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-[#b8872f]/5 blur-3xl" />
 
-      {/* Hero / Heading */}
-      <section className="relative overflow-hidden bg-[#090908] px-5 pb-16 pt-28 text-[#f4f1ea] md:px-8 md:pb-24 md:pt-36">
-        <div className="mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="relative mx-auto max-w-6xl"
+        >
+          <div className="mb-5 flex items-center gap-3">
+            <span className="h-px w-10 bg-[#b8872f]" />
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#d6a447]">
+              CBSE • SARAS 6.0
+            </span>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="mb-5 flex items-center gap-3">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#d6a447]/70">
-                Official Information
-              </span>
+          <h1 className="font-display max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#f4f1ea] sm:text-5xl md:text-6xl">
+            Mandatory
+            <span className="text-[#b8872f]"> Disclosure</span>
+          </h1>
 
-              <span className="h-[2px] w-10 rounded-full bg-[#d6a447]" />
-            </div>
+          <p className="mt-6 max-w-2xl text-sm leading-7 text-white/60 md:text-base">
+            Public disclosure information and supporting documents of
+            Linga Global School.
+          </p>
 
-            <h1 className="max-w-4xl font-display text-4xl leading-tight sm:text-5xl md:text-6xl">
-              Mandatory
-              <span className="text-[#d6a447]"> Disclosure</span>
-            </h1>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={PDF('MandatoryDisclosureDetailsSARAS6.0.pdf')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full bg-[#b8872f] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a]"
+            >
+              Open SARAS 6.0 PDF
+            </a>
 
-            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[#f4f1ea]/65 md:text-base">
-              Mandatory disclosure details of Linga Global School.
-            </p>
-          </motion.div>
-
-        </div>
+            <a
+              href="https://www.lingaschool.org/mandatory.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-[#b8872f] hover:text-[#d6a447]"
+            >
+              Official Disclosure Page
+            </a>
+          </div>
+        </motion.div>
       </section>
 
-      {/* Disclosure Table */}
-      <section className="px-5 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-6xl">
+      {/* CONTENT */}
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+        {/* GENERAL INFORMATION */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5 }}
+          className="mb-20"
+        >
+          <SectionTitle number="01">General Information</SectionTitle>
 
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7 }}
-            className="overflow-hidden rounded-2xl border border-[#151412]/10 bg-white shadow-[0_20px_60px_rgba(9,9,8,0.06)]"
-          >
+          <InfoTable rows={GENERAL_INFORMATION} />
+        </motion.section>
 
-            {/* Table Header */}
-            <div className="grid grid-cols-1 border-b border-[#151412]/10 bg-[#151412] text-[#f4f1ea] md:grid-cols-[42%_58%]">
-              <div className="px-5 py-4 text-xs font-medium uppercase tracking-[0.14em] md:px-7">
-                Particulars
+        {/* AFFILIATION DOCUMENTS */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5 }}
+          className="mb-20"
+        >
+          <SectionTitle number="02">
+            Documents and Certificates
+          </SectionTitle>
+
+          <DocumentList documents={DOCUMENTS} />
+        </motion.section>
+
+        {/* ACADEMIC */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5 }}
+          className="mb-20"
+        >
+          <SectionTitle number="03">
+            Academics and School Information
+          </SectionTitle>
+
+          <DocumentList documents={ACADEMIC_DOCUMENTS} />
+
+          {/* RESULT — ONLY 100% */}
+          <div className="mt-4 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_10px_35px_rgba(0,0,0,0.05)]">
+            <div className="grid grid-cols-1 md:grid-cols-[36%_64%]">
+              <div className="bg-[#f7f4ed] px-5 py-5 text-xs font-bold uppercase leading-5 tracking-[0.08em] text-[#6d604e] md:px-6">
+                LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY
               </div>
 
-              <div className="hidden px-5 py-4 text-xs font-medium uppercase tracking-[0.14em] md:block md:px-7">
-                Details
+              <div className="flex items-center px-5 py-5 md:px-6">
+                <span className="font-display text-2xl font-semibold text-[#b8872f]">
+                  100%
+                </span>
               </div>
             </div>
+          </div>
+        </motion.section>
 
-            {/* Rows */}
-            {DISCLOSURE_DATA.map(([label, value], index) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.03,
-                }}
-                className={`grid grid-cols-1 md:grid-cols-[42%_58%] ${
-                  index !== DISCLOSURE_DATA.length - 1
-                    ? 'border-b border-[#151412]/10'
-                    : ''
-                }`}
+        {/* STAFF */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5 }}
+          className="mb-20"
+        >
+          <SectionTitle number="04">Staff Details</SectionTitle>
+
+          <InfoTable rows={STAFF_DETAILS} />
+
+          <div className="mt-4">
+            <DocumentButton
+              file="8 staff details.pdf"
+              label="View Staff Details PDF"
+            />
+          </div>
+        </motion.section>
+
+        {/* INFRASTRUCTURE */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5 }}
+          className="mb-20"
+        >
+          <SectionTitle number="05">Infrastructure Details</SectionTitle>
+
+          <InfoTable rows={INFRASTRUCTURE_DETAILS} />
+        </motion.section>
+
+        {/* INSPECTION */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5 }}
+        >
+          <SectionTitle number="06">Inspection</SectionTitle>
+
+          <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-[0_10px_35px_rgba(0,0,0,0.05)] md:p-8">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="font-display text-xl font-semibold">
+                  School Inspection Video
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-black/55">
+                  Official inspection video published for the school.
+                </p>
+              </div>
+
+              <a
+                href="https://youtu.be/lDKLSbddOR0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#b8872f] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a]"
               >
-
-                {/* Label */}
-                <div className="bg-[#f8f6f0] px-5 py-5 md:px-7 md:py-6">
-                  <span className="text-[11px] font-medium uppercase leading-relaxed tracking-[0.08em] text-[#151412]/55 md:text-xs">
-                    {label}
-                  </span>
-                </div>
-
-                {/* Value */}
-                <div className="px-5 py-5 md:px-7 md:py-6">
-                  {label.includes('LAST THREE-YEAR RESULT') ? (
-                    <span className="text-xl font-semibold text-[#a87928] md:text-2xl">
-                      100%
-                    </span>
-                  ) : (
-                    <span className="text-sm leading-relaxed text-[#151412]/80 md:text-base">
-                      {value}
-                    </span>
-                  )}
-                </div>
-
-              </motion.div>
-            ))}
-
-          </motion.div>
-
-          {/* Bottom note */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-8 border-l-2 border-[#a87928] pl-5"
-          >
-            <p className="text-sm leading-relaxed text-[#151412]/60">
-              The information above is provided as part of the school's
-              mandatory disclosure requirements.
-            </p>
-          </motion.div>
-
-        </div>
+                Watch Video
+              </a>
+            </div>
+          </div>
+        </motion.section>
       </section>
-
     </main>
   )
 }
