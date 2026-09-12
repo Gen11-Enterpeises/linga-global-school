@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#090908] border-t border-white/10 text-[#f4f1ea]">
+    <footer className="border-t border-white/10 bg-[#090908] text-[#f4f1ea]">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 md:px-10 md:py-14">
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-14">
-
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid gap-9 md:grid-cols-4 md:gap-10">
 
           <div className="md:col-span-2">
             <h2
@@ -18,50 +17,84 @@ export default function Footer() {
               Linga Global School
             </h2>
 
-            <p className="text-white/50 mt-4 max-w-xl leading-7">
+            <p className="
+              mt-4
+              max-w-xl
+              text-sm leading-7
+              text-white/50
+              md:text-base
+            ">
               Empowering Minds, Enriching Lives.
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Explore</h3>
+            <h3 className="mb-4 font-semibold">
+              Explore
+            </h3>
 
-            <div className="space-y-3 text-white/55">
-              <Link className="block hover:text-[#b8872f] transition" to="/about">
+            <div className="space-y-3 text-sm text-white/55">
+              <Link
+                to="/about"
+                className="block transition-colors hover:text-[#d6a447]"
+              >
                 About
               </Link>
 
-              <Link className="block hover:text-[#b8872f] transition" to="/academics">
+              <Link
+                to="/academics"
+                className="block transition-colors hover:text-[#d6a447]"
+              >
                 Academics
               </Link>
 
-              <Link className="block hover:text-[#b8872f] transition" to="/infrastructure">
+              <Link
+                to="/infrastructure"
+                className="block transition-colors hover:text-[#d6a447]"
+              >
                 Infrastructure
               </Link>
 
-              <Link className="block hover:text-[#b8872f] transition" to="/gallery">
+              <Link
+                to="/gallery"
+                className="block transition-colors hover:text-[#d6a447]"
+              >
                 Gallery
               </Link>
             </div>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Admissions</h3>
+            <h3 className="mb-4 font-semibold">
+              Admissions
+            </h3>
 
-            <div className="space-y-3 text-white/55">
-              <Link className="block hover:text-[#b8872f] transition" to="/admissions">
+            <div className="space-y-3 text-sm text-white/55">
+              <Link
+                to="/admissions"
+                className="block transition-colors hover:text-[#d6a447]"
+              >
                 Admission Details
               </Link>
 
-              <Link className="block hover:text-[#b8872f] transition" to="/enquiry">
+              <Link
+                to="/enquiry"
+                className="block transition-colors hover:text-[#d6a447]"
+              >
                 Admission Enquiry
               </Link>
 
-              <Link className="block hover:text-[#b8872f] transition" to="/transport">
+              <Link
+                to="/transport"
+                className="block transition-colors hover:text-[#d6a447]"
+              >
                 Transport
               </Link>
 
-              <Link className="block hover:text-[#b8872f] transition" to="/contact">
+              <Link
+                to="/contact"
+                className="block transition-colors hover:text-[#d6a447]"
+              >
                 Contact
               </Link>
             </div>
@@ -69,20 +102,33 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-7 text-center">
-
-          <p className="text-sm text-white/35">
+        <div className="
+          mt-10
+          border-t border-white/10
+          pt-6
+          text-center
+          md:mt-12
+          md:pt-7
+        ">
+          <p className="text-xs text-white/35 sm:text-sm">
             © {new Date().getFullYear()} Linga Global School. All rights reserved.
           </p>
 
-          <p className="text-sm text-white/50 mt-4">
-            Built with <span className="text-[#b8872f] text-lg">♥</span> by Bhumi
+          <p className="
+            mt-3
+            text-xs
+            tracking-wide
+            text-white/50
+            sm:text-sm
+          ">
+            Powered by{' '}
+            <span className="font-medium text-[#d6a447]">
+              Gen11
+            </span>
           </p>
-
         </div>
 
       </div>
-
     </footer>
   )
 }
