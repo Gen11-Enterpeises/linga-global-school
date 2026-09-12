@@ -2,6 +2,10 @@ import { motion } from 'framer-motion'
 
 const PDF = (filename) => `/${encodeURIComponent(filename)}`
 
+/* =========================================================
+   DOCUMENTS
+========================================================= */
+
 const DOCUMENTS = [
   {
     no: '1',
@@ -53,12 +57,17 @@ const DOCUMENTS = [
   },
 ]
 
+/* =========================================================
+   ACADEMIC DOCUMENTS
+========================================================= */
+
 const ACADEMIC_DOCUMENTS = [
   {
     no: '1',
     title: 'FEE STRUCTURE OF THE SCHOOL*',
     link: '/admissions',
     external: false,
+    buttonLabel: 'Go to Admissions',
   },
   {
     no: '2',
@@ -77,19 +86,27 @@ const ACADEMIC_DOCUMENTS = [
   },
 ]
 
+/* =========================================================
+   GENERAL INFORMATION
+========================================================= */
+
 const GENERAL_INFORMATION = [
   ['NAME OF THE SCHOOL', 'LINGA GLOBAL SCHOOL'],
   ['AFFILIATION NO. (IF APPLICABLE)', '1930701'],
   ['SCHOOL CODE (IF APPLICABLE)', '55610'],
   [
     'COMPLETE ADDRESS WITH PIN CODE',
-    'LINGA GLOBAL SCHOOL, ANANDNAGAR, RENGAPPANAICKERPATTI PANCHAYAT, KUNNUR VILLAGE, SRIVILLIPUTTUR TALUK, VIRUDHUNAGAR - 626126, VIRUDHUNAGAR, TAMILNADU - 626126',
+    'LINGA GLOBAL SCHOOL, ANANDNAGAR, RENGAPPANAICKERPATTI PANCHAYAT, KUNNUR VILLAGE, SRIVILLIPUTTUR TALUK, VIRUDHUNAGAR - 626126',
   ],
-  ['PRINCIPAL NAME', 'ALKA SHARMA'],
-  ['PRINCIPAL QUALIFICATION', 'M.A., B. Ed., PHD'],
+  ['PRINCIPAL NAME', 'Ms. Alka Sharma'],
+  ['PRINCIPAL QUALIFICATION', 'M.A., B.Ed., Ph.D.'],
   ['SCHOOL EMAIL ID', 'info@lingaschool.org'],
   ['CONTACT', '+91 73 73 72 72 90'],
 ]
+
+/* =========================================================
+   STAFF DETAILS
+========================================================= */
 
 const STAFF_DETAILS = [
   ['PRINCIPAL', 'Ms. ALKA SHARMA'],
@@ -101,6 +118,10 @@ const STAFF_DETAILS = [
   ['SPECIAL EDUCATOR', '1'],
   ['COUNSELLOR AND WELLNESS TEACHER', '1'],
 ]
+
+/* =========================================================
+   INFRASTRUCTURE DETAILS
+========================================================= */
 
 const INFRASTRUCTURE_DETAILS = [
   ['TOTAL CAMPUS AREA', '11300 sq mtr'],
@@ -114,27 +135,41 @@ const INFRASTRUCTURE_DETAILS = [
   ['NO. OF BOYS TOILETS', '30'],
 ]
 
-function DocumentButton({ file, label = 'View PDF' }) {
+/* =========================================================
+   PDF BUTTON
+========================================================= */
+
+function DocumentButton({
+  file,
+  label = 'View PDF',
+}) {
   return (
     <a
       href={PDF(file)}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex shrink-0 items-center justify-center rounded-full border border-[#b8872f]/50 bg-[#b8872f] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
+      className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#b8872f] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
     >
       {label}
     </a>
   )
 }
 
-function SectionTitle({ number, children }) {
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+function SectionTitle({
+  number,
+  children,
+}) {
   return (
     <div className="mb-8 flex items-center gap-4">
       <span className="font-display text-sm font-semibold text-[#b8872f]">
         {number}
       </span>
 
-      <div className="h-px w-10 bg-[#b8872f]" />
+      <div className="h-px w-10 shrink-0 bg-[#b8872f]" />
 
       <h2 className="font-display text-2xl font-semibold tracking-tight text-[#171512] md:text-3xl">
         {children}
@@ -143,30 +178,46 @@ function SectionTitle({ number, children }) {
   )
 }
 
-function InfoTable({ rows }) {
+/* =========================================================
+   INFORMATION TABLE
+========================================================= */
+
+function InfoTable({
+  rows,
+}) {
   return (
     <div className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)]">
-      {rows.map(([label, value], index) => (
-        <div
-          key={label}
-          className={`grid grid-cols-1 md:grid-cols-[36%_64%] ${
-            index !== rows.length - 1 ? 'border-b border-black/10' : ''
-          }`}
-        >
-          <div className="bg-[#f7f4ed] px-5 py-4 text-xs font-bold uppercase tracking-[0.08em] text-[#6d604e] md:px-6">
-            {label}
-          </div>
+      {rows.map(
+        ([label, value], index) => (
+          <div
+            key={label}
+            className={`grid grid-cols-1 md:grid-cols-[36%_64%] ${
+              index !== rows.length - 1
+                ? 'border-b border-black/10'
+                : ''
+            }`}
+          >
+            <div className="bg-[#f7f4ed] px-5 py-4 text-xs font-bold uppercase tracking-[0.08em] text-[#6d604e] md:px-6">
+              {label}
+            </div>
 
-          <div className="break-words px-5 py-4 text-sm leading-6 text-[#27231d] md:px-6">
-            {value}
+            <div className="break-words px-5 py-4 text-sm leading-6 text-[#27231d] md:px-6">
+              {value}
+            </div>
           </div>
-        </div>
-      ))}
+        ),
+      )}
     </div>
   )
 }
 
-function DocumentList({ documents }) {
+/* =========================================================
+   DOCUMENT LIST
+========================================================= */
+
+function DocumentList({
+  documents,
+}) {
   return (
     <div className="space-y-4">
       {documents.map((doc) => (
@@ -187,12 +238,14 @@ function DocumentList({ documents }) {
           {doc.external === false ? (
             <a
               href={doc.link}
-              className="inline-flex shrink-0 items-center justify-center rounded-full border border-[#b8872f]/50 bg-[#b8872f] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
+              className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#b8872f] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
             >
-              View
+              {doc.buttonLabel || 'View'}
             </a>
           ) : (
-            <DocumentButton file={doc.file} />
+            <DocumentButton
+              file={doc.file}
+            />
           )}
         </div>
       ))}
@@ -200,106 +253,187 @@ function DocumentList({ documents }) {
   )
 }
 
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
 export default function MandatoryDisclosure() {
   return (
     <main className="min-h-screen bg-[#f4f1ea] text-[#171512]">
-      {/* HERO */}
+
+      {/* =====================================================
+          HERO
+      ===================================================== */}
+
       <section className="relative overflow-hidden bg-[#090908] px-5 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
+
+        {/* Background glow */}
         <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-[#b8872f]/10 blur-3xl" />
+
         <div className="absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-[#b8872f]/5 blur-3xl" />
 
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
           className="relative mx-auto max-w-6xl"
         >
+
+          {/* Small heading */}
           <div className="mb-5 flex items-center gap-3">
             <span className="h-px w-10 bg-[#b8872f]" />
+
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#d6a447]">
               CBSE • SARAS 6.0
             </span>
           </div>
 
+          {/* Main heading */}
           <h1 className="font-display max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#f4f1ea] sm:text-5xl md:text-6xl">
             Mandatory
-            <span className="text-[#b8872f]"> Disclosure</span>
+            <span className="text-[#b8872f]">
+              {' '}Disclosure
+            </span>
           </h1>
 
+          {/* Description */}
           <p className="mt-6 max-w-2xl text-sm leading-7 text-white/60 md:text-base">
-            Public disclosure information and supporting documents of
-            Linga Global School.
+            Public disclosure information and supporting
+            documents of Linga Global School.
           </p>
 
+          {/* Only SARAS button */}
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href={PDF('MandatoryDisclosureDetailsSARAS6.0.pdf')}
+              href={PDF(
+                'MandatoryDisclosureDetailsSARAS6.0.pdf',
+              )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full bg-[#b8872f] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a]"
+              className="inline-flex items-center rounded-full bg-[#b8872f] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
             >
               Open SARAS 6.0 PDF
             </a>
-
-            <a
-              href="https://www.lingaschool.org/mandatory.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-[#b8872f] hover:text-[#d6a447]"
-            >
-              Official Disclosure Page
-            </a>
           </div>
+
         </motion.div>
       </section>
 
-      {/* CONTENT */}
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        {/* GENERAL INFORMATION */}
+
+        {/* ===================================================
+            01 GENERAL INFORMATION
+        =================================================== */}
+
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.5 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
           className="mb-20"
         >
-          <SectionTitle number="01">General Information</SectionTitle>
+          <SectionTitle number="01">
+            General Information
+          </SectionTitle>
 
-          <InfoTable rows={GENERAL_INFORMATION} />
+          <InfoTable
+            rows={GENERAL_INFORMATION}
+          />
         </motion.section>
 
-        {/* AFFILIATION DOCUMENTS */}
+        {/* ===================================================
+            02 DOCUMENTS
+        =================================================== */}
+
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.5 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
           className="mb-20"
         >
           <SectionTitle number="02">
             Documents and Certificates
           </SectionTitle>
 
-          <DocumentList documents={DOCUMENTS} />
+          <DocumentList
+            documents={DOCUMENTS}
+          />
         </motion.section>
 
-        {/* ACADEMIC */}
+        {/* ===================================================
+            03 ACADEMICS
+        =================================================== */}
+
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.5 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
           className="mb-20"
         >
           <SectionTitle number="03">
             Academics and School Information
           </SectionTitle>
 
-          <DocumentList documents={ACADEMIC_DOCUMENTS} />
+          <DocumentList
+            documents={ACADEMIC_DOCUMENTS}
+          />
 
-          {/* RESULT — ONLY 100% */}
+          {/* =================================================
+              RESULT
+              ONLY 100%
+          ================================================= */}
+
           <div className="mt-4 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_10px_35px_rgba(0,0,0,0.05)]">
+
             <div className="grid grid-cols-1 md:grid-cols-[36%_64%]">
+
               <div className="bg-[#f7f4ed] px-5 py-5 text-xs font-bold uppercase leading-5 tracking-[0.08em] text-[#6d604e] md:px-6">
                 LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY
               </div>
@@ -309,21 +443,41 @@ export default function MandatoryDisclosure() {
                   100%
                 </span>
               </div>
+
             </div>
+
           </div>
         </motion.section>
 
-        {/* STAFF */}
+        {/* ===================================================
+            04 STAFF DETAILS
+        =================================================== */}
+
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.5 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
           className="mb-20"
         >
-          <SectionTitle number="04">Staff Details</SectionTitle>
+          <SectionTitle number="04">
+            Staff Details
+          </SectionTitle>
 
-          <InfoTable rows={STAFF_DETAILS} />
+          <InfoTable
+            rows={STAFF_DETAILS}
+          />
 
           <div className="mt-4">
             <DocumentButton
@@ -333,37 +487,74 @@ export default function MandatoryDisclosure() {
           </div>
         </motion.section>
 
-        {/* INFRASTRUCTURE */}
+        {/* ===================================================
+            05 INFRASTRUCTURE
+        =================================================== */}
+
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.5 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
           className="mb-20"
         >
-          <SectionTitle number="05">Infrastructure Details</SectionTitle>
+          <SectionTitle number="05">
+            Infrastructure Details
+          </SectionTitle>
 
-          <InfoTable rows={INFRASTRUCTURE_DETAILS} />
+          <InfoTable
+            rows={INFRASTRUCTURE_DETAILS}
+          />
         </motion.section>
 
-        {/* INSPECTION */}
+        {/* ===================================================
+            06 INSPECTION
+        =================================================== */}
+
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.5 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
         >
-          <SectionTitle number="06">Inspection</SectionTitle>
+          <SectionTitle number="06">
+            Inspection
+          </SectionTitle>
 
           <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-[0_10px_35px_rgba(0,0,0,0.05)] md:p-8">
+
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+
               <div>
                 <h3 className="font-display text-xl font-semibold">
                   School Inspection Video
                 </h3>
 
                 <p className="mt-2 text-sm leading-6 text-black/55">
-                  Official inspection video published for the school.
+                  Official inspection video published for
+                  the school.
                 </p>
               </div>
 
@@ -375,9 +566,12 @@ export default function MandatoryDisclosure() {
               >
                 Watch Video
               </a>
+
             </div>
+
           </div>
         </motion.section>
+
       </section>
     </main>
   )
