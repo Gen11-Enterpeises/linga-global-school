@@ -148,7 +148,7 @@ function DocumentButton({
       href={PDF(file)}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#b8872f] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
+      className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#C6A66B] px-5 py-2.5 text-sm font-semibold text-[#292629] transition-all duration-300 hover:bg-[#D9BC85] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
     >
       {label}
     </a>
@@ -165,13 +165,13 @@ function SectionTitle({
 }) {
   return (
     <div className="mb-8 flex items-center gap-4">
-      <span className="font-display text-sm font-semibold text-[#b8872f]">
+      <span className="font-display text-sm font-semibold text-[#C6A66B]">
         {number}
       </span>
 
-      <div className="h-px w-10 shrink-0 bg-[#b8872f]" />
+      <div className="h-px w-10 shrink-0 bg-[#C6A66B]" />
 
-      <h2 className="font-display text-2xl font-semibold tracking-tight text-[#171512] md:text-3xl">
+      <h2 className="font-display text-2xl font-semibold tracking-tight text-[#292629] md:text-3xl">
         {children}
       </h2>
     </div>
@@ -186,22 +186,22 @@ function InfoTable({
   rows,
 }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)]">
+    <div className="overflow-hidden rounded-2xl border border-[#292629]/10 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)]">
       {rows.map(
         ([label, value], index) => (
           <div
             key={label}
             className={`grid grid-cols-1 md:grid-cols-[36%_64%] ${
               index !== rows.length - 1
-                ? 'border-b border-black/10'
+                ? 'border-b border-[#292629]/10'
                 : ''
             }`}
           >
-            <div className="bg-[#f7f4ed] px-5 py-4 text-xs font-bold uppercase tracking-[0.08em] text-[#6d604e] md:px-6">
+            <div className="bg-[#F1E9E3] px-5 py-4 text-xs font-bold uppercase tracking-[0.08em] text-[#716A6C] md:px-6">
               {label}
             </div>
 
-            <div className="break-words px-5 py-4 text-sm leading-6 text-[#27231d] md:px-6">
+            <div className="break-words px-5 py-4 text-sm leading-6 text-[#292629] md:px-6">
               {value}
             </div>
           </div>
@@ -223,14 +223,14 @@ function DocumentList({
       {documents.map((doc) => (
         <div
           key={doc.no}
-          className="group flex flex-col gap-5 rounded-2xl border border-black/10 bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b8872f]/35 hover:shadow-[0_16px_45px_rgba(0,0,0,0.08)] sm:flex-row sm:items-center sm:justify-between md:p-6"
+          className="group flex flex-col gap-5 rounded-2xl border border-[#292629]/10 bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C6A66B]/35 hover:shadow-[0_16px_45px_rgba(0,0,0,0.08)] sm:flex-row sm:items-center sm:justify-between md:p-6"
         >
           <div className="flex min-w-0 gap-4">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#b8872f]/10 text-sm font-bold text-[#a87928]">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#C6A66B]/10 text-sm font-bold text-[#A87A2E]">
               {doc.no}
             </div>
 
-            <p className="text-sm font-medium leading-6 text-[#27231d] md:text-[15px]">
+            <p className="text-sm font-medium leading-6 text-[#292629] md:text-[15px]">
               {doc.title}
             </p>
           </div>
@@ -238,7 +238,7 @@ function DocumentList({
           {doc.external === false ? (
             <a
               href={doc.link}
-              className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#b8872f] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
+              className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#C6A66B] px-5 py-2.5 text-sm font-semibold text-[#292629] transition-all duration-300 hover:bg-[#D9BC85] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
             >
               {doc.buttonLabel || 'View'}
             </a>
@@ -259,18 +259,18 @@ function DocumentList({
 
 export default function MandatoryDisclosure() {
   return (
-    <main className="min-h-screen bg-[#f4f1ea] text-[#171512]">
+    <main className="min-h-screen bg-[#F1E9E3] text-[#292629]">
 
       {/* =====================================================
           HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-[#090908] px-5 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
+      <section className="relative overflow-hidden bg-[#FAF7F3] px-5 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
 
         {/* Background glow */}
-        <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-[#b8872f]/10 blur-3xl" />
+        <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-[#C6A66B]/10 blur-3xl" />
 
-        <div className="absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-[#b8872f]/5 blur-3xl" />
+        <div className="absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-[#C6A66B]/5 blur-3xl" />
 
         <motion.div
           initial={{
@@ -289,23 +289,23 @@ export default function MandatoryDisclosure() {
 
           {/* Small heading */}
           <div className="mb-5 flex items-center gap-3">
-            <span className="h-px w-10 bg-[#b8872f]" />
+            <span className="h-px w-10 bg-[#C6A66B]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#d6a447]">
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#A87A2E]">
               CBSE • SARAS 6.0
             </span>
           </div>
 
           {/* Main heading */}
-          <h1 className="font-display max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#f4f1ea] sm:text-5xl md:text-6xl">
+          <h1 className="font-display max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#292629] sm:text-5xl md:text-6xl">
             Mandatory
-            <span className="text-[#b8872f]">
+            <span className="text-[#C6A66B]">
               {' '}Disclosure
             </span>
           </h1>
 
           {/* Description */}
-          <p className="mt-6 max-w-2xl text-sm leading-7 text-white/60 md:text-base">
+          <p className="mt-6 max-w-2xl text-sm leading-7 text-[#716A6C] md:text-base">
             Public disclosure information and supporting
             documents of Linga Global School.
           </p>
@@ -318,7 +318,7 @@ export default function MandatoryDisclosure() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full bg-[#b8872f] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
+              className="inline-flex items-center rounded-full bg-[#C6A66B] px-6 py-3 text-sm font-semibold text-[#292629] transition-all duration-300 hover:bg-[#D9BC85] hover:shadow-[0_8px_25px_rgba(184,135,47,0.25)]"
             >
               Open SARAS 6.0 PDF
             </a>
@@ -430,16 +430,16 @@ export default function MandatoryDisclosure() {
               ONLY 100%
           ================================================= */}
 
-          <div className="mt-4 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_10px_35px_rgba(0,0,0,0.05)]">
+          <div className="mt-4 overflow-hidden rounded-2xl border border-[#292629]/10 bg-white shadow-[0_10px_35px_rgba(0,0,0,0.05)]">
 
             <div className="grid grid-cols-1 md:grid-cols-[36%_64%]">
 
-              <div className="bg-[#f7f4ed] px-5 py-5 text-xs font-bold uppercase leading-5 tracking-[0.08em] text-[#6d604e] md:px-6">
+              <div className="bg-[#F1E9E3] px-5 py-5 text-xs font-bold uppercase leading-5 tracking-[0.08em] text-[#716A6C] md:px-6">
                 LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY
               </div>
 
               <div className="flex items-center px-5 py-5 md:px-6">
-                <span className="font-display text-2xl font-semibold text-[#b8872f]">
+                <span className="font-display text-2xl font-semibold text-[#C6A66B]">
                   100%
                 </span>
               </div>
@@ -543,7 +543,7 @@ export default function MandatoryDisclosure() {
             Inspection
           </SectionTitle>
 
-          <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-[0_10px_35px_rgba(0,0,0,0.05)] md:p-8">
+          <div className="rounded-2xl border border-[#292629]/10 bg-white p-6 shadow-[0_10px_35px_rgba(0,0,0,0.05)] md:p-8">
 
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
 
@@ -562,7 +562,7 @@ export default function MandatoryDisclosure() {
                 href="https://youtu.be/lDKLSbddOR0"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#b8872f] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#c99a3a]"
+                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#C6A66B] px-6 py-3 text-sm font-semibold text-[#292629] transition-all duration-300 hover:bg-[#D9BC85]"
               >
                 Watch Video
               </a>
