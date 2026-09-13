@@ -5,7 +5,7 @@
 
 
 /* ==========================================
-   GEORGIA DISPLAY FONT
+   DISPLAY FONT
    ========================================== */
 
 .font-display {
@@ -16,15 +16,17 @@
 
 
 /* ==========================================
-   DUSTY ROSE HERO WORDS
+   HERO HIGHLIGHT
+   IMPORTANT:
+   Hero ka existing visual language preserved.
    ========================================== */
 
 .highlight-word {
-  color: #c98f9a;
+  color: #b8872f;
 
   text-shadow:
-    0 0 10px rgba(201, 143, 154, 0.18),
-    0 0 25px rgba(201, 143, 154, 0.08);
+    0 0 10px rgba(184, 135, 47, 0.16),
+    0 0 25px rgba(184, 135, 47, 0.08);
 
   transition:
     color 300ms ease,
@@ -32,24 +34,24 @@
 }
 
 .highlight-word:hover {
-  color: #e8cdd1;
+  color: #c99a3a;
 
   text-shadow:
-    0 0 14px rgba(232, 205, 209, 0.28),
-    0 0 32px rgba(232, 205, 209, 0.12);
+    0 0 14px rgba(201, 154, 58, 0.24),
+    0 0 32px rgba(201, 154, 58, 0.12);
 }
 
 
 /* ==========================================
-   SCHOOL PRIMARY UTILITIES
+   SCHOOL GOLD
    ========================================== */
 
 .school-gold {
-  color: #c6a66b;
+  color: #C6A66B;
 }
 
 .school-gold-bg {
-  background: #c6a66b;
+  background: #C6A66B;
 }
 
 .school-gold-border {
@@ -58,15 +60,15 @@
 
 
 /* ==========================================
-   DUSTY ROSE UTILITIES
+   DUSTY ROSE
    ========================================== */
 
 .school-rose {
-  color: var(--color-primary);
+  color: #C98F9A;
 }
 
 .school-rose-bg {
-  background: var(--color-primary);
+  background: #C98F9A;
 }
 
 .school-rose-border {
@@ -81,7 +83,9 @@
 .gold-line {
   width: 42px;
   height: 2px;
-  background: #c6a66b;
+
+  background: #C6A66B;
+
   border-radius: 999px;
   flex-shrink: 0;
 }
@@ -94,7 +98,9 @@
 .rose-line {
   width: 42px;
   height: 2px;
-  background: var(--color-primary);
+
+  background: #C98F9A;
+
   border-radius: 999px;
   flex-shrink: 0;
 }
@@ -117,8 +123,8 @@
 
 .rose-glow {
   box-shadow:
-    0 12px 35px rgba(201, 143, 154, 0.12),
-    0 0 55px rgba(201, 143, 154, 0.06);
+    0 14px 40px rgba(201, 143, 154, 0.14),
+    0 0 60px rgba(201, 143, 154, 0.06);
 }
 
 
@@ -148,6 +154,7 @@
 
 .image-cinematic::after {
   content: "";
+
   position: absolute;
   inset: 0;
 
@@ -168,11 +175,12 @@
 
 .photo-card {
   overflow: hidden;
+
   border-radius: 20px;
 
-  background: var(--color-secondary-background);
+  background: var(--theme-surface);
 
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--theme-border);
 
   transition:
     transform 350ms ease,
@@ -183,6 +191,7 @@
 .photo-card img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 
   transition:
@@ -195,7 +204,8 @@
   box-shadow:
     0 18px 45px rgba(51, 44, 45, 0.12);
 
-  border-color: rgba(201, 143, 154, 0.32);
+  border-color:
+    rgba(201, 143, 154, 0.32);
 }
 
 .photo-card:hover img {
@@ -204,13 +214,15 @@
 
 
 /* ==========================================
-   GLASS EFFECT
+   GLASS EFFECT — LIGHT
    ========================================== */
 
 .school-glass {
-  background: rgba(250, 247, 243, 0.78);
+  background:
+    rgba(250, 247, 243, 0.80);
 
-  border: 1px solid rgba(41, 38, 41, 0.10);
+  border:
+    1px solid rgba(41, 38, 41, 0.10);
 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -221,16 +233,18 @@
 
 
 /* ==========================================
-   DARK MODE GLASS
+   GLASS EFFECT — DARK
    ========================================== */
 
 html.dark .school-glass {
-  background: rgba(64, 56, 57, 0.78);
+  background:
+    rgba(64, 56, 57, 0.82);
 
-  border-color: rgba(250, 247, 243, 0.10);
+  border-color:
+    rgba(250, 247, 243, 0.10);
 
   box-shadow:
-    0 12px 35px rgba(0, 0, 0, 0.18);
+    0 12px 35px rgba(0, 0, 0, 0.20);
 }
 
 
@@ -239,7 +253,7 @@ html.dark .school-glass {
    ========================================== */
 
 .section-number {
-  color: var(--color-primary);
+  color: #C98F9A;
 
   font-size: 0.75rem;
   letter-spacing: 0.2em;
@@ -257,64 +271,52 @@ html.dark .school-glass {
 }
 
 .gold-hover:hover {
-  color: var(--color-primary);
+  color: #C98F9A;
   transform: translateX(4px);
 }
 
 
 /* ==========================================
-   BUTTON / LINK TAP EXPERIENCE
-   ========================================== */
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-
-/* ==========================================
-   ACCESSIBILITY FOCUS
+   ACCESSIBILITY
    ========================================== */
 
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid #C98F9A;
   outline-offset: 3px;
 }
 
 
 /* ==========================================
-   RESPONSIVE IMAGE BEHAVIOUR
+   HERO
+   IMPORTANT:
+   Hero remains cinematic.
    ========================================== */
 
-img,
-video {
-  max-width: 100%;
+.hero-section {
+  background: #090908;
 }
 
 
 /* ==========================================
-   THEME OVERRIDES
-   These preserve existing page structure
-   while changing the visual palette.
+   OLD DARK BACKGROUND → LIGHT THEME
    ========================================== */
 
-
-/* ---------- COMMON DARK BACKGROUND ---------- */
-
 html:not(.dark) .bg-\[\#090908\] {
-  background-color: var(--color-background) !important;
+  background-color: #FAF7F3 !important;
 }
-
-html.dark .bg-\[\#090908\] {
-  background-color: var(--color-background) !important;
-}
-
-
-/* ---------- OLD CHARCOAL BACKGROUND ---------- */
 
 html:not(.dark) .bg-\[\#151412\] {
-  background-color: var(--color-secondary-background) !important;
+  background-color: #F1E9E3 !important;
+}
+
+
+/* ==========================================
+   OLD DARK BACKGROUND → DARK THEME
+   ========================================== */
+
+html.dark .bg-\[\#090908\] {
+  background-color: #332C2D !important;
 }
 
 html.dark .bg-\[\#151412\] {
@@ -322,21 +324,12 @@ html.dark .bg-\[\#151412\] {
 }
 
 
-/* ---------- OLD CREAM TEXT ---------- */
-
-html:not(.dark) .text-bone {
-  color: var(--color-text) !important;
-}
-
-html.dark .text-bone {
-  color: #faf7f3 !important;
-}
-
-
-/* ---------- OLD CHARCOAL UTILITY ---------- */
+/* ==========================================
+   CHARCOAL UTILITY
+   ========================================== */
 
 html:not(.dark) .bg-charcoal {
-  background-color: var(--color-secondary-background) !important;
+  background-color: #F1E9E3 !important;
 }
 
 html.dark .bg-charcoal {
@@ -344,40 +337,22 @@ html.dark .bg-charcoal {
 }
 
 
-/* ---------- OLD AMBER TEXT ---------- */
-
-html:not(.dark) .text-amber {
-  color: var(--color-primary) !important;
-}
-
-html.dark .text-amber {
-  color: #d49aa4 !important;
-}
-
-
-/* ---------- OLD GOLD ---------- */
-
-html:not(.dark) .text-\[\#b8872f\] {
-  color: var(--color-primary) !important;
-}
-
-html.dark .text-\[\#b8872f\] {
-  color: #d49aa4 !important;
-}
-
-
-/* ---------- OLD GOLD BACKGROUND ---------- */
+/* ==========================================
+   OLD GOLD BACKGROUND
+   ========================================== */
 
 html:not(.dark) .bg-\[\#b8872f\] {
-  background-color: var(--color-primary) !important;
+  background-color: #C98F9A !important;
 }
 
 html.dark .bg-\[\#b8872f\] {
-  background-color: #c98f9a !important;
+  background-color: #C98F9A !important;
 }
 
 
-/* ---------- OLD GOLD BORDER ---------- */
+/* ==========================================
+   OLD GOLD BORDER
+   ========================================== */
 
 html:not(.dark) .border-\[\#b8872f\] {
   border-color: rgba(201, 143, 154, 0.55) !important;
@@ -389,42 +364,73 @@ html.dark .border-\[\#b8872f\] {
 
 
 /* ==========================================
-   LIGHT THEME — SECTION FEEL
+   OLD AMBER → DUSTY ROSE
+   ========================================== */
+
+html:not(.dark) .text-amber {
+  color: #C98F9A !important;
+}
+
+html.dark .text-amber {
+  color: #D49AA4 !important;
+}
+
+
+/* ==========================================
+   EXISTING GOLD TEXT
+   ========================================== */
+
+html:not(.dark) .text-\[\#b8872f\] {
+  color: #b8872f;
+}
+
+html.dark .text-\[\#b8872f\] {
+  color: #d49aa4;
+}
+
+
+/* ==========================================
+   LIGHT PAGE SURFACE
    ========================================== */
 
 html:not(.dark) main {
   background:
     linear-gradient(
       180deg,
-      #faf7f3 0%,
-      #f1e9e3 50%,
-      #faf7f3 100%
+      #FAF7F3 0%,
+      #F1E9E3 48%,
+      #FAF7F3 100%
     );
 }
 
 
 /* ==========================================
-   DARK THEME — SECTION FEEL
+   DARK PAGE SURFACE
    ========================================== */
 
 html.dark main {
   background:
     linear-gradient(
       180deg,
-      #332c2d 0%,
+      #332C2D 0%,
       #292526 50%,
-      #332c2d 100%
+      #332C2D 100%
     );
 }
 
 
 /* ==========================================
-   SOFT SECTION SURFACES
+   LIGHT MODE — OLD WHITE SURFACES
    ========================================== */
 
 html:not(.dark) .bg-white {
-  background-color: #faf7f3 !important;
+  background-color: #FAF7F3 !important;
 }
+
+
+/* ==========================================
+   DARK MODE — OLD WHITE SURFACES
+   ========================================== */
 
 html.dark .bg-white {
   background-color: #403839 !important;
@@ -436,9 +442,10 @@ html.dark .bg-white {
    ========================================== */
 
 @media (max-width: 768px) {
+
   .highlight-word {
     text-shadow:
-      0 0 8px rgba(201, 143, 154, 0.16);
+      0 0 8px rgba(184, 135, 47, 0.14);
   }
 
   .photo-card {
@@ -462,6 +469,7 @@ html.dark .bg-white {
    ========================================== */
 
 @media (max-width: 480px) {
+
   .gold-line,
   .rose-line {
     width: 28px;
@@ -478,6 +486,7 @@ html.dark .bg-white {
    ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .school-image,
   .photo-card,
   .photo-card img,

@@ -2,59 +2,55 @@
 
 /* =========================================
    LINGA GLOBAL SCHOOL
-   DESIGN SYSTEM
+   GLOBAL THEME
    ========================================= */
 
 :root {
-  /* ---------- LIGHT THEME ---------- */
-  --color-primary: #c98f9a;
-  --color-primary-dark: #b87884;
-  --color-primary-light: #e8cdd1;
+  /* Primary */
+  --dusty-rose: #C98F9A;
+  --dusty-rose-dark: #B87884;
+  --pale-blush: #E8CDD1;
 
-  --color-background: #faf7f3;
-  --color-secondary-background: #f1e9e3;
+  /* Light backgrounds */
+  --warm-ivory: #FAF7F3;
+  --soft-cream: #F1E9E3;
 
-  --color-text: #292629;
-  --color-secondary-text: #716a6c;
+  /* Text */
+  --deep-charcoal: #292629;
+  --warm-grey: #716A6C;
 
-  --color-accent: #a89591;
-  --color-luxury: #c6a66b;
-  --color-contrast: #65756b;
+  /* Accents */
+  --muted-taupe: #A89591;
+  --champagne-gold: #C6A66B;
+  --deep-sage: #65756B;
 
-  --color-dark-section: #332c2d;
+  /* Dark */
+  --espresso-charcoal: #332C2D;
 
-  --color-white: #ffffff;
-  --color-border: rgba(41, 38, 41, 0.12);
+  --theme-bg: #FAF7F3;
+  --theme-surface: #F1E9E3;
+  --theme-text: #292629;
+  --theme-muted: #716A6C;
+  --theme-border: rgba(41, 38, 41, 0.10);
 
   color-scheme: light;
 }
 
+
 /* =========================================
-   DARK THEME
+   DARK MODE
    ========================================= */
 
 html.dark {
-  --color-primary: #d49aa4;
-  --color-primary-dark: #c98f9a;
-  --color-primary-light: #e8cdd1;
-
-  --color-background: #332c2d;
-  --color-secondary-background: #403839;
-
-  --color-text: #faf7f3;
-  --color-secondary-text: #d3c8c9;
-
-  --color-accent: #a89591;
-  --color-luxury: #c6a66b;
-  --color-contrast: #8fa096;
-
-  --color-dark-section: #292526;
-
-  --color-white: #ffffff;
-  --color-border: rgba(250, 247, 243, 0.12);
+  --theme-bg: #332C2D;
+  --theme-surface: #403839;
+  --theme-text: #FAF7F3;
+  --theme-muted: #D3C8C9;
+  --theme-border: rgba(250, 247, 243, 0.12);
 
   color-scheme: dark;
 }
+
 
 /* =========================================
    BASE
@@ -62,19 +58,20 @@ html.dark {
 
 html {
   scroll-behavior: smooth;
-  max-width: 100%;
-  background: var(--color-background);
+  background: var(--theme-bg);
 }
 
 body {
   margin: 0;
   padding: 0;
+
   min-width: 0;
   max-width: 100%;
+
   overflow-x: hidden;
 
-  background: var(--color-background);
-  color: var(--color-text);
+  background: var(--theme-bg);
+  color: var(--theme-text);
 
   font-family:
     Manrope,
@@ -90,8 +87,22 @@ body {
     color 350ms ease;
 }
 
+
+/* =========================================
+   GLOBAL BOX MODEL
+   ========================================= */
+
 * {
   box-sizing: border-box;
+}
+
+main {
+  min-width: 0;
+  max-width: 100%;
+}
+
+section {
+  max-width: 100%;
 }
 
 img,
@@ -99,19 +110,26 @@ video {
   max-width: 100%;
 }
 
+
+/* =========================================
+   LINKS / BUTTONS
+   ========================================= */
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
 
+
 /* =========================================
-   SELECTION
+   TEXT SELECTION
    ========================================= */
 
 ::selection {
-  background: var(--color-primary);
-  color: #292629;
+  background: var(--dusty-rose);
+  color: var(--deep-charcoal);
 }
+
 
 /* =========================================
    SCROLLBAR
@@ -122,48 +140,33 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-secondary-background);
+  background: var(--soft-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
+  background: var(--dusty-rose);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-dark);
+  background: var(--dusty-rose-dark);
 }
 
+
 /* =========================================
-   GLOBAL RESPONSIVE SAFETY
+   RESPONSIVE SAFETY
    ========================================= */
 
 iframe {
   max-width: 100%;
 }
 
-main {
-  min-width: 0;
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--dusty-rose);
+  outline-offset: 3px;
 }
 
-section {
-  max-width: 100%;
-}
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  img,
-  video {
-    max-width: 100%;
-  }
-}
 
 /* =========================================
    REDUCED MOTION
@@ -180,5 +183,32 @@ section {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
   }
 }

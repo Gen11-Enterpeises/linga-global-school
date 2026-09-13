@@ -41,14 +41,10 @@ export default function Hero() {
 
   return (
     <section
-      ref={ref}
-      className="
-        relative -mt-16
-        h-[88vh] min-h-[560px]
-        w-full overflow-hidden
-        bg-[#090908]
-        md:-mt-20
-        md:h-[92vh]
+  ref={ref}
+  className="
+    hero-section
+    relative -mt-16
       "
     >
 
