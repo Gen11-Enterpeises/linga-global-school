@@ -1,31 +1,93 @@
 @import "tailwindcss";
 
 /* =========================================
-   LINGA GLOBAL SCHOOL — GLOBAL THEME
+   LINGA GLOBAL SCHOOL
+   DESIGN SYSTEM
    ========================================= */
 
 :root {
-  --school-black: #090908;
-  --school-charcoal: #151412;
+  /* ---------- LIGHT THEME ---------- */
+  --color-primary: #c98f9a;
+  --color-primary-dark: #b87884;
+  --color-primary-light: #e8cdd1;
 
-  --school-gold: #d6a447;
-  --school-gold-dark: #a87928;
-  --school-gold-light: #e1b45d;
+  --color-background: #faf7f3;
+  --color-secondary-background: #f1e9e3;
 
-  --school-cream: #f4f1ea;
-  --school-white: #ffffff;
+  --color-text: #292629;
+  --color-secondary-text: #716a6c;
+
+  --color-accent: #a89591;
+  --color-luxury: #c6a66b;
+  --color-contrast: #65756b;
+
+  --color-dark-section: #332c2d;
+
+  --color-white: #ffffff;
+  --color-border: rgba(41, 38, 41, 0.12);
+
+  color-scheme: light;
 }
+
+/* =========================================
+   DARK THEME
+   ========================================= */
+
+html.dark {
+  --color-primary: #d49aa4;
+  --color-primary-dark: #c98f9a;
+  --color-primary-light: #e8cdd1;
+
+  --color-background: #332c2d;
+  --color-secondary-background: #403839;
+
+  --color-text: #faf7f3;
+  --color-secondary-text: #d3c8c9;
+
+  --color-accent: #a89591;
+  --color-luxury: #c6a66b;
+  --color-contrast: #8fa096;
+
+  --color-dark-section: #292526;
+
+  --color-white: #ffffff;
+  --color-border: rgba(250, 247, 243, 0.12);
+
+  color-scheme: dark;
+}
+
+/* =========================================
+   BASE
+   ========================================= */
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  background: var(--color-background);
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: var(--school-black);
-  color: var(--school-cream);
+  min-width: 0;
+  max-width: 100%;
   overflow-x: hidden;
+
+  background: var(--color-background);
+  color: var(--color-text);
+
+  font-family:
+    Manrope,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  transition:
+    background-color 350ms ease,
+    color 350ms ease;
 }
 
 * {
@@ -37,27 +99,75 @@ video {
   max-width: 100%;
 }
 
-::selection {
-  background: var(--school-gold);
-  color: var(--school-black);
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
+
+/* =========================================
+   SELECTION
+   ========================================= */
+
+::selection {
+  background: var(--color-primary);
+  color: #292629;
+}
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
 
 ::-webkit-scrollbar {
   width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--school-black);
+  background: var(--color-secondary-background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--school-gold-dark);
+  background: var(--color-primary);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--school-gold);
+  background: var(--color-primary-dark);
 }
+
+/* =========================================
+   GLOBAL RESPONSIVE SAFETY
+   ========================================= */
+
+iframe {
+  max-width: 100%;
+}
+
+main {
+  min-width: 0;
+}
+
+section {
+  max-width: 100%;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -70,43 +180,5 @@ video {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-}
-/* =========================================
-   RESPONSIVE POLISH
-   ========================================= */
-
-html,
-body {
-  max-width: 100%;
-}
-
-body {
-  min-width: 0;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--school-gold);
-  outline-offset: 3px;
-}
-
-iframe {
-  max-width: 100%;
-}
-
-@media (max-width: 768px) {
-  img,
-  video {
-    max-width: 100%;
-  }
-
-  body {
-    overflow-x: hidden;
   }
 }
