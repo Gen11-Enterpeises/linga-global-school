@@ -20,20 +20,18 @@
 
 html {
   scroll-behavior: smooth;
-  background: #FAF7F3;
+  background: var(--warm-ivory);
 }
 
 body {
   margin: 0;
   padding: 0;
-
   min-width: 0;
   max-width: 100%;
-
   overflow-x: hidden;
 
-  background: #FAF7F3;
-  color: #292629;
+  background: var(--warm-ivory);
+  color: var(--deep-charcoal);
 
   font-family:
     Manrope,
@@ -50,6 +48,13 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 main {
@@ -69,8 +74,8 @@ a {
 }
 
 ::selection {
-  background: #C98F9A;
-  color: #292629;
+  background: var(--dusty-rose);
+  color: var(--deep-charcoal);
 }
 
 ::-webkit-scrollbar {
@@ -78,27 +83,38 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1E9E3;
+  background: var(--soft-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C98F9A;
+  background: var(--dusty-rose);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B87884;
+  background: var(--dusty-rose-dark);
 }
 
 button:focus-visible,
-a:focus-visible {
-  outline: 2px solid #C98F9A;
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--dusty-rose);
   outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
   html,
   body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
   }
 }
@@ -109,8 +125,7 @@ a:focus-visible {
   }
 
   *,
-  *::before,
-  *::after {
+  *::before {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

@@ -1,12 +1,7 @@
 /* =========================================================
    LINGA GLOBAL SCHOOL
-   LIGHT MODE ONLY
-   CONTENT / STRUCTURE UNCHANGED
-   ========================================================= */
-
-
-/* =========================================================
-   ROOT
+   FINAL LIGHT THEME
+   SMART CONTRAST FOR DARK SECTIONS
    ========================================================= */
 
 #root {
@@ -16,62 +11,37 @@
   overflow-x: hidden;
 }
 
-
-/* =========================================================
-   GLOBAL PAGE
-   ========================================================= */
-
 .home-page,
 .inner-page {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-
   background: #FAF7F3;
   color: #292629;
 }
-
-
-/* =========================================================
-   MAIN
-   ========================================================= */
 
 .home-page main,
 .inner-page main {
   width: 100%;
   min-width: 0;
   max-width: 100%;
-
-  background:
-    linear-gradient(
-      180deg,
-      #FAF7F3 0%,
-      #F1E9E3 48%,
-      #FAF7F3 100%
-    );
-
+  background: linear-gradient(
+    180deg,
+    #FAF7F3 0%,
+    #F1E9E3 50%,
+    #FAF7F3 100%
+  );
   color: #292629;
 }
-
-
-/* =========================================================
-   SECTIONS
-   ========================================================= */
 
 .home-page main section,
 .inner-page main section {
   max-width: 100%;
 }
 
-
 /* =========================================================
    HEADINGS
    ========================================================= */
-
-/*
-   Georgia retained for all major headings.
-   Semi-bold look.
-*/
 
 .home-page main h1,
 .home-page main h2,
@@ -79,151 +49,69 @@
 .home-page main h4,
 .home-page main h5,
 .home-page main h6,
-
 .inner-page main h1,
 .inner-page main h2,
 .inner-page main h3,
 .inner-page main h4,
 .inner-page main h5,
 .inner-page main h6 {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif !important;
-
+  font-family: Georgia, "Times New Roman", serif !important;
   font-weight: 600 !important;
-
   color: #292629 !important;
 }
 
-
 /* =========================================================
-   BODY TEXT
+   NORMAL LIGHT SECTION TEXT
    ========================================================= */
 
 .home-page main p,
-.inner-page main p {
-  color: #292629 !important;
-}
-
-
-/* =========================================================
-   SECONDARY / MUTED TEXT
-   ========================================================= */
-
-.home-page main
-.text-bone\/60,
-
-.home-page main
-.text-bone\/65,
-
-.home-page main
-.text-bone\/70,
-
-.home-page main
-.text-bone\/75,
-
-.home-page main
-.text-white\/60,
-
-.home-page main
-.text-white\/65,
-
-.home-page main
-.text-white\/70,
-
-.home-page main
-.text-white\/75,
-
-.inner-page main
-.text-bone\/60,
-
-.inner-page main
-.text-bone\/65,
-
-.inner-page main
-.text-bone\/70,
-
-.inner-page main
-.text-bone\/75,
-
-.inner-page main
-.text-white\/60,
-
-.inner-page main
-.text-white\/65,
-
-.inner-page main
-.text-white\/70,
-
-.inner-page main
-.text-white\/75 {
-  color: #716A6C !important;
-}
-
-
-/* Catch any opacity text utility */
-
-.home-page main
-[class*="text-bone/"],
-
-.home-page main
-[class*="text-white/"],
-
-.inner-page main
-[class*="text-bone/"],
-
-.inner-page main
-[class*="text-white/"] {
-  color: #716A6C !important;
-}
-
-
-/* =========================================================
-   OLD WHITE / BONE TEXT
-   ========================================================= */
-
-/*
-   These are the main reason your screenshots were dark.
-*/
-
-.home-page main
-[class~="text-white"],
-
-.home-page main
-[class~="text-bone"],
-
-.inner-page main
-[class~="text-white"],
-
-.inner-page main
-[class~="text-bone"] {
-  color: #292629 !important;
-}
-
-
-/* =========================================================
-   LIST TEXT
-   ========================================================= */
-
+.inner-page main p,
 .home-page main li,
 .inner-page main li {
-  color: #292629 !important;
+  color: #292629;
 }
-
-
-/* =========================================================
-   STRONG TEXT
-   ========================================================= */
 
 .home-page main strong,
 .home-page main b,
-
 .inner-page main strong,
 .inner-page main b {
+  color: #292629;
+}
+
+/* =========================================================
+   SECONDARY TEXT
+   ========================================================= */
+
+.home-page main [class*="text-white/"],
+.inner-page main [class*="text-white/"],
+.home-page main [class*="text-bone/"],
+.inner-page main [class*="text-bone/"] {
+  color: #716A6C !important;
+}
+
+.home-page main [class="text-white"],
+.inner-page main [class="text-white"],
+.home-page main [class="text-bone"],
+.inner-page main [class="text-bone"] {
   color: #292629 !important;
 }
 
+/* =========================================================
+   BRAND COLORS
+   ========================================================= */
+
+.text-gold,
+.text-champagne {
+  color: #C6A66B !important;
+}
+
+.text-dusty-rose {
+  color: #C98F9A !important;
+}
+
+.text-sage {
+  color: #65756B !important;
+}
 
 /* =========================================================
    LINKS
@@ -236,229 +124,39 @@
     opacity 250ms ease;
 }
 
-
-/* normal links */
-
 .home-page main a:not([class*="bg-"]),
 .inner-page main a:not([class*="bg-"]) {
   color: #292629;
 }
-
-
-/* hover */
 
 .home-page main a:not([class*="bg-"]):hover,
 .inner-page main a:not([class*="bg-"]):hover {
   color: #C98F9A !important;
 }
 
-
-/* =========================================================
-   GOLD
-   ========================================================= */
-
-.text-gold,
-.text-champagne,
-[class*="text-gold"],
-[class*="text-champagne"] {
-  color: #C6A66B !important;
-}
-
-
-/* =========================================================
-   DUSTY ROSE
-   ========================================================= */
-
-.text-dusty-rose {
-  color: #C98F9A !important;
-}
-
-
-/* =========================================================
-   SAGE
-   ========================================================= */
-
-.text-sage {
-  color: #65756B !important;
-}
-
-
-/* =========================================================
-   CARDS
-   ========================================================= */
-
-.home-page main
-.rounded-2xl,
-
-.home-page main
-.rounded-3xl,
-
-.inner-page main
-.rounded-2xl,
-
-.inner-page main
-.rounded-3xl {
-  transition:
-    background-color 250ms ease,
-    border-color 250ms ease,
-    box-shadow 250ms ease;
-}
-
-
-/* =========================================================
-   LIGHT CARD SURFACES
-   ========================================================= */
-
-.home-page main
-[class*="bg-[#090908]"],
-
-.home-page main
-[class*="bg-[#0"],
-
-.inner-page main
-[class*="bg-[#090908]"],
-
-.inner-page main
-[class*="bg-[#0"] {
-  background-color: #F1E9E3 !important;
-}
-
-
-/* =========================================================
-   DARK BACKGROUND UTILITIES ON INNER/HOME
-   ========================================================= */
-
-.home-page main
-[class~="bg-black"],
-
-.home-page main
-[class~="bg-[#090908]"],
-
-.inner-page main
-[class~="bg-black"],
-
-.inner-page main
-[class~="bg-[#090908]"] {
-  background-color: #F1E9E3 !important;
-}
-
-
 /* =========================================================
    BORDERS
    ========================================================= */
 
-.home-page main
-[class*="border"],
-
-.inner-page main
-[class*="border"] {
+.home-page main [class*="border"],
+.inner-page main [class*="border"] {
   border-color: rgba(41, 38, 41, 0.10);
 }
 
-
 /* =========================================================
-   SOFT SHADOW
+   SHADOWS
    ========================================================= */
 
-.home-page main
-.shadow-xl,
-
-.home-page main
-.shadow-2xl,
-
-.inner-page main
-.shadow-xl,
-
-.inner-page main
-.shadow-2xl {
-  box-shadow:
-    0 16px 45px rgba(41, 38, 41, 0.08);
+.home-page main .shadow-xl,
+.home-page main .shadow-2xl,
+.inner-page main .shadow-xl,
+.inner-page main .shadow-2xl {
+  box-shadow: 0 16px 45px rgba(41, 38, 41, 0.08);
 }
-
-
-/* =========================================================
-   LEADERSHIP
-   ========================================================= */
-
-/*
-   Specifically fixes the first screenshot.
-*/
-
-.home-page main
-h2,
-
-.home-page main
-h3,
-
-.home-page main
-h4 {
-  color: #292629 !important;
-}
-
-
-/* names */
-
-.home-page main
-h3[class*="text-"] {
-  color: #292629 !important;
-}
-
-
-/* roles */
-
-.home-page main
-p[class*="tracking-"] {
-  color: #716A6C !important;
-}
-
-
-/* =========================================================
-   TRANSPORT / BUS ROUTES
-   ========================================================= */
-
-/*
-   Specifically fixes the second screenshot.
-*/
-
-.inner-page main
-h1,
-.inner-page main
-h2,
-.inner-page main
-h3 {
-  color: #292629 !important;
-}
-
-
-.inner-page main
-p {
-  color: #292629 !important;
-}
-
-
-/* Bus card */
-
-.inner-page main
-.rounded-2xl {
-  background: #F1E9E3;
-}
-
-
-/* Bus number circle */
-
-.inner-page main
-.rounded-full {
-  border-color: rgba(198, 166, 107, 0.25);
-}
-
 
 /* =========================================================
    BUTTONS
    ========================================================= */
-
-/*
-   Don't destroy existing button design.
-*/
 
 button {
   transition:
@@ -469,164 +167,258 @@ button {
     box-shadow 250ms ease;
 }
 
-
 /* =========================================================
-   IMAGES
+   FORMS
    ========================================================= */
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-
-/* =========================================================
-   VIDEOS
-   ========================================================= */
-
-video {
+input,
+textarea,
+select {
   max-width: 100%;
 }
 
-
-/* =========================================================
-   IFRAME
-   ========================================================= */
-
-iframe {
-  max-width: 100%;
+input,
+textarea {
+  color: #292629 !important;
+  background-color: #F1E9E3;
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: #716A6C !important;
+  opacity: 1;
+}
+
+select {
+  color: #292629 !important;
+  background-color: #F1E9E3;
+}
+
+select option {
+  color: #292629;
+  background-color: #FAF7F3;
+}
+
+/* =========================================================
+   DARK SECTIONS
+   IMPORTANT:
+   Dark backgrounds stay dark.
+   Text automatically becomes light.
+   Gold stays gold.
+   ========================================================= */
+
+/* Dark section itself */
+
+.home-page main .dark-section,
+.inner-page main .dark-section,
+.home-page main .dark-section *,
+.inner-page main .dark-section * {
+  color: #FAF7F3;
+}
+
+/* Dark section headings */
+
+.home-page main .dark-section h1,
+.home-page main .dark-section h2,
+.home-page main .dark-section h3,
+.home-page main .dark-section h4,
+.home-page main .dark-section h5,
+.home-page main .dark-section h6,
+.inner-page main .dark-section h1,
+.inner-page main .dark-section h2,
+.inner-page main .dark-section h3,
+.inner-page main .dark-section h4,
+.inner-page main .dark-section h5,
+.inner-page main .dark-section h6 {
+  color: #FAF7F3 !important;
+}
+
+/* Dark section paragraphs */
+
+.home-page main .dark-section p,
+.home-page main .dark-section li,
+.home-page main .dark-section span,
+.inner-page main .dark-section p,
+.inner-page main .dark-section li,
+.inner-page main .dark-section span {
+  color: #FAF7F3 !important;
+}
+
+/* Dark section secondary text */
+
+.home-page main .dark-section .secondary-text,
+.inner-page main .dark-section .secondary-text {
+  color: #D8D1D2 !important;
+}
+
+/* =========================================================
+   COMMON EXISTING DARK BACKGROUNDS
+   ========================================================= */
+
+/* BLACK */
+
+.home-page main .bg-black,
+.inner-page main .bg-black {
+  color: #FAF7F3;
+}
+
+.home-page main .bg-black h1,
+.home-page main .bg-black h2,
+.home-page main .bg-black h3,
+.home-page main .bg-black h4,
+.home-page main .bg-black h5,
+.home-page main .bg-black h6,
+.inner-page main .bg-black h1,
+.inner-page main .bg-black h2,
+.inner-page main .bg-black h3,
+.inner-page main .bg-black h4,
+.inner-page main .bg-black h5,
+.inner-page main .bg-black h6 {
+  color: #FAF7F3 !important;
+}
+
+.home-page main .bg-black p,
+.home-page main .bg-black li,
+.home-page main .bg-black span,
+.inner-page main .bg-black p,
+.inner-page main .bg-black li,
+.inner-page main .bg-black span {
+  color: #FAF7F3 !important;
+}
+
+/* DARK GRAY / ESPRESSO */
+
+.home-page main .bg-dark,
+.inner-page main .bg-dark,
+.home-page main .bg-espresso,
+.inner-page main .bg-espresso {
+  color: #FAF7F3;
+}
+
+.home-page main .bg-dark h1,
+.home-page main .bg-dark h2,
+.home-page main .bg-dark h3,
+.home-page main .bg-dark h4,
+.home-page main .bg-dark p,
+.home-page main .bg-dark span,
+.home-page main .bg-dark li,
+.inner-page main .bg-dark h1,
+.inner-page main .bg-dark h2,
+.inner-page main .bg-dark h3,
+.inner-page main .bg-dark h4,
+.inner-page main .bg-dark p,
+.inner-page main .bg-dark span,
+.inner-page main .bg-dark li,
+.home-page main .bg-espresso h1,
+.home-page main .bg-espresso h2,
+.home-page main .bg-espresso h3,
+.home-page main .bg-espresso h4,
+.home-page main .bg-espresso p,
+.home-page main .bg-espresso span,
+.home-page main .bg-espresso li,
+.inner-page main .bg-espresso h1,
+.inner-page main .bg-espresso h2,
+.inner-page main .bg-espresso h3,
+.inner-page main .bg-espresso h4,
+.inner-page main .bg-espresso p,
+.inner-page main .bg-espresso span,
+.inner-page main .bg-espresso li {
+  color: #FAF7F3 !important;
+}
+
+/* =========================================================
+   GOLD INSIDE DARK SECTIONS
+   ========================================================= */
+
+.home-page main .dark-section .text-gold,
+.home-page main .dark-section .text-champagne,
+.inner-page main .dark-section .text-gold,
+.inner-page main .dark-section .text-champagne,
+.home-page main .bg-black .text-gold,
+.home-page main .bg-black .text-champagne,
+.inner-page main .bg-black .text-gold,
+.inner-page main .bg-black .text-champagne {
+  color: #C6A66B !important;
+}
+
+/* =========================================================
+   DARK SECTION LINKS
+   ========================================================= */
+
+.home-page main .dark-section a,
+.inner-page main .dark-section a,
+.home-page main .bg-black a,
+.inner-page main .bg-black a {
+  color: #FAF7F3;
+}
+
+.home-page main .dark-section a:hover,
+.inner-page main .dark-section a:hover,
+.home-page main .bg-black a:hover,
+.inner-page main .bg-black a:hover {
+  color: #C6A66B !important;
+}
 
 /* =========================================================
    HERO
    ========================================================= */
 
-/*
-   HERO IS THE ONLY SECTION THAT REMAINS DARK/CINEMATIC.
-*/
-
-.home-page
-.hero-section {
+.home-page .hero-section {
   background: #090908 !important;
   color: #FAF7F3 !important;
 }
 
-
-/* Hero heading */
-
-.home-page
-.hero-section
-h1 {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif !important;
-
+.home-page .hero-section h1 {
+  font-family: Georgia, "Times New Roman", serif !important;
   font-weight: 600 !important;
-
   color: #FAF7F3 !important;
 }
 
-
-/* Hero spans */
-
-.home-page
-.hero-section
-h1 span {
+.home-page .hero-section h1 span {
   color: #FAF7F3 !important;
 }
 
-
-/* Hero gold words */
-
-.home-page
-.hero-section
-.highlight-word {
+.home-page .hero-section .highlight-word {
   color: #d6a447 !important;
-
   text-shadow:
     0 0 10px rgba(214, 164, 71, 0.16),
     0 0 25px rgba(214, 164, 71, 0.08);
 }
 
-
-/* Hero subtitle */
-
-.home-page
-.hero-section
-p {
+.home-page .hero-section p {
   color: #FAF7F3 !important;
 }
 
-
-/* Hero old white/bone utilities */
-
-.home-page
-.hero-section
-[class~="text-white"],
-
-.home-page
-.hero-section
-[class~="text-bone"] {
-  color: #FAF7F3 !important;
+.home-page .hero-section a {
+  color: #FAF7F3;
 }
-
-
-/* Hero opacity text */
-
-.home-page
-.hero-section
-[class*="text-white/"],
-
-.home-page
-.hero-section
-[class*="text-bone/"] {
-  color: #FAF7F3 !important;
-}
-
-
-/* Gold must always win */
-
-.home-page
-.hero-section
-.highlight-word {
-  color: #d6a447 !important;
-}
-
 
 /* =========================================================
-   HERO BUTTON
+   IMAGES / VIDEO
    ========================================================= */
 
-.home-page
-.hero-section
-button {
-  color: inherit;
+img,
+video,
+iframe {
+  max-width: 100%;
 }
 
+img {
+  height: auto;
+}
+
+video {
+  display: block;
+}
 
 /* =========================================================
    MOBILE
    ========================================================= */
 
 @media (max-width: 768px) {
-
   html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-
-  #root {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-
+  body,
+  #root,
   .home-page,
   .inner-page {
     width: 100%;
@@ -634,85 +426,43 @@ button {
     overflow-x: hidden;
   }
 
-
-  /* headings */
-
   .home-page main h1,
   .home-page main h2,
   .home-page main h3,
   .home-page main h4,
-
   .inner-page main h1,
   .inner-page main h2,
   .inner-page main h3,
   .inner-page main h4 {
-    font-family:
-      Georgia,
-      "Times New Roman",
-      serif !important;
-
+    font-family: Georgia, "Times New Roman", serif !important;
     font-weight: 600 !important;
   }
 
-
-  /* Hero */
-
-  .home-page
-  .hero-section {
+  .home-page .hero-section {
     overflow: hidden;
   }
 
-
-  .home-page
-  .hero-section
-  h1 {
+  .home-page .hero-section h1 {
     color: #FAF7F3 !important;
   }
 
-
-  .home-page
-  .hero-section
-  h1 span {
-    color: #FAF7F3 !important;
-  }
-
-
-  .home-page
-  .hero-section
-  .highlight-word {
+  .home-page .hero-section .highlight-word {
     color: #d6a447 !important;
   }
 
-
-  .home-page
-  .hero-section
-  p {
-    color: #FAF7F3 !important;
-  }
-
-
-  /* inner page text */
-
-  .inner-page main p {
-    color: #292629 !important;
-  }
-
-
-  .inner-page main h1,
-  .inner-page main h2,
-  .inner-page main h3,
-  .inner-page main h4 {
-    color: #292629 !important;
+  input,
+  textarea,
+  select,
+  button {
+    max-width: 100%;
   }
 }
-
 
 /* =========================================================
    TABLET
    ========================================================= */
 
 @media (min-width: 769px) and (max-width: 1024px) {
-
   html,
   body,
   #root {
@@ -721,16 +471,13 @@ button {
   }
 }
 
-
 /* =========================================================
-   ACCESSIBILITY
+   REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
-  *::before,
-  *::after {
+  *::before {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

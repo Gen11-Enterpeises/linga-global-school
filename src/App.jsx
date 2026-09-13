@@ -19,7 +19,6 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 
 function AppContent() {
   const location = useLocation()
-
   const isHome = location.pathname === '/'
 
   return (
@@ -36,40 +35,20 @@ function AppContent() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-
           <Route path="/about" element={<About />} />
-
           <Route path="/admissions" element={<Admissions />} />
-
           <Route path="/academics" element={<Academics />} />
-
-          <Route
-            path="/infrastructure"
-            element={<Infrastructure />}
-          />
-
+          <Route path="/infrastructure" element={<Infrastructure />} />
           <Route path="/gallery" element={<Gallery />} />
-
           <Route path="/transport" element={<Transport />} />
-
-          <Route
-            path="/achievements"
-            element={<Achievements />}
-          />
-
+          <Route path="/achievements" element={<Achievements />} />
           <Route
             path="/mandatory-disclosure"
             element={<MandatoryDisclosure />}
           />
-
           <Route path="/contact" element={<Contact />} />
-
           <Route path="/enquiry" element={<Enquiry />} />
-
-          <Route
-            path="/privacy-policy"
-            element={<PrivacyPolicy />}
-          />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
 
