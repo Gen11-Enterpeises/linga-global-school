@@ -1,399 +1,66 @@
-/* ==========================================
+/* =========================================================
    LINGA GLOBAL SCHOOL
-   APP CUSTOM STYLES
-   ========================================== */
+   APP.CSS
+   FINAL THEME + VISIBILITY + RESPONSIVE FIX
+   CONTENT / STRUCTURE NOT CHANGED
+   ========================================================= */
 
 
-/* ==========================================
-   DISPLAY FONT
-   ========================================== */
+/* =========================================================
+   ROOT APP
+   ========================================================= */
 
-.font-display {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-
-/* ==========================================
-   HERO HIGHLIGHT
-   IMPORTANT:
-   Hero ka existing visual language preserved.
-   ========================================== */
-
-.highlight-word {
-  color: #b8872f;
-
-  text-shadow:
-    0 0 10px rgba(184, 135, 47, 0.16),
-    0 0 25px rgba(184, 135, 47, 0.08);
-
-  transition:
-    color 300ms ease,
-    text-shadow 300ms ease;
-}
-
-.highlight-word:hover {
-  color: #c99a3a;
-
-  text-shadow:
-    0 0 14px rgba(201, 154, 58, 0.24),
-    0 0 32px rgba(201, 154, 58, 0.12);
-}
-
-
-/* ==========================================
-   SCHOOL GOLD
-   ========================================== */
-
-.school-gold {
-  color: #C6A66B;
-}
-
-.school-gold-bg {
-  background: #C6A66B;
-}
-
-.school-gold-border {
-  border-color: rgba(198, 166, 107, 0.45);
-}
-
-
-/* ==========================================
-   DUSTY ROSE
-   ========================================== */
-
-.school-rose {
-  color: #C98F9A;
-}
-
-.school-rose-bg {
-  background: #C98F9A;
-}
-
-.school-rose-border {
-  border-color: rgba(201, 143, 154, 0.45);
-}
-
-
-/* ==========================================
-   GOLD LINE
-   ========================================== */
-
-.gold-line {
-  width: 42px;
-  height: 2px;
-
-  background: #C6A66B;
-
-  border-radius: 999px;
-  flex-shrink: 0;
-}
-
-
-/* ==========================================
-   ROSE LINE
-   ========================================== */
-
-.rose-line {
-  width: 42px;
-  height: 2px;
-
-  background: #C98F9A;
-
-  border-radius: 999px;
-  flex-shrink: 0;
-}
-
-
-/* ==========================================
-   GOLD GLOW
-   ========================================== */
-
-.gold-glow {
-  box-shadow:
-    0 0 25px rgba(198, 166, 107, 0.10),
-    0 0 60px rgba(198, 166, 107, 0.05);
-}
-
-
-/* ==========================================
-   ROSE GLOW
-   ========================================== */
-
-.rose-glow {
-  box-shadow:
-    0 14px 40px rgba(201, 143, 154, 0.14),
-    0 0 60px rgba(201, 143, 154, 0.06);
-}
-
-
-/* ==========================================
-   SCHOOL IMAGES
-   ========================================== */
-
-.school-image {
-  transition:
-    transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 500ms ease;
-}
-
-.school-image:hover {
-  transform: scale(1.025);
-}
-
-
-/* ==========================================
-   CINEMATIC IMAGE
-   ========================================== */
-
-.image-cinematic {
-  position: relative;
-  overflow: hidden;
-}
-
-.image-cinematic::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(51, 44, 45, 0.62),
-      transparent 55%
-    );
-
-  pointer-events: none;
-}
-
-
-/* ==========================================
-   PHOTO CARD
-   ========================================== */
-
-.photo-card {
-  overflow: hidden;
-
-  border-radius: 20px;
-
-  background: var(--theme-surface);
-
-  border: 1px solid var(--theme-border);
-
-  transition:
-    transform 350ms ease,
-    box-shadow 350ms ease,
-    border-color 350ms ease;
-}
-
-.photo-card img {
+#root {
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
-  object-fit: cover;
+
+/* =========================================================
+   MAIN APP WRAPPER
+   ========================================================= */
+
+.home-page,
+.inner-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 
   transition:
-    transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.photo-card:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 18px 45px rgba(51, 44, 45, 0.12);
-
-  border-color:
-    rgba(201, 143, 154, 0.32);
-}
-
-.photo-card:hover img {
-  transform: scale(1.04);
+    background-color 350ms ease,
+    color 350ms ease;
 }
 
 
-/* ==========================================
-   GLASS EFFECT — LIGHT
-   ========================================== */
+/* =========================================================
+   LIGHT MODE — GLOBAL
+   ========================================================= */
 
-.school-glass {
-  background:
-    rgba(250, 247, 243, 0.80);
-
-  border:
-    1px solid rgba(41, 38, 41, 0.10);
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  box-shadow:
-    0 12px 35px rgba(51, 44, 45, 0.07);
+html:not(.dark) .home-page,
+html:not(.dark) .inner-page {
+  background: #FAF7F3;
+  color: #292629;
 }
 
 
-/* ==========================================
-   GLASS EFFECT — DARK
-   ========================================== */
+/* =========================================================
+   DARK MODE — GLOBAL
+   ========================================================= */
 
-html.dark .school-glass {
-  background:
-    rgba(64, 56, 57, 0.82);
-
-  border-color:
-    rgba(250, 247, 243, 0.10);
-
-  box-shadow:
-    0 12px 35px rgba(0, 0, 0, 0.20);
+html.dark .home-page,
+html.dark .inner-page {
+  background: #332C2D;
+  color: #FAF7F3;
 }
 
 
-/* ==========================================
-   SECTION NUMBER
-   ========================================== */
+/* =========================================================
+   HOME MAIN — LIGHT
+   ========================================================= */
 
-.section-number {
-  color: #C98F9A;
-
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-}
-
-
-/* ==========================================
-   GOLD HOVER LINK
-   ========================================== */
-
-.gold-hover {
-  transition:
-    color 300ms ease,
-    transform 300ms ease;
-}
-
-.gold-hover:hover {
-  color: #C98F9A;
-  transform: translateX(4px);
-}
-
-
-/* ==========================================
-   ACCESSIBILITY
-   ========================================== */
-
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid #C98F9A;
-  outline-offset: 3px;
-}
-
-
-/* ==========================================
-   HERO
-   IMPORTANT:
-   Hero remains cinematic.
-   ========================================== */
-
-.hero-section {
-  background: #090908;
-}
-
-
-/* ==========================================
-   OLD DARK BACKGROUND → LIGHT THEME
-   ========================================== */
-
-html:not(.dark) .bg-\[\#090908\] {
-  background-color: #FAF7F3 !important;
-}
-
-html:not(.dark) .bg-\[\#151412\] {
-  background-color: #F1E9E3 !important;
-}
-
-
-/* ==========================================
-   OLD DARK BACKGROUND → DARK THEME
-   ========================================== */
-
-html.dark .bg-\[\#090908\] {
-  background-color: #332C2D !important;
-}
-
-html.dark .bg-\[\#151412\] {
-  background-color: #403839 !important;
-}
-
-
-/* ==========================================
-   CHARCOAL UTILITY
-   ========================================== */
-
-html:not(.dark) .bg-charcoal {
-  background-color: #F1E9E3 !important;
-}
-
-html.dark .bg-charcoal {
-  background-color: #292526 !important;
-}
-
-
-/* ==========================================
-   OLD GOLD BACKGROUND
-   ========================================== */
-
-html:not(.dark) .bg-\[\#b8872f\] {
-  background-color: #C98F9A !important;
-}
-
-html.dark .bg-\[\#b8872f\] {
-  background-color: #C98F9A !important;
-}
-
-
-/* ==========================================
-   OLD GOLD BORDER
-   ========================================== */
-
-html:not(.dark) .border-\[\#b8872f\] {
-  border-color: rgba(201, 143, 154, 0.55) !important;
-}
-
-html.dark .border-\[\#b8872f\] {
-  border-color: rgba(212, 154, 164, 0.55) !important;
-}
-
-
-/* ==========================================
-   OLD AMBER → DUSTY ROSE
-   ========================================== */
-
-html:not(.dark) .text-amber {
-  color: #C98F9A !important;
-}
-
-html.dark .text-amber {
-  color: #D49AA4 !important;
-}
-
-
-/* ==========================================
-   EXISTING GOLD TEXT
-   ========================================== */
-
-html:not(.dark) .text-\[\#b8872f\] {
-  color: #b8872f;
-}
-
-html.dark .text-\[\#b8872f\] {
-  color: #d49aa4;
-}
-
-
-/* ==========================================
-   LIGHT PAGE SURFACE
-   ========================================== */
-
-html:not(.dark) main {
+html:not(.dark) .home-page main {
   background:
     linear-gradient(
       180deg,
@@ -401,14 +68,16 @@ html:not(.dark) main {
       #F1E9E3 48%,
       #FAF7F3 100%
     );
+
+  color: #292629;
 }
 
 
-/* ==========================================
-   DARK PAGE SURFACE
-   ========================================== */
+/* =========================================================
+   HOME MAIN — DARK
+   ========================================================= */
 
-html.dark main {
+html.dark .home-page main {
   background:
     linear-gradient(
       180deg,
@@ -416,82 +85,969 @@ html.dark main {
       #292526 50%,
       #332C2D 100%
     );
+
+  color: #FAF7F3;
 }
 
 
-/* ==========================================
-   LIGHT MODE — OLD WHITE SURFACES
-   ========================================== */
+/* =========================================================
+   INNER PAGES — LIGHT
+   ========================================================= */
 
-html:not(.dark) .bg-white {
-  background-color: #FAF7F3 !important;
+html:not(.dark) .inner-page main {
+  background:
+    linear-gradient(
+      180deg,
+      #FAF7F3 0%,
+      #F1E9E3 50%,
+      #FAF7F3 100%
+    );
+
+  color: #292629;
 }
 
 
-/* ==========================================
-   DARK MODE — OLD WHITE SURFACES
-   ========================================== */
+/* =========================================================
+   INNER PAGES — DARK
+   ========================================================= */
 
-html.dark .bg-white {
-  background-color: #403839 !important;
+html.dark .inner-page main {
+  background:
+    linear-gradient(
+      180deg,
+      #332C2D 0%,
+      #292526 50%,
+      #332C2D 100%
+    );
+
+  color: #FAF7F3;
 }
 
 
-/* ==========================================
-   MOBILE
-   ========================================== */
+/* =========================================================
+   =========================================================
+   LIGHT MODE TEXT
+   =========================================================
+   ========================================================= */
+
+
+/* ---------- HOME HEADINGS ---------- */
+
+html:not(.dark) .home-page main h1,
+html:not(.dark) .home-page main h2,
+html:not(.dark) .home-page main h3,
+html:not(.dark) .home-page main h4,
+html:not(.dark) .home-page main h5,
+html:not(.dark) .home-page main h6 {
+  color: #292629 !important;
+}
+
+
+/* ---------- HOME PARAGRAPHS ---------- */
+
+html:not(.dark) .home-page main p {
+  color: #292629 !important;
+}
+
+
+/* ---------- HOME LISTS ---------- */
+
+html:not(.dark) .home-page main li {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   LIGHT MODE — MUTED TEXT
+   ========================================================= */
+
+html:not(.dark)
+.home-page
+main
+p[class*="text-bone/"] {
+  color: #716A6C !important;
+}
+
+html:not(.dark)
+.home-page
+main
+p[class*="text-white/"] {
+  color: #716A6C !important;
+}
+
+
+/* =========================================================
+   LIGHT MODE — EXISTING WHITE TEXT
+   ========================================================= */
+
+html:not(.dark)
+.home-page
+main
+[class~="text-white"] {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   LIGHT MODE — EXISTING BONE TEXT
+   ========================================================= */
+
+html:not(.dark)
+.home-page
+main
+[class~="text-bone"] {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   LIGHT MODE — WHITE/BONE OPACITY TEXT
+   ========================================================= */
+
+html:not(.dark)
+.home-page
+main
+[class*="text-white/"] {
+  color: #716A6C !important;
+}
+
+html:not(.dark)
+.home-page
+main
+[class*="text-bone/"] {
+  color: #716A6C !important;
+}
+
+
+/* =========================================================
+   INNER PAGE LIGHT TEXT
+   ========================================================= */
+
+html:not(.dark) .inner-page main h1,
+html:not(.dark) .inner-page main h2,
+html:not(.dark) .inner-page main h3,
+html:not(.dark) .inner-page main h4,
+html:not(.dark) .inner-page main h5,
+html:not(.dark) .inner-page main h6 {
+  color: #292629 !important;
+}
+
+
+html:not(.dark) .inner-page main p {
+  color: #292629 !important;
+}
+
+
+html:not(.dark) .inner-page main li {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   INNER PAGE MUTED TEXT
+   ========================================================= */
+
+html:not(.dark)
+.inner-page
+main
+p[class*="text-bone/"] {
+  color: #716A6C !important;
+}
+
+html:not(.dark)
+.inner-page
+main
+p[class*="text-white/"] {
+  color: #716A6C !important;
+}
+
+
+/* =========================================================
+   INNER PAGE WHITE/BONE CLASSES
+   ========================================================= */
+
+html:not(.dark)
+.inner-page
+main
+[class~="text-white"] {
+  color: #292629 !important;
+}
+
+html:not(.dark)
+.inner-page
+main
+[class~="text-bone"] {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   INNER PAGE WHITE/BONE OPACITY
+   ========================================================= */
+
+html:not(.dark)
+.inner-page
+main
+[class*="text-white/"] {
+  color: #716A6C !important;
+}
+
+html:not(.dark)
+.inner-page
+main
+[class*="text-bone/"] {
+  color: #716A6C !important;
+}
+
+
+/* =========================================================
+   =========================================================
+   HERO
+   =========================================================
+   ========================================================= */
+
+
+/*
+   Hero MUST remain dark in BOTH themes.
+*/
+
+.home-page .hero-section {
+  background: #090908 !important;
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   HERO HEADING
+   ========================================================= */
+
+.home-page
+.hero-section
+h1 {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   HERO PARAGRAPH
+   ========================================================= */
+
+.home-page
+.hero-section
+p {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   HERO WHITE TEXT
+   ========================================================= */
+
+.home-page
+.hero-section
+.text-white {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   HERO BONE TEXT
+   ========================================================= */
+
+.home-page
+.hero-section
+.text-bone {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   HERO WHITE/BONE OPACITY
+   ========================================================= */
+
+.home-page
+.hero-section
+[class*="text-white/"] {
+  color: #FAF7F3 !important;
+}
+
+.home-page
+.hero-section
+[class*="text-bone/"] {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   HERO H1 SPANS
+   ========================================================= */
+
+.home-page
+.hero-section
+h1
+span {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   HERO GOLD
+   ========================================================= */
+
+.home-page
+.hero-section
+.highlight-word {
+  color: #d6a447 !important;
+
+  text-shadow:
+    0 0 10px rgba(214, 164, 71, 0.16),
+    0 0 25px rgba(214, 164, 71, 0.08);
+}
+
+
+/*
+   Gold always wins even if another class
+   is present on the same span.
+*/
+
+.home-page
+.hero-section
+.highlight-word.text-white,
+.home-page
+.hero-section
+.highlight-word.text-bone {
+  color: #d6a447 !important;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+
+/*
+   Don't globally recolor Hero buttons.
+   Their existing design remains untouched.
+*/
+
+.home-page
+.hero-section
+button {
+  transition:
+    transform 250ms ease,
+    opacity 250ms ease,
+    background-color 250ms ease,
+    border-color 250ms ease;
+}
+
+
+/* =========================================================
+   HERO LOGO
+   ========================================================= */
+
+.home-page
+.hero-section
+img {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   =========================================================
+   DARK MODE
+   =========================================================
+   ========================================================= */
+
+
+/* ---------- DARK HOME HEADINGS ---------- */
+
+html.dark
+.home-page
+main
+h1,
+html.dark
+.home-page
+main
+h2,
+html.dark
+.home-page
+main
+h3,
+html.dark
+.home-page
+main
+h4,
+html.dark
+.home-page
+main
+h5,
+html.dark
+.home-page
+main
+h6 {
+  color: #FAF7F3 !important;
+}
+
+
+/* ---------- DARK HOME PARAGRAPHS ---------- */
+
+html.dark
+.home-page
+main
+p {
+  color: #FAF7F3 !important;
+}
+
+
+/* ---------- DARK HOME LISTS ---------- */
+
+html.dark
+.home-page
+main
+li {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   DARK HOME MUTED TEXT
+   ========================================================= */
+
+html.dark
+.home-page
+main
+p[class*="text-bone/"],
+html.dark
+.home-page
+main
+p[class*="text-white/"] {
+  color: #D3C8C9 !important;
+}
+
+
+/* =========================================================
+   DARK HOME WHITE/BONE
+   ========================================================= */
+
+html.dark
+.home-page
+main
+[class~="text-white"],
+html.dark
+.home-page
+main
+[class~="text-bone"] {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   DARK HOME OPACITY
+   ========================================================= */
+
+html.dark
+.home-page
+main
+[class*="text-white/"],
+html.dark
+.home-page
+main
+[class*="text-bone/"] {
+  color: #D3C8C9 !important;
+}
+
+
+/* =========================================================
+   DARK INNER PAGE
+   ========================================================= */
+
+html.dark
+.inner-page
+main
+h1,
+html.dark
+.inner-page
+main
+h2,
+html.dark
+.inner-page
+main
+h3,
+html.dark
+.inner-page
+main
+h4,
+html.dark
+.inner-page
+main
+h5,
+html.dark
+.inner-page
+main
+h6 {
+  color: #FAF7F3 !important;
+}
+
+
+html.dark
+.inner-page
+main
+p {
+  color: #FAF7F3 !important;
+}
+
+
+html.dark
+.inner-page
+main
+li {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   DARK INNER MUTED
+   ========================================================= */
+
+html.dark
+.inner-page
+main
+p[class*="text-bone/"],
+html.dark
+.inner-page
+main
+p[class*="text-white/"] {
+  color: #D3C8C9 !important;
+}
+
+
+/* =========================================================
+   DARK INNER WHITE/BONE
+   ========================================================= */
+
+html.dark
+.inner-page
+main
+[class~="text-white"],
+html.dark
+.inner-page
+main
+[class~="text-bone"] {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   DARK INNER OPACITY
+   ========================================================= */
+
+html.dark
+.inner-page
+main
+[class*="text-white/"],
+html.dark
+.inner-page
+main
+[class*="text-bone/"] {
+  color: #D3C8C9 !important;
+}
+
+
+/* =========================================================
+   HERO DARK MODE
+   ========================================================= */
+
+html.dark
+.home-page
+.hero-section {
+  background: #090908 !important;
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   HERO GOLD DARK MODE
+   ========================================================= */
+
+html.dark
+.home-page
+.hero-section
+.highlight-word {
+  color: #d6a447 !important;
+}
+
+
+/* =========================================================
+   GOLD ACCENTS
+   ========================================================= */
+
+.text-gold {
+  color: #C6A66B !important;
+}
+
+
+/* =========================================================
+   BORDERS — LIGHT
+   ========================================================= */
+
+html:not(.dark)
+.home-page
+main
+[class*="border"] {
+  border-color: rgba(41, 38, 41, 0.10);
+}
+
+html:not(.dark)
+.inner-page
+main
+[class*="border"] {
+  border-color: rgba(41, 38, 41, 0.10);
+}
+
+
+/* =========================================================
+   BORDERS — DARK
+   ========================================================= */
+
+html.dark
+.home-page
+main
+[class*="border"] {
+  border-color: rgba(250, 247, 243, 0.12);
+}
+
+html.dark
+.inner-page
+main
+[class*="border"] {
+  border-color: rgba(250, 247, 243, 0.12);
+}
+
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+.home-page img,
+.inner-page img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* =========================================================
+   VIDEOS
+   ========================================================= */
+
+.home-page video,
+.inner-page video {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   IFRAMES
+   ========================================================= */
+
+.home-page iframe,
+.inner-page iframe {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   MOBILE — GLOBAL
+   ========================================================= */
 
 @media (max-width: 768px) {
 
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .home-page,
+  .inner-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+
+  /* -------------------------------------------------------
+     HOME TEXT
+     ------------------------------------------------------- */
+
+  html:not(.dark)
+  .home-page
+  main
+  h1,
+  html:not(.dark)
+  .home-page
+  main
+  h2,
+  html:not(.dark)
+  .home-page
+  main
+  h3,
+  html:not(.dark)
+  .home-page
+  main
+  h4 {
+    color: #292629 !important;
+  }
+
+
+  html:not(.dark)
+  .home-page
+  main
+  p {
+    color: #292629 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     HERO MOBILE
+     ------------------------------------------------------- */
+
+  .home-page
+  .hero-section {
+    overflow: hidden;
+  }
+
+
+  .home-page
+  .hero-section
+  h1 {
+    color: #FAF7F3 !important;
+  }
+
+
+  .home-page
+  .hero-section
+  p {
+    color: #FAF7F3 !important;
+  }
+
+
+  .home-page
+  .hero-section
+  h1
+  span {
+    color: #FAF7F3 !important;
+  }
+
+
+  .home-page
+  .hero-section
   .highlight-word {
+    color: #d6a447 !important;
+
     text-shadow:
-      0 0 8px rgba(184, 135, 47, 0.14);
+      0 0 8px rgba(214, 164, 71, 0.14);
   }
 
-  .photo-card {
-    border-radius: 16px;
+
+  /* -------------------------------------------------------
+     INNER PAGE MOBILE
+     ------------------------------------------------------- */
+
+  html:not(.dark)
+  .inner-page
+  main
+  h1,
+  html:not(.dark)
+  .inner-page
+  main
+  h2,
+  html:not(.dark)
+  .inner-page
+  main
+  h3,
+  html:not(.dark)
+  .inner-page
+  main
+  h4 {
+    color: #292629 !important;
   }
 
-  .gold-line,
-  .rose-line {
-    width: 32px;
+
+  html:not(.dark)
+  .inner-page
+  main
+  p {
+    color: #292629 !important;
   }
 
-  .section-number {
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
+
+  /* -------------------------------------------------------
+     MOBILE IMAGES
+     ------------------------------------------------------- */
+
+  img,
+  video {
+    max-width: 100%;
   }
 }
 
 
-/* ==========================================
-   SMALL MOBILE
-   ========================================== */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-@media (max-width: 480px) {
+@media (min-width: 769px) and (max-width: 1024px) {
 
-  .gold-line,
-  .rose-line {
-    width: 28px;
+  html,
+  body {
+    overflow-x: hidden;
   }
 
-  .photo-card {
-    border-radius: 14px;
+  #root,
+  .home-page,
+  .inner-page {
+    max-width: 100%;
+    overflow-x: hidden;
   }
 }
 
 
-/* ==========================================
-   REDUCED MOTION
-   ========================================== */
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1280px) {
+
+  #root {
+    max-width: 100%;
+  }
+
+  .home-page,
+  .inner-page {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-  .school-image,
-  .photo-card,
-  .photo-card img,
-  .gold-hover,
-  .highlight-word {
-    transition: none;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
+
+
+/* =========================================================
+   FINAL HERO OVERRIDE
+   KEEP THIS AT THE VERY END
+   ========================================================= */
+
+.home-page
+.hero-section
+h1 {
+  color: #FAF7F3 !important;
+}
+
+
+.home-page
+.hero-section
+h1
+span {
+  color: #FAF7F3 !important;
+}
+
+
+.home-page
+.hero-section
+.highlight-word {
+  color: #d6a447 !important;
+}
+
+
+.home-page
+.hero-section
+p {
+  color: #FAF7F3 !important;
+}
+
+
+/* =========================================================
+   FINAL LIGHT TEXT OVERRIDE
+   KEEP AFTER EVERYTHING ELSE
+   ========================================================= */
+
+html:not(.dark)
+.home-page
+main
+h1:not(.hero-section h1),
+html:not(.dark)
+.home-page
+main
+h2,
+html:not(.dark)
+.home-page
+main
+h3,
+html:not(.dark)
+.home-page
+main
+h4,
+html:not(.dark)
+.home-page
+main
+h5,
+html:not(.dark)
+.home-page
+main
+h6 {
+  color: #292629 !important;
+}
+
+
+html:not(.dark)
+.inner-page
+main
+h1,
+html:not(.dark)
+.inner-page
+main
+h2,
+html:not(.dark)
+.inner-page
+main
+h3,
+html:not(.dark)
+.inner-page
+main
+h4,
+html:not(.dark)
+.inner-page
+main
+h5,
+html:not(.dark)
+.inner-page
+main
+h6 {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   END
+   ========================================================= */

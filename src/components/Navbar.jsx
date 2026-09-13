@@ -22,12 +22,14 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window === 'undefined') return false
 
-    const savedTheme = localStorage.getItem('linga-theme')
+    const saved = localStorage.getItem('linga-theme')
 
-    if (savedTheme === 'dark') return true
-    if (savedTheme === 'light') return false
+    if (saved === 'dark') return true
+    if (saved === 'light') return false
 
-    return false
+    return window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches
   })
 
   useEffect(() => {
@@ -43,92 +45,101 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const root = document.documentElement
+    document.documentElement.classList.toggle(
+      'dark',
+      darkMode
+    )
 
-    if (darkMode) {
-      root.classList.add('dark')
-      localStorage.setItem('linga-theme', 'dark')
-    } else {
-      root.classList.remove('dark')
-      localStorage.setItem('linga-theme', 'light')
-    }
+    localStorage.setItem(
+      'linga-theme',
+      darkMode ? 'dark' : 'light'
+    )
   }, [darkMode])
-
-  const toggleTheme = () => {
-    setDarkMode((current) => !current)
-  }
 
   return (
     <header
       className={`
         sticky top-0 z-50
+        border-b
         transition-all duration-300
         ${
-          scrolled
-            ? 'border-b border-black/5 bg-[#FAF7F3]/92 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-[#332C2D]/92'
-            : 'bg-transparent'
+          darkMode
+            ? scrolled
+              ? 'bg-[#292526]/95 border-white/10 backdrop-blur-md'
+              : 'bg-transparent border-transparent'
+            : scrolled
+              ? 'bg-[#FAF7F3]/95 border-[#292629]/10 backdrop-blur-md'
+              : 'bg-[#FAF7F3]/95 border-transparent'
         }
       `}
     >
       <div
         className="
-          mx-auto flex h-16 w-full max-w-7xl
-          items-center justify-between
-          px-4
-          sm:px-5
-          md:h-20
+          mx-auto
+          max-w-7xl
+          px-5
           md:px-8
+          flex
+          items-center
+          justify-between
+          h-16
+          md:h-20
         "
       >
-
-        {/* LOGO */}
         <Link
           to="/"
-          className="flex shrink-0 items-center gap-2.5"
+          className="flex items-center gap-2.5"
           onClick={() => setOpen(false)}
         >
           <img
             src={logo}
             alt="Linga Global School"
             className="
-              h-9 w-auto
-              object-contain
+              h-9
               md:h-10
+              w-auto
+              object-contain
             "
           />
         </Link>
 
-
-        {/* DESKTOP NAVIGATION */}
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
+        <nav
+          className="
+            hidden
+            lg:flex
+            items-center
+            gap-6
+            xl:gap-7
+          "
+        >
           {LINKS.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className="
-                whitespace-nowrap
+              className={`
                 text-[13px]
-                font-medium
-                text-[#292629]/80
-                transition-all duration-300
-                hover:text-[#C98F9A]
-                dark:text-[#FAF7F3]/85
-                dark:hover:text-[#D49AA4]
-              "
+                xl:text-[13.5px]
+                transition-colors
+                duration-300
+                ${
+                  darkMode
+                    ? 'text-[#FAF7F3]/85 hover:text-[#C6A66B]'
+                    : 'text-[#292629]/85 hover:text-[#C98F9A]'
+                }
+              `}
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-
-        {/* RIGHT CONTROLS */}
         <div className="flex items-center gap-2">
 
-          {/* THEME TOGGLE */}
+          {/* THEME BUTTON */}
+
           <button
             type="button"
-            onClick={toggleTheme}
+            onClick={() => setDarkMode((value) => !value)}
             aria-label={
               darkMode
                 ? 'Switch to light mode'
@@ -139,195 +150,149 @@ export default function Navbar() {
                 ? 'Light mode'
                 : 'Dark mode'
             }
-            className="
-              flex h-10 w-10
-              items-center justify-center
+            className={`
+              h-10
+              w-10
               rounded-full
+              flex
+              items-center
+              justify-center
               border
-              border-[#A89591]/30
-              bg-[#F1E9E3]/70
-              text-[#292629]
-              shadow-sm
-              transition-all duration-300
-              hover:-translate-y-0.5
-              hover:border-[#C98F9A]/60
-              hover:bg-[#E8CDD1]
-              dark:border-white/15
-              dark:bg-white/5
-              dark:text-[#FAF7F3]
-              dark:hover:border-[#D49AA4]/60
-              dark:hover:bg-[#C98F9A]/15
-            "
+              transition-all
+              duration-300
+              ${
+                darkMode
+                  ? `
+                    border-white/10
+                    bg-white/5
+                    text-[#FAF7F3]
+                    hover:bg-white/10
+                  `
+                  : `
+                    border-[#292629]/10
+                    bg-white/60
+                    text-[#292629]
+                    hover:bg-white
+                  `
+              }
+            `}
           >
             {darkMode ? (
-              /* SUN */
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.8"
-                className="h-4.5 w-4.5"
+                className="w-5 h-5"
               >
                 <circle cx="12" cy="12" r="4" />
+
                 <path d="M12 2v2" />
                 <path d="M12 20v2" />
-                <path d="m4.93 4.93 1.42 1.42" />
-                <path d="m17.65 17.65 1.42 1.42" />
+
+                <path d="m4.93 4.93 1.41 1.41" />
+                <path d="m17.66 17.66 1.41 1.41" />
+
                 <path d="M2 12h2" />
                 <path d="M20 12h2" />
-                <path d="m6.35 17.65-1.42 1.42" />
-                <path d="m19.07 4.93-1.42 1.42" />
+
+                <path d="m6.34 17.66-1.41 1.41" />
+                <path d="m19.07 4.93-1.41-1.41" />
               </svg>
             ) : (
-              /* MOON */
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.8"
-                className="h-4.5 w-4.5"
+                className="w-5 h-5"
               >
-                <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.7 6.7 0 0 0 9.8 9.8Z" />
+                <path d="M21 12.79 A9 9 0 1 1 11.21 3 A7 7 0 0 0 21 12.79Z" />
               </svg>
             )}
           </button>
 
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE MENU */}
+
           <button
             type="button"
-            className="
-              flex h-10 w-10
-              items-center justify-center
-              rounded-full
-              border
-              border-[#A89591]/30
-              bg-[#F1E9E3]/70
-              text-[#292629]
-              transition-all duration-300
-              hover:border-[#C98F9A]/60
-              hover:bg-[#E8CDD1]
+            className={`
               lg:hidden
-              dark:border-white/15
-              dark:bg-white/5
-              dark:text-[#FAF7F3]
-              dark:hover:border-[#D49AA4]/60
-              dark:hover:bg-[#C98F9A]/15
-            "
-            onClick={() => setOpen((current) => !current)}
+              p-2
+              rounded-lg
+              transition-colors
+              ${
+                darkMode
+                  ? 'text-[#FAF7F3] hover:bg-white/5'
+                  : 'text-[#292629] hover:bg-black/5'
+              }
+            `}
+            onClick={() => setOpen((value) => !value)}
             aria-label="Toggle menu"
             aria-expanded={open}
           >
-            <span className="relative block h-5 w-6">
-              <span
-                className={`
-                  absolute left-0 top-1
-                  block h-[2px] w-6
-                  rounded-full
-                  bg-current
-                  transition-all duration-300
-                  ${open ? 'top-2.5 rotate-45' : ''}
-                `}
-              />
-
-              <span
-                className={`
-                  absolute left-0 top-2.5
-                  block h-[2px] w-6
-                  rounded-full
-                  bg-current
-                  transition-all duration-300
-                  ${open ? 'opacity-0' : 'opacity-100'}
-                `}
-              />
-
-              <span
-                className={`
-                  absolute left-0 top-4
-                  block h-[2px]
-                  rounded-full
-                  bg-current
-                  transition-all duration-300
-                  ${
-                    open
-                      ? 'top-2.5 w-6 -rotate-45'
-                      : 'w-4'
-                  }
-                `}
-              />
-            </span>
+            <span className="block w-6 h-[2px] bg-current mb-1.5" />
+            <span className="block w-6 h-[2px] bg-current mb-1.5" />
+            <span className="block w-4 h-[2px] bg-current" />
           </button>
 
         </div>
       </div>
 
 
-      {/* MOBILE NAVIGATION */}
-      <div
-        className={`
-          overflow-hidden
-          transition-all duration-300
-          lg:hidden
-          ${
-            open
-              ? 'max-h-[80vh] opacity-100'
-              : 'pointer-events-none max-h-0 opacity-0'
-          }
-        `}
-      >
+      {/* MOBILE NAV */}
+
+      {open && (
         <nav
-          className="
-            border-t
-            border-black/5
-            bg-[#FAF7F3]/97
-            px-4
+          className={`
+            lg:hidden
+            px-5
             pb-5
             pt-2
-            shadow-lg
-            backdrop-blur-xl
-            dark:border-white/10
-            dark:bg-[#332C2D]/97
-          "
+            flex
+            flex-col
+            gap-1
+            border-t
+            ${
+              darkMode
+                ? 'bg-[#292526] border-white/10'
+                : 'bg-[#F1E9E3] border-[#292629]/10'
+            }
+          `}
         >
           {LINKS.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               onClick={() => setOpen(false)}
-              className="
-                flex min-h-11
-                items-center
-                justify-between
-                border-b
-                border-[#A89591]/15
-                py-2.5
+              className={`
+                py-3
                 text-sm
-                font-medium
-                text-[#292629]/85
-                transition-colors duration-300
-                hover:text-[#C98F9A]
-                dark:border-white/10
-                dark:text-[#FAF7F3]/85
-                dark:hover:text-[#D49AA4]
-              "
+                border-b
+                transition-colors
+                ${
+                  darkMode
+                    ? `
+                      text-[#FAF7F3]/85
+                      border-white/10
+                      hover:text-[#C6A66B]
+                    `
+                    : `
+                      text-[#292629]/85
+                      border-[#292629]/10
+                      hover:text-[#C98F9A]
+                    `
+                }
+              `}
             >
-              <span>{link.label}</span>
-
-              <span
-                className="
-                  text-[#A89591]
-                  transition-transform duration-300
-                  group-hover:translate-x-1
-                "
-              >
-                →
-              </span>
+              {link.label}
             </Link>
           ))}
         </nav>
-      </div>
+      )}
     </header>
   )
 }
