@@ -41,10 +41,15 @@ export default function Hero() {
 
   return (
     <section
-  ref={ref}
-  className="
-    hero-section
-    relative -mt-16
+      ref={ref}
+      className="
+        hero-section
+        relative -mt-16
+        h-[88vh] min-h-[560px]
+        w-full overflow-hidden
+        bg-[#090908]
+        md:-mt-20
+        md:h-[92vh]
       "
     >
 
@@ -78,20 +83,24 @@ export default function Hero() {
       </motion.video>
 
       {/* MAIN CINEMATIC OVERLAY */}
-      <div className="
-        absolute inset-0
-        bg-gradient-to-t
-        from-black
-        via-black/45
-        to-black/55
-      " />
+      <div
+        className="
+          absolute inset-0
+          bg-gradient-to-t
+          from-black
+          via-black/45
+          to-black/55
+        "
+      />
 
       {/* MOBILE EXTRA CONTRAST */}
-      <div className="
-        absolute inset-0
-        bg-black/10
-        md:bg-transparent
-      " />
+      <div
+        className="
+          absolute inset-0
+          bg-black/10
+          md:bg-transparent
+        "
+      />
 
       {/* GOLD ATMOSPHERIC GLOW */}
       <div
@@ -138,17 +147,19 @@ export default function Hero() {
       />
 
       {/* HERO CONTENT */}
-      <div className="
-        relative
-        flex h-full
-        flex-col justify-end
-        px-5
-        pb-12
-        sm:px-6
-        sm:pb-14
-        md:px-8
-        md:pb-24
-      ">
+      <div
+        className="
+          relative
+          flex h-full
+          flex-col justify-end
+          px-5
+          pb-12
+          sm:px-6
+          sm:pb-14
+          md:px-8
+          md:pb-24
+        "
+      >
         <div className="mx-auto w-full max-w-7xl">
 
           {/* LOCATION / AFFILIATION */}
@@ -278,18 +289,20 @@ export default function Hero() {
               md:text-base
             "
           >
-            <span className="
-              flex
-              h-10 w-10
-              items-center justify-center
-              rounded-full
-              border border-bone/40
-              text-xs
-              transition-all duration-300
-              group-hover:border-[#b8872f]
-              group-hover:bg-[#b8872f]/10
-              md:h-9 md:w-9
-            ">
+            <span
+              className="
+                flex
+                h-10 w-10
+                items-center justify-center
+                rounded-full
+                border border-bone/40
+                text-xs
+                transition-all duration-300
+                group-hover:border-[#b8872f]
+                group-hover:bg-[#b8872f]/10
+                md:h-9 md:w-9
+              "
+            >
               ▶
             </span>
 
