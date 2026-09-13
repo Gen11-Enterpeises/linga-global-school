@@ -82,8 +82,7 @@ export default function Hero() {
         />
       </motion.video>
 
-      {/* SOFT UNIFORM OVERLAY
-          No bottom black gradient */}
+      {/* SOFT UNIFORM OVERLAY */}
       <div
         className="
           absolute inset-0
@@ -207,7 +206,6 @@ export default function Hero() {
               text-[2.35rem]
               leading-[1.04]
               tracking-[-0.025em]
-              text-white
               sm:text-5xl
               md:text-6xl
               lg:text-7xl
@@ -218,24 +216,28 @@ export default function Hero() {
               fontWeight: 600,
             }}
           >
+            {/* WHITE */}
             <span className="text-white">
               A campus
             </span>{' '}
 
+            {/* GOLD */}
             <span className="highlight-word">
               built
             </span>{' '}
 
+            {/* WHITE */}
             <span className="text-white">
               to help children actually
             </span>{' '}
 
+            {/* GOLD */}
             <span className="highlight-word">
               learn.
             </span>
           </motion.h1>
 
-          {/* SUBTITLE */}
+          {/* SUBTITLE - WHITE */}
           <motion.p
             initial={{
               opacity: 0,
