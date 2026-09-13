@@ -1,13 +1,12 @@
 /* =========================================================
    LINGA GLOBAL SCHOOL
-   APP.CSS
-   FINAL THEME + VISIBILITY + RESPONSIVE FIX
-   CONTENT / STRUCTURE NOT CHANGED
+   LIGHT MODE ONLY
+   CONTENT / STRUCTURE UNCHANGED
    ========================================================= */
 
 
 /* =========================================================
-   ROOT APP
+   ROOT
    ========================================================= */
 
 #root {
@@ -19,7 +18,7 @@
 
 
 /* =========================================================
-   MAIN APP WRAPPER
+   GLOBAL PAGE
    ========================================================= */
 
 .home-page,
@@ -28,39 +27,21 @@
   min-height: 100vh;
   overflow-x: hidden;
 
-  transition:
-    background-color 350ms ease,
-    color 350ms ease;
-}
-
-
-/* =========================================================
-   LIGHT MODE — GLOBAL
-   ========================================================= */
-
-html:not(.dark) .home-page,
-html:not(.dark) .inner-page {
   background: #FAF7F3;
   color: #292629;
 }
 
 
 /* =========================================================
-   DARK MODE — GLOBAL
+   MAIN
    ========================================================= */
 
-html.dark .home-page,
-html.dark .inner-page {
-  background: #332C2D;
-  color: #FAF7F3;
-}
+.home-page main,
+.inner-page main {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 
-
-/* =========================================================
-   HOME MAIN — LIGHT
-   ========================================================= */
-
-html:not(.dark) .home-page main {
   background:
     linear-gradient(
       180deg,
@@ -74,325 +55,490 @@ html:not(.dark) .home-page main {
 
 
 /* =========================================================
-   HOME MAIN — DARK
+   SECTIONS
    ========================================================= */
 
-html.dark .home-page main {
-  background:
-    linear-gradient(
-      180deg,
-      #332C2D 0%,
-      #292526 50%,
-      #332C2D 100%
-    );
-
-  color: #FAF7F3;
+.home-page main section,
+.inner-page main section {
+  max-width: 100%;
 }
 
 
 /* =========================================================
-   INNER PAGES — LIGHT
+   HEADINGS
    ========================================================= */
 
-html:not(.dark) .inner-page main {
-  background:
-    linear-gradient(
-      180deg,
-      #FAF7F3 0%,
-      #F1E9E3 50%,
-      #FAF7F3 100%
-    );
+/*
+   Georgia retained for all major headings.
+   Semi-bold look.
+*/
 
+.home-page main h1,
+.home-page main h2,
+.home-page main h3,
+.home-page main h4,
+.home-page main h5,
+.home-page main h6,
+
+.inner-page main h1,
+.inner-page main h2,
+.inner-page main h3,
+.inner-page main h4,
+.inner-page main h5,
+.inner-page main h6 {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif !important;
+
+  font-weight: 600 !important;
+
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   BODY TEXT
+   ========================================================= */
+
+.home-page main p,
+.inner-page main p {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   SECONDARY / MUTED TEXT
+   ========================================================= */
+
+.home-page main
+.text-bone\/60,
+
+.home-page main
+.text-bone\/65,
+
+.home-page main
+.text-bone\/70,
+
+.home-page main
+.text-bone\/75,
+
+.home-page main
+.text-white\/60,
+
+.home-page main
+.text-white\/65,
+
+.home-page main
+.text-white\/70,
+
+.home-page main
+.text-white\/75,
+
+.inner-page main
+.text-bone\/60,
+
+.inner-page main
+.text-bone\/65,
+
+.inner-page main
+.text-bone\/70,
+
+.inner-page main
+.text-bone\/75,
+
+.inner-page main
+.text-white\/60,
+
+.inner-page main
+.text-white\/65,
+
+.inner-page main
+.text-white\/70,
+
+.inner-page main
+.text-white\/75 {
+  color: #716A6C !important;
+}
+
+
+/* Catch any opacity text utility */
+
+.home-page main
+[class*="text-bone/"],
+
+.home-page main
+[class*="text-white/"],
+
+.inner-page main
+[class*="text-bone/"],
+
+.inner-page main
+[class*="text-white/"] {
+  color: #716A6C !important;
+}
+
+
+/* =========================================================
+   OLD WHITE / BONE TEXT
+   ========================================================= */
+
+/*
+   These are the main reason your screenshots were dark.
+*/
+
+.home-page main
+[class~="text-white"],
+
+.home-page main
+[class~="text-bone"],
+
+.inner-page main
+[class~="text-white"],
+
+.inner-page main
+[class~="text-bone"] {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   LIST TEXT
+   ========================================================= */
+
+.home-page main li,
+.inner-page main li {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   STRONG TEXT
+   ========================================================= */
+
+.home-page main strong,
+.home-page main b,
+
+.inner-page main strong,
+.inner-page main b {
+  color: #292629 !important;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.home-page main a,
+.inner-page main a {
+  transition:
+    color 250ms ease,
+    opacity 250ms ease;
+}
+
+
+/* normal links */
+
+.home-page main a:not([class*="bg-"]),
+.inner-page main a:not([class*="bg-"]) {
   color: #292629;
 }
 
 
-/* =========================================================
-   INNER PAGES — DARK
-   ========================================================= */
+/* hover */
 
-html.dark .inner-page main {
-  background:
-    linear-gradient(
-      180deg,
-      #332C2D 0%,
-      #292526 50%,
-      #332C2D 100%
-    );
-
-  color: #FAF7F3;
+.home-page main a:not([class*="bg-"]):hover,
+.inner-page main a:not([class*="bg-"]):hover {
+  color: #C98F9A !important;
 }
 
 
 /* =========================================================
-   =========================================================
-   LIGHT MODE TEXT
-   =========================================================
+   GOLD
    ========================================================= */
 
-
-/* ---------- HOME HEADINGS ---------- */
-
-html:not(.dark) .home-page main h1,
-html:not(.dark) .home-page main h2,
-html:not(.dark) .home-page main h3,
-html:not(.dark) .home-page main h4,
-html:not(.dark) .home-page main h5,
-html:not(.dark) .home-page main h6 {
-  color: #292629 !important;
-}
-
-
-/* ---------- HOME PARAGRAPHS ---------- */
-
-html:not(.dark) .home-page main p {
-  color: #292629 !important;
-}
-
-
-/* ---------- HOME LISTS ---------- */
-
-html:not(.dark) .home-page main li {
-  color: #292629 !important;
+.text-gold,
+.text-champagne,
+[class*="text-gold"],
+[class*="text-champagne"] {
+  color: #C6A66B !important;
 }
 
 
 /* =========================================================
-   LIGHT MODE — MUTED TEXT
+   DUSTY ROSE
    ========================================================= */
 
-html:not(.dark)
-.home-page
-main
-p[class*="text-bone/"] {
-  color: #716A6C !important;
-}
-
-html:not(.dark)
-.home-page
-main
-p[class*="text-white/"] {
-  color: #716A6C !important;
+.text-dusty-rose {
+  color: #C98F9A !important;
 }
 
 
 /* =========================================================
-   LIGHT MODE — EXISTING WHITE TEXT
+   SAGE
    ========================================================= */
 
-html:not(.dark)
-.home-page
-main
-[class~="text-white"] {
-  color: #292629 !important;
+.text-sage {
+  color: #65756B !important;
 }
 
 
 /* =========================================================
-   LIGHT MODE — EXISTING BONE TEXT
+   CARDS
    ========================================================= */
 
-html:not(.dark)
-.home-page
-main
-[class~="text-bone"] {
-  color: #292629 !important;
+.home-page main
+.rounded-2xl,
+
+.home-page main
+.rounded-3xl,
+
+.inner-page main
+.rounded-2xl,
+
+.inner-page main
+.rounded-3xl {
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
 }
 
 
 /* =========================================================
-   LIGHT MODE — WHITE/BONE OPACITY TEXT
+   LIGHT CARD SURFACES
    ========================================================= */
 
-html:not(.dark)
-.home-page
-main
-[class*="text-white/"] {
-  color: #716A6C !important;
-}
+.home-page main
+[class*="bg-[#090908]"],
 
-html:not(.dark)
-.home-page
-main
-[class*="text-bone/"] {
-  color: #716A6C !important;
+.home-page main
+[class*="bg-[#0"],
+
+.inner-page main
+[class*="bg-[#090908]"],
+
+.inner-page main
+[class*="bg-[#0"] {
+  background-color: #F1E9E3 !important;
 }
 
 
 /* =========================================================
-   INNER PAGE LIGHT TEXT
+   DARK BACKGROUND UTILITIES ON INNER/HOME
    ========================================================= */
 
-html:not(.dark) .inner-page main h1,
-html:not(.dark) .inner-page main h2,
-html:not(.dark) .inner-page main h3,
-html:not(.dark) .inner-page main h4,
-html:not(.dark) .inner-page main h5,
-html:not(.dark) .inner-page main h6 {
-  color: #292629 !important;
-}
+.home-page main
+[class~="bg-black"],
 
+.home-page main
+[class~="bg-[#090908]"],
 
-html:not(.dark) .inner-page main p {
-  color: #292629 !important;
-}
+.inner-page main
+[class~="bg-black"],
 
-
-html:not(.dark) .inner-page main li {
-  color: #292629 !important;
+.inner-page main
+[class~="bg-[#090908]"] {
+  background-color: #F1E9E3 !important;
 }
 
 
 /* =========================================================
-   INNER PAGE MUTED TEXT
+   BORDERS
    ========================================================= */
 
-html:not(.dark)
-.inner-page
-main
-p[class*="text-bone/"] {
-  color: #716A6C !important;
-}
+.home-page main
+[class*="border"],
 
-html:not(.dark)
-.inner-page
-main
-p[class*="text-white/"] {
-  color: #716A6C !important;
+.inner-page main
+[class*="border"] {
+  border-color: rgba(41, 38, 41, 0.10);
 }
 
 
 /* =========================================================
-   INNER PAGE WHITE/BONE CLASSES
+   SOFT SHADOW
    ========================================================= */
 
-html:not(.dark)
-.inner-page
-main
-[class~="text-white"] {
-  color: #292629 !important;
-}
+.home-page main
+.shadow-xl,
 
-html:not(.dark)
-.inner-page
-main
-[class~="text-bone"] {
-  color: #292629 !important;
+.home-page main
+.shadow-2xl,
+
+.inner-page main
+.shadow-xl,
+
+.inner-page main
+.shadow-2xl {
+  box-shadow:
+    0 16px 45px rgba(41, 38, 41, 0.08);
 }
 
 
 /* =========================================================
-   INNER PAGE WHITE/BONE OPACITY
+   LEADERSHIP
    ========================================================= */
-
-html:not(.dark)
-.inner-page
-main
-[class*="text-white/"] {
-  color: #716A6C !important;
-}
-
-html:not(.dark)
-.inner-page
-main
-[class*="text-bone/"] {
-  color: #716A6C !important;
-}
-
-
-/* =========================================================
-   =========================================================
-   HERO
-   =========================================================
-   ========================================================= */
-
 
 /*
-   Hero MUST remain dark in BOTH themes.
+   Specifically fixes the first screenshot.
 */
 
-.home-page .hero-section {
+.home-page main
+h2,
+
+.home-page main
+h3,
+
+.home-page main
+h4 {
+  color: #292629 !important;
+}
+
+
+/* names */
+
+.home-page main
+h3[class*="text-"] {
+  color: #292629 !important;
+}
+
+
+/* roles */
+
+.home-page main
+p[class*="tracking-"] {
+  color: #716A6C !important;
+}
+
+
+/* =========================================================
+   TRANSPORT / BUS ROUTES
+   ========================================================= */
+
+/*
+   Specifically fixes the second screenshot.
+*/
+
+.inner-page main
+h1,
+.inner-page main
+h2,
+.inner-page main
+h3 {
+  color: #292629 !important;
+}
+
+
+.inner-page main
+p {
+  color: #292629 !important;
+}
+
+
+/* Bus card */
+
+.inner-page main
+.rounded-2xl {
+  background: #F1E9E3;
+}
+
+
+/* Bus number circle */
+
+.inner-page main
+.rounded-full {
+  border-color: rgba(198, 166, 107, 0.25);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+/*
+   Don't destroy existing button design.
+*/
+
+button {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* =========================================================
+   VIDEOS
+   ========================================================= */
+
+video {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   IFRAME
+   ========================================================= */
+
+iframe {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+/*
+   HERO IS THE ONLY SECTION THAT REMAINS DARK/CINEMATIC.
+*/
+
+.home-page
+.hero-section {
   background: #090908 !important;
   color: #FAF7F3 !important;
 }
 
 
-/* =========================================================
-   HERO HEADING
-   ========================================================= */
+/* Hero heading */
 
 .home-page
 .hero-section
 h1 {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif !important;
+
+  font-weight: 600 !important;
+
   color: #FAF7F3 !important;
 }
 
 
-/* =========================================================
-   HERO PARAGRAPH
-   ========================================================= */
+/* Hero spans */
 
 .home-page
 .hero-section
-p {
+h1 span {
   color: #FAF7F3 !important;
 }
 
 
-/* =========================================================
-   HERO WHITE TEXT
-   ========================================================= */
-
-.home-page
-.hero-section
-.text-white {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   HERO BONE TEXT
-   ========================================================= */
-
-.home-page
-.hero-section
-.text-bone {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   HERO WHITE/BONE OPACITY
-   ========================================================= */
-
-.home-page
-.hero-section
-[class*="text-white/"] {
-  color: #FAF7F3 !important;
-}
-
-.home-page
-.hero-section
-[class*="text-bone/"] {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   HERO H1 SPANS
-   ========================================================= */
-
-.home-page
-.hero-section
-h1
-span {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   HERO GOLD
-   ========================================================= */
+/* Hero gold words */
 
 .home-page
 .hero-section
@@ -405,271 +551,43 @@ span {
 }
 
 
-/*
-   Gold always wins even if another class
-   is present on the same span.
-*/
+/* Hero subtitle */
 
 .home-page
 .hero-section
-.highlight-word.text-white,
-.home-page
-.hero-section
-.highlight-word.text-bone {
-  color: #d6a447 !important;
-}
-
-
-/* =========================================================
-   HERO BUTTONS
-   ========================================================= */
-
-
-/*
-   Don't globally recolor Hero buttons.
-   Their existing design remains untouched.
-*/
-
-.home-page
-.hero-section
-button {
-  transition:
-    transform 250ms ease,
-    opacity 250ms ease,
-    background-color 250ms ease,
-    border-color 250ms ease;
-}
-
-
-/* =========================================================
-   HERO LOGO
-   ========================================================= */
-
-.home-page
-.hero-section
-img {
-  max-width: 100%;
-}
-
-
-/* =========================================================
-   =========================================================
-   DARK MODE
-   =========================================================
-   ========================================================= */
-
-
-/* ---------- DARK HOME HEADINGS ---------- */
-
-html.dark
-.home-page
-main
-h1,
-html.dark
-.home-page
-main
-h2,
-html.dark
-.home-page
-main
-h3,
-html.dark
-.home-page
-main
-h4,
-html.dark
-.home-page
-main
-h5,
-html.dark
-.home-page
-main
-h6 {
-  color: #FAF7F3 !important;
-}
-
-
-/* ---------- DARK HOME PARAGRAPHS ---------- */
-
-html.dark
-.home-page
-main
 p {
   color: #FAF7F3 !important;
 }
 
 
-/* ---------- DARK HOME LISTS ---------- */
+/* Hero old white/bone utilities */
 
-html.dark
 .home-page
-main
-li {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   DARK HOME MUTED TEXT
-   ========================================================= */
-
-html.dark
-.home-page
-main
-p[class*="text-bone/"],
-html.dark
-.home-page
-main
-p[class*="text-white/"] {
-  color: #D3C8C9 !important;
-}
-
-
-/* =========================================================
-   DARK HOME WHITE/BONE
-   ========================================================= */
-
-html.dark
-.home-page
-main
+.hero-section
 [class~="text-white"],
-html.dark
+
 .home-page
-main
+.hero-section
 [class~="text-bone"] {
   color: #FAF7F3 !important;
 }
 
 
-/* =========================================================
-   DARK HOME OPACITY
-   ========================================================= */
+/* Hero opacity text */
 
-html.dark
 .home-page
-main
+.hero-section
 [class*="text-white/"],
-html.dark
+
 .home-page
-main
+.hero-section
 [class*="text-bone/"] {
-  color: #D3C8C9 !important;
-}
-
-
-/* =========================================================
-   DARK INNER PAGE
-   ========================================================= */
-
-html.dark
-.inner-page
-main
-h1,
-html.dark
-.inner-page
-main
-h2,
-html.dark
-.inner-page
-main
-h3,
-html.dark
-.inner-page
-main
-h4,
-html.dark
-.inner-page
-main
-h5,
-html.dark
-.inner-page
-main
-h6 {
   color: #FAF7F3 !important;
 }
 
 
-html.dark
-.inner-page
-main
-p {
-  color: #FAF7F3 !important;
-}
+/* Gold must always win */
 
-
-html.dark
-.inner-page
-main
-li {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   DARK INNER MUTED
-   ========================================================= */
-
-html.dark
-.inner-page
-main
-p[class*="text-bone/"],
-html.dark
-.inner-page
-main
-p[class*="text-white/"] {
-  color: #D3C8C9 !important;
-}
-
-
-/* =========================================================
-   DARK INNER WHITE/BONE
-   ========================================================= */
-
-html.dark
-.inner-page
-main
-[class~="text-white"],
-html.dark
-.inner-page
-main
-[class~="text-bone"] {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   DARK INNER OPACITY
-   ========================================================= */
-
-html.dark
-.inner-page
-main
-[class*="text-white/"],
-html.dark
-.inner-page
-main
-[class*="text-bone/"] {
-  color: #D3C8C9 !important;
-}
-
-
-/* =========================================================
-   HERO DARK MODE
-   ========================================================= */
-
-html.dark
-.home-page
-.hero-section {
-  background: #090908 !important;
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   HERO GOLD DARK MODE
-   ========================================================= */
-
-html.dark
 .home-page
 .hero-section
 .highlight-word {
@@ -678,85 +596,18 @@ html.dark
 
 
 /* =========================================================
-   GOLD ACCENTS
+   HERO BUTTON
    ========================================================= */
 
-.text-gold {
-  color: #C6A66B !important;
-}
-
-
-/* =========================================================
-   BORDERS — LIGHT
-   ========================================================= */
-
-html:not(.dark)
 .home-page
-main
-[class*="border"] {
-  border-color: rgba(41, 38, 41, 0.10);
-}
-
-html:not(.dark)
-.inner-page
-main
-[class*="border"] {
-  border-color: rgba(41, 38, 41, 0.10);
+.hero-section
+button {
+  color: inherit;
 }
 
 
 /* =========================================================
-   BORDERS — DARK
-   ========================================================= */
-
-html.dark
-.home-page
-main
-[class*="border"] {
-  border-color: rgba(250, 247, 243, 0.12);
-}
-
-html.dark
-.inner-page
-main
-[class*="border"] {
-  border-color: rgba(250, 247, 243, 0.12);
-}
-
-
-/* =========================================================
-   IMAGES
-   ========================================================= */
-
-.home-page img,
-.inner-page img {
-  max-width: 100%;
-  height: auto;
-}
-
-
-/* =========================================================
-   VIDEOS
-   ========================================================= */
-
-.home-page video,
-.inner-page video {
-  max-width: 100%;
-}
-
-
-/* =========================================================
-   IFRAMES
-   ========================================================= */
-
-.home-page iframe,
-.inner-page iframe {
-  max-width: 100%;
-}
-
-
-/* =========================================================
-   MOBILE — GLOBAL
+   MOBILE
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -768,11 +619,13 @@ main
     overflow-x: hidden;
   }
 
+
   #root {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
   }
+
 
   .home-page,
   .inner-page {
@@ -782,41 +635,27 @@ main
   }
 
 
-  /* -------------------------------------------------------
-     HOME TEXT
-     ------------------------------------------------------- */
+  /* headings */
 
-  html:not(.dark)
-  .home-page
-  main
-  h1,
-  html:not(.dark)
-  .home-page
-  main
-  h2,
-  html:not(.dark)
-  .home-page
-  main
-  h3,
-  html:not(.dark)
-  .home-page
-  main
-  h4 {
-    color: #292629 !important;
+  .home-page main h1,
+  .home-page main h2,
+  .home-page main h3,
+  .home-page main h4,
+
+  .inner-page main h1,
+  .inner-page main h2,
+  .inner-page main h3,
+  .inner-page main h4 {
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif !important;
+
+    font-weight: 600 !important;
   }
 
 
-  html:not(.dark)
-  .home-page
-  main
-  p {
-    color: #292629 !important;
-  }
-
-
-  /* -------------------------------------------------------
-     HERO MOBILE
-     ------------------------------------------------------- */
+  /* Hero */
 
   .home-page
   .hero-section {
@@ -833,15 +672,7 @@ main
 
   .home-page
   .hero-section
-  p {
-    color: #FAF7F3 !important;
-  }
-
-
-  .home-page
-  .hero-section
-  h1
-  span {
+  h1 span {
     color: #FAF7F3 !important;
   }
 
@@ -850,51 +681,28 @@ main
   .hero-section
   .highlight-word {
     color: #d6a447 !important;
-
-    text-shadow:
-      0 0 8px rgba(214, 164, 71, 0.14);
   }
 
 
-  /* -------------------------------------------------------
-     INNER PAGE MOBILE
-     ------------------------------------------------------- */
-
-  html:not(.dark)
-  .inner-page
-  main
-  h1,
-  html:not(.dark)
-  .inner-page
-  main
-  h2,
-  html:not(.dark)
-  .inner-page
-  main
-  h3,
-  html:not(.dark)
-  .inner-page
-  main
-  h4 {
-    color: #292629 !important;
-  }
-
-
-  html:not(.dark)
-  .inner-page
-  main
+  .home-page
+  .hero-section
   p {
+    color: #FAF7F3 !important;
+  }
+
+
+  /* inner page text */
+
+  .inner-page main p {
     color: #292629 !important;
   }
 
 
-  /* -------------------------------------------------------
-     MOBILE IMAGES
-     ------------------------------------------------------- */
-
-  img,
-  video {
-    max-width: 100%;
+  .inner-page main h1,
+  .inner-page main h2,
+  .inner-page main h3,
+  .inner-page main h4 {
+    color: #292629 !important;
   }
 }
 
@@ -906,32 +714,10 @@ main
 @media (min-width: 769px) and (max-width: 1024px) {
 
   html,
-  body {
-    overflow-x: hidden;
-  }
-
-  #root,
-  .home-page,
-  .inner-page {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-}
-
-
-/* =========================================================
-   LARGE DESKTOP
-   ========================================================= */
-
-@media (min-width: 1280px) {
-
+  body,
   #root {
     max-width: 100%;
-  }
-
-  .home-page,
-  .inner-page {
-    max-width: 100%;
+    overflow-x: hidden;
   }
 }
 
@@ -951,103 +737,3 @@ main
     scroll-behavior: auto !important;
   }
 }
-
-
-/* =========================================================
-   FINAL HERO OVERRIDE
-   KEEP THIS AT THE VERY END
-   ========================================================= */
-
-.home-page
-.hero-section
-h1 {
-  color: #FAF7F3 !important;
-}
-
-
-.home-page
-.hero-section
-h1
-span {
-  color: #FAF7F3 !important;
-}
-
-
-.home-page
-.hero-section
-.highlight-word {
-  color: #d6a447 !important;
-}
-
-
-.home-page
-.hero-section
-p {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   FINAL LIGHT TEXT OVERRIDE
-   KEEP AFTER EVERYTHING ELSE
-   ========================================================= */
-
-html:not(.dark)
-.home-page
-main
-h1:not(.hero-section h1),
-html:not(.dark)
-.home-page
-main
-h2,
-html:not(.dark)
-.home-page
-main
-h3,
-html:not(.dark)
-.home-page
-main
-h4,
-html:not(.dark)
-.home-page
-main
-h5,
-html:not(.dark)
-.home-page
-main
-h6 {
-  color: #292629 !important;
-}
-
-
-html:not(.dark)
-.inner-page
-main
-h1,
-html:not(.dark)
-.inner-page
-main
-h2,
-html:not(.dark)
-.inner-page
-main
-h3,
-html:not(.dark)
-.inner-page
-main
-h4,
-html:not(.dark)
-.inner-page
-main
-h5,
-html:not(.dark)
-.inner-page
-main
-h6 {
-  color: #292629 !important;
-}
-
-
-/* =========================================================
-   END
-   ========================================================= */

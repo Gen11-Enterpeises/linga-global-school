@@ -1,12 +1,6 @@
 @import "tailwindcss";
 
-/* =========================================================
-   LINGA GLOBAL SCHOOL
-   GLOBAL THEME
-   ========================================================= */
-
 :root {
-  /* Brand palette */
   --dusty-rose: #C98F9A;
   --dusty-rose-dark: #B87884;
   --pale-blush: #E8CDD1;
@@ -22,43 +16,11 @@
   --deep-sage: #65756B;
 
   --espresso-charcoal: #332C2D;
-
-  /* Active light theme */
-  --theme-bg: #FAF7F3;
-  --theme-surface: #F1E9E3;
-  --theme-text: #292629;
-  --theme-muted: #716A6C;
-
-  --theme-border: rgba(41, 38, 41, 0.12);
-
-  color-scheme: light;
 }
-
-
-/* =========================================================
-   DARK MODE VARIABLES
-   ========================================================= */
-
-html.dark {
-  --theme-bg: #332C2D;
-  --theme-surface: #403839;
-
-  --theme-text: #FAF7F3;
-  --theme-muted: #D3C8C9;
-
-  --theme-border: rgba(250, 247, 243, 0.13);
-
-  color-scheme: dark;
-}
-
-
-/* =========================================================
-   HTML / BODY
-   ========================================================= */
 
 html {
   scroll-behavior: smooth;
-  background: var(--theme-bg);
+  background: #FAF7F3;
 }
 
 body {
@@ -70,8 +32,8 @@ body {
 
   overflow-x: hidden;
 
-  background: var(--theme-bg);
-  color: var(--theme-text);
+  background: #FAF7F3;
+  color: #292629;
 
   font-family:
     Manrope,
@@ -82,19 +44,11 @@ body {
     "Segoe UI",
     sans-serif;
 
-  transition:
-    background-color 350ms ease,
-    color 350ms ease;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-
-/* =========================================================
-   GLOBAL BOX SIZING
-   ========================================================= */
-
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
@@ -103,15 +57,8 @@ main {
   max-width: 100%;
 }
 
-section {
-  max-width: 100%;
-}
-
 img,
-video {
-  max-width: 100%;
-}
-
+video,
 iframe {
   max-width: 100%;
 }
@@ -121,470 +68,42 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-
-/* =========================================================
-   TEXT SELECTION
-   ========================================================= */
-
 ::selection {
-  background: var(--dusty-rose);
-  color: var(--deep-charcoal);
+  background: #C98F9A;
+  color: #292629;
 }
-
-
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
 
 ::-webkit-scrollbar {
   width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--soft-cream);
+  background: #F1E9E3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--dusty-rose);
+  background: #C98F9A;
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--dusty-rose-dark);
+  background: #B87884;
 }
-
-
-/* =========================================================
-   FOCUS
-   ========================================================= */
 
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--dusty-rose);
+  outline: 2px solid #C98F9A;
   outline-offset: 3px;
 }
 
-
-/* =========================================================
-   PAGE BACKGROUNDS
-   ========================================================= */
-
-/* LIGHT */
-
-html:not(.dark) .home-page {
-  background: var(--warm-ivory);
-  color: var(--deep-charcoal);
-}
-
-html:not(.dark) .inner-page {
-  background: var(--warm-ivory);
-  color: var(--deep-charcoal);
-}
-
-html:not(.dark) .home-page main,
-html:not(.dark) .inner-page main {
-  background:
-    linear-gradient(
-      180deg,
-      #FAF7F3 0%,
-      #F1E9E3 50%,
-      #FAF7F3 100%
-    );
-
-  color: var(--deep-charcoal);
-}
-
-
-/* DARK */
-
-html.dark .home-page {
-  background: var(--espresso-charcoal);
-  color: var(--warm-ivory);
-}
-
-html.dark .inner-page {
-  background: var(--espresso-charcoal);
-  color: var(--warm-ivory);
-}
-
-html.dark .home-page main,
-html.dark .inner-page main {
-  background:
-    linear-gradient(
-      180deg,
-      #332C2D 0%,
-      #292526 50%,
-      #332C2D 100%
-    );
-
-  color: var(--warm-ivory);
-}
-
-
-/* =========================================================
-   LIGHT MODE
-   HOME PAGE TEXT
-   ========================================================= */
-
-/*
-   IMPORTANT:
-   We deliberately target actual text elements instead of
-   changing the whole page's color. This prevents buttons,
-   icons and special components from getting unwanted colors.
-*/
-
-html:not(.dark) .home-page main h1,
-html:not(.dark) .home-page main h2,
-html:not(.dark) .home-page main h3,
-html:not(.dark) .home-page main h4,
-html:not(.dark) .home-page main h5,
-html:not(.dark) .home-page main h6 {
-  color: #292629 !important;
-}
-
-html:not(.dark) .home-page main p {
-  color: #292629 !important;
-}
-
-html:not(.dark) .home-page main li {
-  color: #292629 !important;
-}
-
-
-/* muted paragraphs */
-
-html:not(.dark) .home-page main p[class*="text-bone/"],
-html:not(.dark) .home-page main p[class*="text-white/"] {
-  color: #716A6C !important;
-}
-
-
-/* =========================================================
-   LIGHT MODE
-   INNER PAGE TEXT
-   ========================================================= */
-
-html:not(.dark) .inner-page main h1,
-html:not(.dark) .inner-page main h2,
-html:not(.dark) .inner-page main h3,
-html:not(.dark) .inner-page main h4,
-html:not(.dark) .inner-page main h5,
-html:not(.dark) .inner-page main h6 {
-  color: #292629 !important;
-}
-
-html:not(.dark) .inner-page main p {
-  color: #292629 !important;
-}
-
-html:not(.dark) .inner-page main li {
-  color: #292629 !important;
-}
-
-
-/* muted text on inner pages */
-
-html:not(.dark) .inner-page main p[class*="text-bone/"],
-html:not(.dark) .inner-page main p[class*="text-white/"] {
-  color: #716A6C !important;
-}
-
-
-/* =========================================================
-   IMPORTANT:
-   EXISTING TAILWIND WHITE/BONE TEXT
-   ========================================================= */
-
-/*
-   These selectors solve the exact problem where existing
-   components have text-white/text-bone classes.
-*/
-
-html:not(.dark) .home-page main [class~="text-bone"],
-html:not(.dark) .home-page main [class~="text-white"] {
-  color: #292629 !important;
-}
-
-html:not(.dark) .inner-page main [class~="text-bone"],
-html:not(.dark) .inner-page main [class~="text-white"] {
-  color: #292629 !important;
-}
-
-
-/* opacity variants */
-
-html:not(.dark) .home-page main [class*="text-bone/"],
-html:not(.dark) .home-page main [class*="text-white/"],
-html:not(.dark) .inner-page main [class*="text-bone/"],
-html:not(.dark) .inner-page main [class*="text-white/"] {
-  color: #716A6C !important;
-}
-
-
-/* =========================================================
-   HERO
-   HERO MUST STAY DARK
-   ========================================================= */
-
-html:not(.dark) .home-page .hero-section,
-html.dark .home-page .hero-section {
-  background: #090908 !important;
-}
-
-
-/* Hero itself always has white base text */
-
-.home-page .hero-section {
-  color: #FAF7F3 !important;
-}
-
-
-/* Hero headings */
-
-.home-page .hero-section h1 {
-  color: #FAF7F3 !important;
-}
-
-
-/* Hero paragraphs */
-
-.home-page .hero-section p {
-  color: #FAF7F3 !important;
-}
-
-
-/* Hero links / normal text */
-
-.home-page .hero-section a {
-  color: inherit;
-}
-
-
-/* Hero spans should inherit white */
-
-.home-page .hero-section h1 span {
-  color: inherit !important;
-}
-
-
-/* =========================================================
-   HERO GOLD WORDS
-   ========================================================= */
-
-.home-page .hero-section .highlight-word {
-  color: #d6a447 !important;
-
-  text-shadow:
-    0 0 10px rgba(214, 164, 71, 0.16),
-    0 0 25px rgba(214, 164, 71, 0.08);
-}
-
-
-/* If old text-bone classes exist inside hero */
-
-html:not(.dark) .home-page .hero-section [class~="text-bone"],
-html:not(.dark) .home-page .hero-section [class~="text-white"],
-html.dark .home-page .hero-section [class~="text-bone"],
-html.dark .home-page .hero-section [class~="text-white"] {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   HERO GOLD PRESERVED
-   ========================================================= */
-
-.home-page .hero-section
-[class*="highlight-word"] {
-  color: #d6a447 !important;
-}
-
-
-/* =========================================================
-   DARK MODE HOME
-   ========================================================= */
-
-html.dark .home-page main h1,
-html.dark .home-page main h2,
-html.dark .home-page main h3,
-html.dark .home-page main h4,
-html.dark .home-page main h5,
-html.dark .home-page main h6 {
-  color: #FAF7F3 !important;
-}
-
-html.dark .home-page main p {
-  color: #FAF7F3 !important;
-}
-
-html.dark .home-page main li {
-  color: #FAF7F3 !important;
-}
-
-
-/* dark muted text */
-
-html.dark .home-page main p[class*="text-bone/"],
-html.dark .home-page main p[class*="text-white/"] {
-  color: #D3C8C9 !important;
-}
-
-
-/* =========================================================
-   DARK MODE INNER PAGES
-   ========================================================= */
-
-html.dark .inner-page main h1,
-html.dark .inner-page main h2,
-html.dark .inner-page main h3,
-html.dark .inner-page main h4,
-html.dark .inner-page main h5,
-html.dark .inner-page main h6 {
-  color: #FAF7F3 !important;
-}
-
-html.dark .inner-page main p {
-  color: #FAF7F3 !important;
-}
-
-html.dark .inner-page main li {
-  color: #FAF7F3 !important;
-}
-
-html.dark .inner-page main p[class*="text-bone/"],
-html.dark .inner-page main p[class*="text-white/"] {
-  color: #D3C8C9 !important;
-}
-
-
-/* =========================================================
-   DARK MODE EXISTING WHITE/BONE CLASSES
-   ========================================================= */
-
-html.dark .home-page main [class~="text-bone"],
-html.dark .home-page main [class~="text-white"],
-html.dark .inner-page main [class~="text-bone"],
-html.dark .inner-page main [class~="text-white"] {
-  color: #FAF7F3 !important;
-}
-
-
-/* =========================================================
-   GOLD ACCENTS
-   ========================================================= */
-
-.text-gold,
-[class*="text-gold"] {
-  color: #C6A66B !important;
-}
-
-
-/* =========================================================
-   LINKS
-   ========================================================= */
-
-html:not(.dark) .inner-page main a:not([class*="bg-"]) {
-  transition:
-    color 250ms ease,
-    opacity 250ms ease;
-}
-
-html:not(.dark) .inner-page main a:not([class*="bg-"]):hover {
-  color: #C98F9A !important;
-}
-
-html.dark .inner-page main a:not([class*="bg-"]):hover {
-  color: #C6A66B !important;
-}
-
-
-/* =========================================================
-   CARDS
-   ========================================================= */
-
-html:not(.dark) .home-page main [class*="border"] {
-  border-color: rgba(41, 38, 41, 0.10);
-}
-
-html:not(.dark) .inner-page main [class*="border"] {
-  border-color: rgba(41, 38, 41, 0.10);
-}
-
-html.dark .home-page main [class*="border"] {
-  border-color: rgba(250, 247, 243, 0.12);
-}
-
-html.dark .inner-page main [class*="border"] {
-  border-color: rgba(250, 247, 243, 0.12);
-}
-
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 1024px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  main {
-    overflow-x: hidden;
-  }
-
-  section {
-    max-width: 100%;
-  }
-}
-
-
 @media (max-width: 768px) {
-
-  html {
-    overflow-x: hidden;
-  }
-
+  html,
   body {
     overflow-x: hidden;
   }
-
-  .home-page,
-  .inner-page {
-    overflow-x: hidden;
-  }
-
-  img,
-  video {
-    max-width: 100%;
-  }
-
-  /*
-     Keep Hero readable on mobile.
-  */
-
-  .home-page .hero-section h1 {
-    color: #FAF7F3 !important;
-  }
-
-  .home-page .hero-section p {
-    color: #FAF7F3 !important;
-  }
-
-  .home-page .hero-section .highlight-word {
-    color: #d6a447 !important;
-
-    text-shadow:
-      0 0 8px rgba(214, 164, 71, 0.14);
-  }
 }
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
