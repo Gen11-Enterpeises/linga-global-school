@@ -10,9 +10,9 @@ export default function Enquiry() {
   }
 
   return (
-    <div className="min-h-screen bg-[#090908] text-[#f4f1ea]">
+    <div className="min-h-screen bg-[#FAF7F3] text-[#292629]">
 
-      <section className="relative overflow-hidden border-b border-white/10">
+      <section className="relative overflow-hidden border-b border-[#292629]/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(184,135,47,0.18),transparent_40%)]" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-24 pb-20">
@@ -29,7 +29,7 @@ export default function Enquiry() {
             Admission Enquiry
           </h1>
 
-          <p className="max-w-2xl mt-6 text-white/65 text-lg leading-8">
+          <p className="max-w-2xl mt-6 text-[#716A6C] text-lg leading-8">
             Interested in Linga Global School? Share your details and enquiry
             with us.
           </p>
@@ -47,7 +47,7 @@ export default function Enquiry() {
           >
             <div className="school-glass rounded-3xl p-8 md:p-10 h-full">
 
-              <p className="text-[#b8872f] uppercase tracking-[0.2em] text-xs mb-4">
+              <p className="text-[#C6A66B] uppercase tracking-[0.2em] text-xs mb-4">
                 Linga Global School
               </p>
 
@@ -60,7 +60,7 @@ export default function Enquiry() {
                 Begin your child's journey with us.
               </h2>
 
-              <p className="text-white/60 leading-7 mt-6">
+              <p className="text-[#716A6C] leading-7 mt-6">
                 For admission-related information, please submit the enquiry
                 form. The school team can provide further details regarding
                 admissions, classes and the admission process.
@@ -69,22 +69,22 @@ export default function Enquiry() {
               <div className="mt-10 space-y-5">
 
                 <div>
-                  <p className="text-white/40 text-sm">Location</p>
-                  <p className="text-white/75 mt-1">
+                  <p className="text-[#716A6C] text-sm">Location</p>
+                  <p className="text-[#716A6C] mt-1">
                     Krishnankoil, Virudhunagar District, Tamil Nadu
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-white/40 text-sm">Email</p>
-                  <p className="text-white/75 mt-1">
+                  <p className="text-[#716A6C] text-sm">Email</p>
+                  <p className="text-[#716A6C] mt-1">
                     info@lingaschool.org
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-white/40 text-sm">Phone</p>
-                  <p className="text-white/75 mt-1">
+                  <p className="text-[#716A6C] text-sm">Phone</p>
+                  <p className="text-[#716A6C] mt-1">
                     +91 7373727290
                   </p>
                 </div>
@@ -107,7 +107,7 @@ export default function Enquiry() {
               <div className="grid md:grid-cols-2 gap-5">
 
                 <div>
-                  <label className="block text-sm text-white/60 mb-2">
+                  <label className="block text-sm text-[#716A6C] mb-2">
                     Parent / Guardian Name
                   </label>
 
@@ -115,12 +115,12 @@ export default function Enquiry() {
                     type="text"
                     required
                     placeholder="Enter your name"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3.5 outline-none focus:border-[#b8872f] transition placeholder:text-white/25"
+                    className="w-full rounded-xl border border-[#292629]/10 bg-[#F1E9E3] px-4 py-3.5 outline-none focus:border-[#C6A66B] transition placeholder:text-[#716A6C]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm text-white/60 mb-2">
+                  <label className="block text-sm text-[#716A6C] mb-2">
                     Student Name
                   </label>
 
@@ -128,12 +128,12 @@ export default function Enquiry() {
                     type="text"
                     required
                     placeholder="Enter student name"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3.5 outline-none focus:border-[#b8872f] transition placeholder:text-white/25"
+                    className="w-full rounded-xl border border-[#292629]/10 bg-[#F1E9E3] px-4 py-3.5 outline-none focus:border-[#C6A66B] transition placeholder:text-[#716A6C]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm text-white/60 mb-2">
+                  <label className="block text-sm text-[#716A6C] mb-2">
                     Phone Number
                   </label>
 
@@ -141,30 +141,30 @@ export default function Enquiry() {
                     type="tel"
                     required
                     placeholder="Enter phone number"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3.5 outline-none focus:border-[#b8872f] transition placeholder:text-white/25"
+                    className="w-full rounded-xl border border-[#292629]/10 bg-[#F1E9E3] px-4 py-3.5 outline-none focus:border-[#C6A66B] transition placeholder:text-[#716A6C]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm text-white/60 mb-2">
+                  <label className="block text-sm text-[#716A6C] mb-2">
                     Email
                   </label>
 
                   <input
                     type="email"
                     placeholder="Enter email"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3.5 outline-none focus:border-[#b8872f] transition placeholder:text-white/25"
+                    className="w-full rounded-xl border border-[#292629]/10 bg-[#F1E9E3] px-4 py-3.5 outline-none focus:border-[#C6A66B] transition placeholder:text-[#716A6C]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm text-white/60 mb-2">
+                  <label className="block text-sm text-[#716A6C] mb-2">
                     Class Applying For
                   </label>
 
                   <select
                     required
-                    className="w-full rounded-xl border border-white/10 bg-[#151412] px-4 py-3.5 outline-none focus:border-[#b8872f] transition"
+                    className="w-full rounded-xl border border-[#292629]/10 bg-[#F1E9E3] px-4 py-3.5 outline-none focus:border-[#C6A66B] transition"
                   >
                     <option value="">Select class</option>
                     <option>Pre-KG</option>
@@ -186,21 +186,21 @@ export default function Enquiry() {
                 </div>
 
                 <div>
-                  <label className="block text-sm text-white/60 mb-2">
+                  <label className="block text-sm text-[#716A6C] mb-2">
                     Previous School
                   </label>
 
                   <input
                     type="text"
                     placeholder="Previous school name"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3.5 outline-none focus:border-[#b8872f] transition placeholder:text-white/25"
+                    className="w-full rounded-xl border border-[#292629]/10 bg-[#F1E9E3] px-4 py-3.5 outline-none focus:border-[#C6A66B] transition placeholder:text-[#716A6C]"
                   />
                 </div>
 
               </div>
 
               <div className="mt-5">
-                <label className="block text-sm text-white/60 mb-2">
+                <label className="block text-sm text-[#716A6C] mb-2">
                   Your Enquiry
                 </label>
 
@@ -208,19 +208,19 @@ export default function Enquiry() {
                   rows="5"
                   required
                   placeholder="Write your admission enquiry..."
-                  className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3.5 outline-none focus:border-[#b8872f] transition resize-none placeholder:text-white/25"
+                  className="w-full rounded-xl border border-[#292629]/10 bg-[#F1E9E3] px-4 py-3.5 outline-none focus:border-[#C6A66B] transition resize-none placeholder:text-[#716A6C]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="mt-7 w-full rounded-full bg-[#b8872f] py-4 font-semibold text-[#090908] hover:bg-[#d6a447] transition"
+                className="mt-7 w-full rounded-full bg-[#C6A66B] py-4 font-semibold text-[#292629] hover:bg-[#D9BC85] transition"
               >
                 Submit Enquiry →
               </button>
 
               {submitted && (
-                <p className="mt-5 rounded-xl border border-[#b8872f]/30 bg-[#b8872f]/10 p-4 text-center text-[#d6a447]">
+                <p className="mt-5 rounded-xl border border-[#C6A66B]/30 bg-[#C6A66B]/10 p-4 text-center text-[#A87A2E]">
                   Thank you. Your enquiry has been submitted.
                 </p>
               )}

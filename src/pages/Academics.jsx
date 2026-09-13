@@ -93,9 +93,9 @@ function Section({ number, title, children }) {
 
 export default function Academics() {
   return (
-    <div className="min-h-screen bg-[#090908] text-[#f4f1ea]">
+    <div className="min-h-screen bg-[#FAF7F3] text-[#292629]">
 
-      <section className="relative overflow-hidden border-b border-white/10">
+      <section className="relative overflow-hidden border-b border-[#292629]/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(184,135,47,0.15),transparent_40%)]" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-24 pb-20">
@@ -112,7 +112,7 @@ export default function Academics() {
             Academics
           </h1>
 
-          <p className="max-w-3xl mt-6 text-white/65 text-lg leading-8">
+          <p className="max-w-3xl mt-6 text-[#716A6C] text-lg leading-8">
             Linga Global School follows a structured academic approach focused
             on conceptual learning, critical thinking, skill development and
             holistic student growth.
@@ -133,8 +133,8 @@ export default function Academics() {
                 key={title}
                 className="school-glass rounded-2xl p-7"
               >
-                <p className="text-white/50 text-sm mb-3">{title}</p>
-                <p className="text-2xl font-semibold text-[#d6a447]">
+                <p className="text-[#716A6C] text-sm mb-3">{title}</p>
+                <p className="text-2xl font-semibold text-[#A87A2E]">
                   {value}
                 </p>
               </div>
@@ -143,7 +143,7 @@ export default function Academics() {
         </Section>
 
         <Section number={2} title="CBSE Curriculum Overview">
-          <p className="text-white/65 leading-8 max-w-4xl mb-8">
+          <p className="text-[#716A6C] leading-8 max-w-4xl mb-8">
             Linga Global School follows a structured curriculum as per CBSE
             guidelines, ensuring conceptual learning, critical thinking, and
             skill development at every stage.
@@ -189,7 +189,7 @@ export default function Academics() {
                 key={title}
                 className="school-glass rounded-2xl p-7"
               >
-                <p className="text-[#b8872f] text-sm mb-2">
+                <p className="text-[#C6A66B] text-sm mb-2">
                   {grades}
                 </p>
 
@@ -197,10 +197,10 @@ export default function Academics() {
                   {title}
                 </h3>
 
-                <ul className="space-y-3 text-white/65 leading-7">
+                <ul className="space-y-3 text-[#716A6C] leading-7">
                   {points.map((point) => (
                     <li key={point}>
-                      <span className="text-[#b8872f] mr-2">•</span>
+                      <span className="text-[#C6A66B] mr-2">•</span>
                       {point}
                     </li>
                   ))}
@@ -216,7 +216,7 @@ export default function Academics() {
           <div className="grid md:grid-cols-2 gap-6">
 
             <div className="school-glass rounded-2xl p-8">
-              <p className="text-[#b8872f] uppercase tracking-widest text-xs mb-3">
+              <p className="text-[#C6A66B] uppercase tracking-widest text-xs mb-3">
                 Stream 01
               </p>
 
@@ -228,7 +228,7 @@ export default function Academics() {
                 Compulsory Subjects
               </p>
 
-              <p className="text-white/65 mb-6">
+              <p className="text-[#716A6C] mb-6">
                 English, Physics & Chemistry
               </p>
 
@@ -236,14 +236,14 @@ export default function Academics() {
                 Optional Subjects
               </p>
 
-              <ul className="space-y-3 text-white/65">
+              <ul className="space-y-3 text-[#716A6C]">
                 <li>• Maths / Core Tamil / Core Hindi / History</li>
                 <li>• Biology / Computer Science</li>
               </ul>
             </div>
 
             <div className="school-glass rounded-2xl p-8">
-              <p className="text-[#b8872f] uppercase tracking-widest text-xs mb-3">
+              <p className="text-[#C6A66B] uppercase tracking-widest text-xs mb-3">
                 Stream 02
               </p>
 
@@ -255,7 +255,7 @@ export default function Academics() {
                 Compulsory Subjects
               </p>
 
-              <p className="text-white/65 mb-6">
+              <p className="text-[#716A6C] mb-6">
                 English, Accountancy & Business Studies
               </p>
 
@@ -263,7 +263,7 @@ export default function Academics() {
                 Optional Subjects
               </p>
 
-              <ul className="space-y-3 text-white/65">
+              <ul className="space-y-3 text-[#716A6C]">
                 <li>• Applied Maths / Core Tamil / Core Hindi / History</li>
                 <li>• Economics / Computer Science</li>
               </ul>
@@ -276,7 +276,7 @@ export default function Academics() {
               Language Options
             </h3>
 
-            <p className="text-white/65 leading-7">
+            <p className="text-[#716A6C] leading-7">
               For Std. I – X, CBSE-based assessment covers academics and
               overall development, with focus on analytical, creative, and
               research skills through interactive learning.
@@ -286,15 +286,15 @@ export default function Academics() {
         </Section>
 
         <Section number={4} title="School Timings">
-          <p className="text-white/65 leading-7 mb-7">
+          <p className="text-[#716A6C] leading-7 mb-7">
             Our school functions on a structured schedule ensuring effective
             learning, physical activity, and personal growth.
           </p>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/10">
+          <div className="overflow-x-auto rounded-2xl border border-[#292629]/10">
             <table className="w-full min-w-[500px]">
               <thead>
-                <tr className="bg-[#b8872f] text-[#090908]">
+                <tr className="bg-[#C6A66B] text-[#292629]">
                   <th className="text-left px-6 py-4">Timing</th>
                   <th className="text-left px-6 py-4">Activity</th>
                 </tr>
@@ -304,13 +304,13 @@ export default function Academics() {
                 {timings.map(([time, activity]) => (
                   <tr
                     key={time}
-                    className="border-b border-white/10 bg-[#151412]"
+                    className="border-b border-[#292629]/10 bg-[#F1E9E3]"
                   >
-                    <td className="px-6 py-4 text-[#d6a447] font-medium">
+                    <td className="px-6 py-4 text-[#A87A2E] font-medium">
                       {time}
                     </td>
 
-                    <td className="px-6 py-4 text-white/70">
+                    <td className="px-6 py-4 text-[#716A6C]">
                       {activity}
                     </td>
                   </tr>
@@ -322,21 +322,21 @@ export default function Academics() {
 
         <Section number={5} title="Examination & Promotion Policy">
           <div className="school-glass rounded-2xl p-8 mb-8">
-            <ol className="space-y-5 text-white/70 leading-7">
+            <ol className="space-y-5 text-[#716A6C] leading-7">
               <li>
-                <span className="text-[#b8872f] mr-3">01</span>
+                <span className="text-[#C6A66B] mr-3">01</span>
                 Students are assessed through internal evaluations, projects,
                 and term exams.
               </li>
 
               <li>
-                <span className="text-[#b8872f] mr-3">02</span>
+                <span className="text-[#C6A66B] mr-3">02</span>
                 Promotion is based on continuous performance, assignments,
                 and attendance.
               </li>
 
               <li>
-                <span className="text-[#b8872f] mr-3">03</span>
+                <span className="text-[#C6A66B] mr-3">03</span>
                 Reports of terminal examinations are issued three times a year.
               </li>
             </ol>
@@ -346,10 +346,10 @@ export default function Academics() {
             Examination Schedule
           </h3>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/10">
+          <div className="overflow-x-auto rounded-2xl border border-[#292629]/10">
             <table className="w-full min-w-[700px]">
               <thead>
-                <tr className="bg-[#b8872f] text-[#090908]">
+                <tr className="bg-[#C6A66B] text-[#292629]">
                   <th className="text-left px-6 py-4">Department</th>
                   <th className="text-left px-6 py-4">Exam Months</th>
                 </tr>
@@ -359,13 +359,13 @@ export default function Academics() {
                 {exams.map(([department, months]) => (
                   <tr
                     key={department}
-                    className="border-b border-white/10 bg-[#151412]"
+                    className="border-b border-[#292629]/10 bg-[#F1E9E3]"
                   >
                     <td className="px-6 py-4 font-medium">
                       {department}
                     </td>
 
-                    <td className="px-6 py-4 text-white/65">
+                    <td className="px-6 py-4 text-[#716A6C]">
                       {months}
                     </td>
                   </tr>
@@ -376,16 +376,16 @@ export default function Academics() {
         </Section>
 
         <Section number={6} title="Faculty & Staff">
-          <p className="text-white/65 leading-7 mb-7">
+          <p className="text-[#716A6C] leading-7 mb-7">
             Linga Global School is proud to have a dedicated and experienced
             teaching faculty committed to academic excellence and student
             welfare.
           </p>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/10">
+          <div className="overflow-x-auto rounded-2xl border border-[#292629]/10">
             <table className="w-full min-w-[500px]">
               <thead>
-                <tr className="bg-[#b8872f] text-[#090908]">
+                <tr className="bg-[#C6A66B] text-[#292629]">
                   <th className="text-left px-6 py-4">Designation</th>
                   <th className="text-left px-6 py-4">Total</th>
                 </tr>
@@ -395,13 +395,13 @@ export default function Academics() {
                 {faculty.map(([designation, total]) => (
                   <tr
                     key={designation}
-                    className="border-b border-white/10 bg-[#151412]"
+                    className="border-b border-[#292629]/10 bg-[#F1E9E3]"
                   >
                     <td className="px-6 py-4 font-medium">
                       {designation}
                     </td>
 
-                    <td className="px-6 py-4 text-[#d6a447] font-semibold">
+                    <td className="px-6 py-4 text-[#A87A2E] font-semibold">
                       {total}
                     </td>
                   </tr>
@@ -412,15 +412,15 @@ export default function Academics() {
         </Section>
 
         <Section number={7} title="Uniform Guidelines">
-          <p className="text-white/65 leading-7 mb-7">
+          <p className="text-[#716A6C] leading-7 mb-7">
             We encourage students to wear their designated uniforms as per the
             weekly schedule to promote discipline and unity.
           </p>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/10">
+          <div className="overflow-x-auto rounded-2xl border border-[#292629]/10">
             <table className="w-full min-w-[1000px]">
               <thead>
-                <tr className="bg-[#b8872f] text-[#090908]">
+                <tr className="bg-[#C6A66B] text-[#292629]">
                   <th className="px-4 py-4">Classes</th>
                   <th className="px-4 py-4">Monday</th>
                   <th className="px-4 py-4">Tuesday</th>
@@ -435,15 +435,15 @@ export default function Academics() {
                 {uniforms.map((row) => (
                   <tr
                     key={row[0]}
-                    className="border-b border-white/10 bg-[#151412]"
+                    className="border-b border-[#292629]/10 bg-[#F1E9E3]"
                   >
                     {row.map((cell, index) => (
                       <td
                         key={`${row[0]}-${index}`}
                         className={`px-4 py-4 text-center ${
                           index === 0
-                            ? 'font-semibold text-[#d6a447]'
-                            : 'text-white/65'
+                            ? 'font-semibold text-[#A87A2E]'
+                            : 'text-[#716A6C]'
                         }`}
                       >
                         {cell}
@@ -457,15 +457,15 @@ export default function Academics() {
         </Section>
 
         <Section number={8} title="Academic Calendar 2025–2026">
-          <p className="text-white/65 leading-7 mb-7">
+          <p className="text-[#716A6C] leading-7 mb-7">
             Our school ensures a balanced academic year with ample time for
             learning, assessments, and extracurricular activities.
           </p>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/10">
+          <div className="overflow-x-auto rounded-2xl border border-[#292629]/10">
             <table className="w-full min-w-[500px]">
               <thead>
-                <tr className="bg-[#b8872f] text-[#090908]">
+                <tr className="bg-[#C6A66B] text-[#292629]">
                   <th className="text-left px-6 py-4">Month</th>
                   <th className="text-left px-6 py-4">
                     No. of Working Days
@@ -477,17 +477,17 @@ export default function Academics() {
                 {calendar.map(([month, days]) => (
                   <tr
                     key={month}
-                    className={`border-b border-white/10 ${
+                    className={`border-b border-[#292629]/10 ${
                       month === 'Total'
-                        ? 'bg-[#1c1914]'
-                        : 'bg-[#151412]'
+                        ? 'bg-[#F1E9E3]'
+                        : 'bg-[#F1E9E3]'
                     }`}
                   >
                     <td className="px-6 py-4 font-medium">
                       {month}
                     </td>
 
-                    <td className="px-6 py-4 text-[#d6a447] font-semibold">
+                    <td className="px-6 py-4 text-[#A87A2E] font-semibold">
                       {days}
                     </td>
                   </tr>

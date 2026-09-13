@@ -5,7 +5,7 @@ export default function CTA() {
   return (
     <section className="
       relative overflow-hidden
-      bg-[#090908]
+      bg-[#FAF7F3]
       px-5 py-24
       text-center
       sm:px-6
@@ -22,7 +22,7 @@ export default function CTA() {
           rounded-full blur-[150px]
         "
         style={{
-          background: '#b8872f',
+          background: '#C6A66B',
           opacity: 0.07,
         }}
       />
@@ -32,7 +32,7 @@ export default function CTA() {
         absolute left-0 right-0 top-0
         h-px bg-gradient-to-r
         from-transparent
-        via-[#b8872f]/50
+        via-[#C6A66B]/50
         to-transparent
       " />
 
@@ -45,23 +45,23 @@ export default function CTA() {
       >
 
         <div className="mb-6 flex items-center justify-center gap-3">
-          <span className="h-[2px] w-8 bg-[#b8872f]" />
+          <span className="h-[2px] w-8 bg-[#C6A66B]" />
 
           <span className="
             text-[10px]
             uppercase tracking-[0.25em]
-            text-[#b8872f]
+            text-[#C6A66B]
           ">
             Connect with us
           </span>
 
-          <span className="h-[2px] w-8 bg-[#b8872f]" />
+          <span className="h-[2px] w-8 bg-[#C6A66B]" />
         </div>
 
         <h2
           className="
             text-3xl leading-tight
-            text-[#f4f1ea]
+            text-[#292629]
             sm:text-4xl
             md:text-5xl
           "
@@ -77,7 +77,7 @@ export default function CTA() {
           mx-auto mt-5
           max-w-lg
           text-sm leading-6
-          text-[#f4f1ea]/55
+          text-[#292629]/55
           md:text-base
         ">
           Get in touch with Linga Global School for more information.
@@ -93,13 +93,13 @@ export default function CTA() {
               items-center
               justify-center
               rounded-full
-              bg-[#d6a447]
+              bg-[#C6A66B]
               px-7 py-4
               text-sm font-medium
-              text-[#090908]
+              text-[#292629]
               shadow-[0_10px_35px_rgba(184,135,47,0.15)]
               transition-all duration-300
-              hover:bg-[#e1b45d]
+              hover:bg-[#D9BC85]
               hover:shadow-[0_15px_45px_rgba(184,135,47,0.22)]
               md:px-9 md:text-base
             "

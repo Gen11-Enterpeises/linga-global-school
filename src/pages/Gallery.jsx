@@ -47,7 +47,7 @@ const IMAGES = Object.entries(allAssets)
 
 export default function Gallery() {
   return (
-    <main className="min-h-screen bg-[#f4f1ea]">
+    <main className="min-h-screen bg-[#F1E9E3]">
 
       {/* ================================
           HEADER
@@ -60,7 +60,7 @@ export default function Gallery() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-3 text-xs uppercase tracking-[0.25em] text-[#b8872f]"
+            className="mb-3 text-xs uppercase tracking-[0.25em] text-[#C6A66B]"
           >
             Life at Linga
           </motion.p>
@@ -69,7 +69,7 @@ export default function Gallery() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="font-display text-4xl leading-tight text-[#1c1b1a] sm:text-5xl md:text-6xl"
+            className="font-display text-4xl leading-tight text-[#292629] sm:text-5xl md:text-6xl"
             style={{
               fontFamily: 'Georgia, "Times New Roman", serif',
               fontWeight: 600,
@@ -82,7 +82,7 @@ export default function Gallery() {
             initial={{ width: 0 }}
             animate={{ width: 48 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-5 h-[2px] bg-[#b8872f]"
+            className="mt-5 h-[2px] bg-[#C6A66B]"
           />
 
           <motion.p
@@ -156,7 +156,7 @@ export default function Gallery() {
                 break-inside-avoid
                 overflow-hidden
                 rounded-xl
-                bg-[#151412]
+                bg-[#F1E9E3]
               "
             >
 
@@ -206,7 +206,7 @@ export default function Gallery() {
                   h-[2px]
                   origin-left
                   scale-x-0
-                  bg-[#b8872f]
+                  bg-[#C6A66B]
                   transition-transform
                   duration-500
                   group-hover:scale-x-100
@@ -231,7 +231,7 @@ export default function Gallery() {
                 "
               >
 
-                <p className="text-sm font-medium capitalize text-white">
+                <p className="text-sm font-medium capitalize text-[#292629]">
                   {photo.title}
                 </p>
 

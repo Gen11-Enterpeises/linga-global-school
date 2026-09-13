@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-[#090908] text-[#f4f1ea]">
+    <main className="min-h-screen bg-[#FAF7F3] text-[#292629]">
 
       {/* Header */}
-      <section className="border-b border-white/10">
+      <section className="border-b border-[#292629]/10">
         <div className="mx-auto max-w-5xl px-5 py-20 sm:px-6 md:px-10 md:py-28">
 
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-[#d6a447]">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-[#A87A2E]">
             Privacy & Data Protection
           </p>
 
@@ -21,13 +21,13 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
 
-          <p className="mt-6 max-w-3xl text-base leading-8 text-white/60 md:text-lg">
+          <p className="mt-6 max-w-3xl text-base leading-8 text-[#716A6C] md:text-lg">
             Linga Global School respects your privacy. This Privacy Policy
             explains how information may be collected and handled when you
             visit this website or communicate with the school through it.
           </p>
 
-          <p className="mt-5 text-sm text-white/40">
+          <p className="mt-5 text-sm text-[#716A6C]">
             Last updated: September 2026
           </p>
 
@@ -54,7 +54,7 @@ export default function PrivacyPolicy() {
                 href="https://www.lingaschool.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#d6a447] hover:underline"
+                className="text-[#A87A2E] hover:underline"
               >
                 www.lingaschool.org
               </a>
@@ -173,7 +173,7 @@ export default function PrivacyPolicy() {
               that are actually required by its implemented functionality.
             </p>
 
-            <h3 className="pt-2 text-lg font-semibold text-white">
+            <h3 className="pt-2 text-lg font-semibold text-[#292629]">
               Necessary functionality
             </h3>
 
@@ -183,7 +183,7 @@ export default function PrivacyPolicy() {
               mechanisms are not intended to be used for advertising profiles.
             </p>
 
-            <h3 className="pt-2 text-lg font-semibold text-white">
+            <h3 className="pt-2 text-lg font-semibold text-[#292629]">
               Analytics and tracking
             </h3>
 
@@ -353,9 +353,9 @@ export default function PrivacyPolicy() {
           </PolicySection>
 
           {/* Contact */}
-          <section className="rounded-3xl border border-[#d6a447]/20 bg-[#d6a447]/5 p-7 md:p-9">
+          <section className="rounded-3xl border border-[#A87A2E]/20 bg-[#C6A66B]/5 p-7 md:p-9">
 
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#d6a447]">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#A87A2E]">
               Contact
             </p>
 
@@ -368,7 +368,7 @@ export default function PrivacyPolicy() {
               Privacy questions?
             </h2>
 
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/60 md:text-base">
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#716A6C] md:text-base">
               For privacy, data-processing or website-related questions,
               please contact Linga Global School using the official contact
               details below.
@@ -378,28 +378,28 @@ export default function PrivacyPolicy() {
 
               <a
                 href="mailto:info@lingaschool.org"
-                className="rounded-full border border-[#d6a447]/40 px-5 py-3 text-sm font-medium text-[#d6a447] transition hover:bg-[#d6a447] hover:text-black"
+                className="rounded-full border border-[#A87A2E]/40 px-5 py-3 text-sm font-medium text-[#A87A2E] transition hover:bg-[#D9BC85] hover:text-[#292629]"
               >
                 info@lingaschool.org
               </a>
 
               <a
                 href="mailto:principal@lingaschool.org"
-                className="rounded-full border border-[#d6a447]/20 px-5 py-3 text-sm font-medium text-white/70 transition hover:border-[#d6a447]/40 hover:text-[#d6a447]"
+                className="rounded-full border border-[#A87A2E]/20 px-5 py-3 text-sm font-medium text-[#716A6C] transition hover:border-[#A87A2E]/40 hover:text-[#A87A2E]"
               >
                 principal@lingaschool.org
               </a>
 
               <a
                 href="tel:+917373727290"
-                className="rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-white/70 transition hover:border-[#d6a447]/40 hover:text-[#d6a447]"
+                className="rounded-full border border-[#292629]/10 px-5 py-3 text-sm font-medium text-[#716A6C] transition hover:border-[#A87A2E]/40 hover:text-[#A87A2E]"
               >
                 +91 73737 27290
               </a>
 
             </div>
 
-            <p className="mt-6 text-sm leading-7 text-white/40">
+            <p className="mt-6 text-sm leading-7 text-[#716A6C]">
               Anand Nagar, Krishnankoil-626 126,
               Srivilliputhur Taluk, Virudhunagar District,
               Tamil Nadu, India
@@ -412,7 +412,7 @@ export default function PrivacyPolicy() {
 
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-sm text-white/45 transition hover:text-[#d6a447]"
+              className="inline-flex items-center gap-2 text-sm text-[#716A6C] transition hover:text-[#A87A2E]"
             >
               ← Back to Home
             </Link>
@@ -432,7 +432,7 @@ function PolicySection({ title, children }) {
     <section>
 
       <h2
-        className="text-2xl font-semibold text-white md:text-3xl"
+        className="text-2xl font-semibold text-[#292629] md:text-3xl"
         style={{
           fontFamily: 'Georgia, "Times New Roman", serif',
         }}
@@ -440,7 +440,7 @@ function PolicySection({ title, children }) {
         {title}
       </h2>
 
-      <div className="mt-5 space-y-4 text-sm leading-8 text-white/60 md:text-base">
+      <div className="mt-5 space-y-4 text-sm leading-8 text-[#716A6C] md:text-base">
         {children}
       </div>
 

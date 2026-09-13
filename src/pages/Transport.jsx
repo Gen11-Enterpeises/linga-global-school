@@ -89,7 +89,7 @@ export default function Transport() {
 
         <div className="relative h-full flex items-end pb-12 px-5 md:px-8">
           <div className="mx-auto max-w-7xl w-full">
-            <p className="text-[#b8872f] text-sm tracking-[0.18em] uppercase mb-3">
+            <p className="text-[#C6A66B] text-sm tracking-[0.18em] uppercase mb-3">
               School Transportation
             </p>
 
@@ -104,7 +104,7 @@ export default function Transport() {
       <section className="px-5 md:px-8 py-20 md:py-24 bg-bone">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-[#b8872f] text-sm tracking-[0.18em] uppercase mb-4">
+            <p className="text-[#C6A66B] text-sm tracking-[0.18em] uppercase mb-4">
               Safe & Convenient Travel
             </p>
 
@@ -124,10 +124,10 @@ export default function Transport() {
       </section>
 
       {/* BUS ROUTES */}
-      <section className="px-5 md:px-8 py-20 md:py-28 bg-[#090908]">
+      <section className="px-5 md:px-8 py-20 md:py-28 bg-[#FAF7F3]">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12">
-            <p className="text-[#b8872f] text-sm tracking-[0.18em] uppercase mb-3">
+            <p className="text-[#C6A66B] text-sm tracking-[0.18em] uppercase mb-3">
               Route Network
             </p>
 
@@ -135,17 +135,17 @@ export default function Transport() {
               Bus Routes
             </h2>
 
-            <div className="mt-5 h-[2px] w-12 bg-[#b8872f]" />
+            <div className="mt-5 h-[2px] w-12 bg-[#C6A66B]" />
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {busRoutes.map((item) => (
               <div
                 key={item.bus}
-                className="group rounded-2xl border border-white/10 bg-[#151412] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#b8872f]/60 hover:bg-[#1b1916]"
+                className="group rounded-2xl border border-[#292629]/10 bg-[#F1E9E3] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#C6A66B]/60 hover:bg-[#F1E9E3]"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#b8872f]/50 bg-[#b8872f]/10 text-[#c99a3a] text-sm font-semibold">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#C6A66B]/50 bg-[#C6A66B]/10 text-[#A87A2E] text-sm font-semibold">
                     {item.bus.replace('Bus ', '')}
                   </div>
 
@@ -166,10 +166,10 @@ export default function Transport() {
       </section>
 
       {/* GUIDELINES */}
-      <section className="px-5 md:px-8 py-20 md:py-28 bg-[#090908]">
+      <section className="px-5 md:px-8 py-20 md:py-28 bg-[#FAF7F3]">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl mb-12">
-            <p className="text-[#b8872f] text-sm tracking-[0.18em] uppercase mb-3">
+            <p className="text-[#C6A66B] text-sm tracking-[0.18em] uppercase mb-3">
               Important Information
             </p>
 
@@ -177,16 +177,16 @@ export default function Transport() {
               Transport Guidelines
             </h2>
 
-            <div className="mt-5 h-[2px] w-12 bg-[#b8872f]" />
+            <div className="mt-5 h-[2px] w-12 bg-[#C6A66B]" />
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
             {guidelines.map((guideline, index) => (
               <div
                 key={index}
-                className="group flex gap-5 rounded-2xl border border-white/10 bg-[#151412] p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#b8872f]/50 hover:bg-[#1b1916]"
+                className="group flex gap-5 rounded-2xl border border-[#292629]/10 bg-[#F1E9E3] p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#C6A66B]/50 hover:bg-[#F1E9E3]"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#b8872f] text-[#090908] text-sm font-bold">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#C6A66B] text-[#292629] text-sm font-bold">
                   {index + 1}
                 </span>
 
@@ -200,10 +200,10 @@ export default function Transport() {
       </section>
 
       {/* CONTACT CTA */}
-      <section className="px-5 md:px-8 py-16 bg-[#151412] border-t border-white/10">
+      <section className="px-5 md:px-8 py-16 bg-[#F1E9E3] border-t border-[#292629]/10">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
-            <p className="text-[#b8872f] text-sm tracking-[0.18em] uppercase mb-3">
+            <p className="text-[#C6A66B] text-sm tracking-[0.18em] uppercase mb-3">
               Need More Information?
             </p>
 
@@ -214,7 +214,7 @@ export default function Transport() {
 
           <a
             href="tel:+917373727290"
-            className="inline-flex w-fit items-center justify-center rounded-full border border-[#b8872f]/60 px-6 py-3 text-sm text-bone transition-all duration-300 hover:bg-[#b8872f] hover:text-[#090908]"
+            className="inline-flex w-fit items-center justify-center rounded-full border border-[#C6A66B]/60 px-6 py-3 text-sm text-bone transition-all duration-300 hover:bg-[#D9BC85] hover:text-[#292629]"
           >
             +91 73737 27290
           </a>

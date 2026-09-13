@@ -23,7 +23,7 @@ export default function Legacy() {
       ref={ref}
       className="
         relative overflow-hidden
-        bg-[#f4f1ea]
+        bg-[#F1E9E3]
         px-5 py-20
         sm:px-6
         md:px-8 md:py-32
@@ -38,7 +38,7 @@ export default function Legacy() {
           rounded-full blur-[140px]
         "
         style={{
-          background: '#b8872f',
+          background: '#C6A66B',
           opacity: 0.055,
         }}
       />
@@ -56,12 +56,12 @@ export default function Legacy() {
         <div className="order-2 md:order-1">
 
           <div className="mb-5 flex items-center gap-3">
-            <span className="h-[2px] w-9 bg-[#b8872f]" />
+            <span className="h-[2px] w-9 bg-[#C6A66B]" />
 
             <p className="
               text-[10px]
               uppercase tracking-[0.24em]
-              text-[#a87928]
+              text-[#A87A2E]
               sm:text-xs
             ">
               Founding philosophy
@@ -86,7 +86,7 @@ export default function Legacy() {
             </h2>
           </motion.div>
 
-          <div className="my-6 h-[2px] w-12 bg-[#b8872f]" />
+          <div className="my-6 h-[2px] w-12 bg-[#C6A66B]" />
 
           <p className="
             max-w-lg
@@ -118,7 +118,7 @@ export default function Legacy() {
           <div className="
             relative overflow-hidden
             rounded-full
-            border border-[#b8872f]/30
+            border border-[#C6A66B]/30
             p-1
           ">
             <img
@@ -137,7 +137,7 @@ export default function Legacy() {
             relative col-span-2
             overflow-hidden
             rounded-2xl
-            border border-black/10
+            border border-[#292629]/10
             shadow-[0_18px_55px_rgba(0,0,0,0.12)]
           ">
             <img
@@ -163,7 +163,7 @@ export default function Legacy() {
             <div className="
               absolute bottom-4 left-4
               h-[2px] w-10
-              bg-[#d6a447]
+              bg-[#C6A66B]
             " />
           </div>
         </motion.div>

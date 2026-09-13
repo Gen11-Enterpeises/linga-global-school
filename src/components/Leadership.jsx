@@ -38,7 +38,7 @@ export default function Leadership() {
   return (
     <section className="
       relative overflow-hidden
-      bg-[#151412]
+      bg-[#F1E9E3]
       px-5 py-20
       sm:px-6
       md:px-8 md:py-32
@@ -53,7 +53,7 @@ export default function Leadership() {
           rounded-full blur-[150px]
         "
         style={{
-          background: '#b8872f',
+          background: '#C6A66B',
           opacity: 0.055,
         }}
       />
@@ -69,12 +69,12 @@ export default function Leadership() {
           className="mb-12 md:mb-16"
         >
           <div className="mb-4 flex items-center gap-3">
-            <span className="h-[2px] w-9 bg-[#b8872f]" />
+            <span className="h-[2px] w-9 bg-[#C6A66B]" />
 
             <p className="
               text-[10px]
               uppercase tracking-[0.24em]
-              text-[#b8872f]
+              text-[#C6A66B]
               sm:text-xs
             ">
               Leadership
@@ -85,7 +85,7 @@ export default function Leadership() {
             className="
               max-w-2xl
               text-3xl leading-[1.1]
-              text-[#f4f1ea]
+              text-[#292629]
               sm:text-4xl
               md:text-5xl
             "
@@ -97,7 +97,7 @@ export default function Leadership() {
             Guided by people, not committees.
           </h2>
 
-          <div className="mt-5 h-[2px] w-12 bg-[#b8872f]" />
+          <div className="mt-5 h-[2px] w-12 bg-[#C6A66B]" />
         </motion.div>
 
         {/* People */}
@@ -137,9 +137,9 @@ export default function Leadership() {
                 <div className="
                   absolute -inset-1
                   rounded-full
-                  border border-[#b8872f]/20
+                  border border-[#C6A66B]/20
                   transition-all duration-500
-                  group-hover:border-[#b8872f]/70
+                  group-hover:border-[#C6A66B]/70
                   group-hover:scale-105
                 " />
 
@@ -147,7 +147,7 @@ export default function Leadership() {
                   h-full w-full
                   overflow-hidden
                   rounded-full
-                  bg-[#090908]
+                  bg-[#FAF7F3]
                 ">
                   <img
                     src={p.img}
@@ -168,25 +168,25 @@ export default function Leadership() {
                 text-sm
                 font-medium
                 leading-snug
-                text-[#f4f1ea]
+                text-[#292629]
                 sm:text-base
               ">
                 {p.name}
               </p>
 
               <div className="mt-2 flex items-center gap-2">
-                <span className="h-px w-4 bg-[#b8872f]/60" />
+                <span className="h-px w-4 bg-[#C6A66B]/60" />
 
                 <p className="
                   text-[10px]
                   uppercase tracking-[0.16em]
-                  text-[#d6a447]
+                  text-[#A87A2E]
                   sm:text-xs
                 ">
                   {p.role}
                 </p>
 
-                <span className="h-px w-4 bg-[#b8872f]/60" />
+                <span className="h-px w-4 bg-[#C6A66B]/60" />
               </div>
 
             </motion.div>

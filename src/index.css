@@ -2,132 +2,76 @@
 
 :root {
   --dusty-rose: #C98F9A;
-  --dusty-rose-dark: #B87884;
-  --pale-blush: #E8CDD1;
-
   --warm-ivory: #FAF7F3;
   --soft-cream: #F1E9E3;
-
   --deep-charcoal: #292629;
   --warm-grey: #716A6C;
   --muted-taupe: #A89591;
-
   --champagne-gold: #C6A66B;
   --deep-sage: #65756B;
-
   --espresso-charcoal: #332C2D;
+  --pale-blush: #E8CDD1;
 }
 
-html {
-  scroll-behavior: smooth;
-  background: var(--warm-ivory);
-}
+html { scroll-behavior: smooth; }
 
+/* DEFAULT everywhere: light background, dark text */
 body {
-  margin: 0;
-  padding: 0;
-  min-width: 0;
-  max-width: 100%;
-  overflow-x: hidden;
-
   background: var(--warm-ivory);
   color: var(--deep-charcoal);
-
-  font-family:
-    Manrope,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-#root {
-  min-height: 100vh;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-main {
-  min-width: 0;
-  max-width: 100%;
-}
-
-img,
-video,
-iframe {
-  max-width: 100%;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-::selection {
-  background: var(--dusty-rose);
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
   color: var(--deep-charcoal);
 }
 
-::-webkit-scrollbar {
-  width: 7px;
+p, li, span, td, th, div {
+  color: inherit;
 }
 
-::-webkit-scrollbar-track {
+a { color: var(--deep-charcoal); transition: color 200ms ease; }
+a:hover { color: var(--dusty-rose); }
+
+.text-secondary { color: var(--warm-grey); }
+.text-gold, .text-champagne { color: var(--champagne-gold) !important; }
+
+input, textarea, select {
+  color: var(--deep-charcoal);
   background: var(--soft-cream);
 }
-
-::-webkit-scrollbar-thumb {
-  background: var(--dusty-rose);
-  border-radius: 999px;
+input::placeholder, textarea::placeholder {
+  color: var(--warm-grey);
+  opacity: 1;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--dusty-rose-dark);
+/* ============================================
+   ONLY sections marked data-dark="true" flip to
+   dark background + white text. Nothing else does.
+   ============================================ */
+[data-dark="true"] {
+  background: var(--espresso-charcoal);
+  color: var(--warm-ivory);
 }
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 2px solid var(--dusty-rose);
-  outline-offset: 3px;
+[data-dark="true"] h1,
+[data-dark="true"] h2,
+[data-dark="true"] h3,
+[data-dark="true"] h4,
+[data-dark="true"] p,
+[data-dark="true"] li,
+[data-dark="true"] span,
+[data-dark="true"] div {
+  color: var(--warm-ivory);
 }
-
-@media (max-width: 768px) {
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  #root {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-}
+[data-dark="true"] .text-secondary { color: var(--pale-blush); }
+[data-dark="true"] .text-gold,
+[data-dark="true"] .text-champagne { color: var(--champagne-gold) !important; }
+[data-dark="true"] a { color: var(--warm-ivory); }
+[data-dark="true"] a:hover { color: var(--champagne-gold); }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+  html { scroll-behavior: auto; }
+  *, *::before { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

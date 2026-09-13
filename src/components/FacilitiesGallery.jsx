@@ -38,8 +38,8 @@ function Tile({ item, index }) {
       className={`
         group relative overflow-hidden rounded-2xl
         aspect-[4/3]
-        border border-black/10
-        bg-[#151412]
+        border border-[#292629]/10
+        bg-[#F1E9E3]
         shadow-[0_15px_45px_rgba(0,0,0,0.12)]
         ${item.span}
       `}
@@ -77,7 +77,7 @@ function Tile({ item, index }) {
         absolute left-0 right-0 top-0
         h-[3px]
         origin-left scale-x-0
-        bg-[#b8872f]
+        bg-[#C6A66B]
         transition-transform duration-500
         group-hover:scale-x-100
       " />
@@ -92,13 +92,13 @@ function Tile({ item, index }) {
           <p className="
             mb-1 text-[9px]
             uppercase tracking-[0.22em]
-            text-[#d6a447]
+            text-[#A87A2E]
           ">
             Linga Global School
           </p>
 
           <h3
-            className="text-lg text-white sm:text-xl"
+            className="text-lg text-[#292629] sm:text-xl"
             style={{
               fontFamily: 'Georgia, "Times New Roman", serif',
               fontWeight: 600,
@@ -112,11 +112,11 @@ function Tile({ item, index }) {
           hidden h-8 w-8
           items-center justify-center
           rounded-full
-          border border-white/25
-          text-white/80
+          border border-[#292629]/10
+          text-[#716A6C]
           transition-all duration-300
-          group-hover:border-[#d6a447]
-          group-hover:text-[#d6a447]
+          group-hover:border-[#A87A2E]
+          group-hover:text-[#A87A2E]
           sm:flex
         ">
           ↗
@@ -130,7 +130,7 @@ export default function FacilitiesGallery() {
   return (
     <section className="
       relative overflow-hidden
-      bg-[#f4f1ea]
+      bg-[#F1E9E3]
       px-5 py-20
       sm:px-6
       md:px-8 md:py-32
@@ -144,7 +144,7 @@ export default function FacilitiesGallery() {
           rounded-full blur-[130px]
         "
         style={{
-          background: '#b8872f',
+          background: '#C6A66B',
           opacity: 0.07,
         }}
       />
@@ -161,12 +161,12 @@ export default function FacilitiesGallery() {
         >
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <span className="h-[2px] w-9 bg-[#b8872f]" />
+              <span className="h-[2px] w-9 bg-[#C6A66B]" />
 
               <p className="
                 text-[10px] uppercase
                 tracking-[0.25em]
-                text-[#a87928]
+                text-[#A87A2E]
                 sm:text-xs
               ">
                 Campus & Facilities
@@ -189,7 +189,7 @@ export default function FacilitiesGallery() {
               Spaces made for curiosity.
             </h2>
 
-            <div className="mt-5 h-[2px] w-12 bg-[#b8872f]" />
+            <div className="mt-5 h-[2px] w-12 bg-[#C6A66B]" />
           </div>
 
           <p className="
