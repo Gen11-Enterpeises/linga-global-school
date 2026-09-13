@@ -179,7 +179,7 @@ export default function Hero() {
               text-[11px]
               leading-5
               tracking-wide
-              text-white
+              !text-white
               sm:text-sm
               md:text-base
             "
@@ -217,22 +217,22 @@ export default function Hero() {
             }}
           >
             {/* WHITE */}
-            <span className="text-white">
+            <span className="!text-white">
               A campus
             </span>{' '}
 
             {/* GOLD */}
-            <span className="highlight-word">
+            <span className="!text-[#b8872f]">
               built
             </span>{' '}
 
             {/* WHITE */}
-            <span className="text-white">
+            <span className="!text-white">
               to help children actually
             </span>{' '}
 
             {/* GOLD */}
-            <span className="highlight-word">
+            <span className="!text-[#b8872f]">
               learn.
             </span>
           </motion.h1>
@@ -256,7 +256,7 @@ export default function Hero() {
               max-w-xl
               text-sm
               leading-6
-              text-white
+              !text-white
               sm:mt-5
               sm:text-base
               md:text-lg
@@ -289,9 +289,9 @@ export default function Hero() {
               items-center
               gap-2.5
               text-sm
-              text-white
+              !text-white
               transition-colors
-              hover:text-[#b8872f]
+              hover:!text-[#b8872f]
               md:mt-7
               md:text-base
             "
@@ -303,6 +303,7 @@ export default function Hero() {
                 items-center justify-center
                 rounded-full
                 border border-white/50
+                !text-white
                 text-xs
                 transition-all duration-300
                 group-hover:border-[#b8872f]
@@ -313,7 +314,7 @@ export default function Hero() {
               ▶
             </span>
 
-            <span>
+            <span className="!text-white">
               Watch campus tour
             </span>
           </motion.button>
