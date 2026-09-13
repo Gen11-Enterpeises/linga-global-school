@@ -82,14 +82,12 @@ export default function Hero() {
         />
       </motion.video>
 
-      {/* MAIN CINEMATIC OVERLAY */}
+      {/* SOFT UNIFORM OVERLAY
+          No bottom black gradient */}
       <div
         className="
           absolute inset-0
-          bg-gradient-to-t
-          from-black
-          via-black/45
-          to-black/55
+          bg-black/10
         "
       />
 
@@ -209,7 +207,7 @@ export default function Hero() {
               text-[2.35rem]
               leading-[1.04]
               tracking-[-0.025em]
-              text-bone
+              text-white
               sm:text-5xl
               md:text-6xl
               lg:text-7xl
@@ -221,10 +219,12 @@ export default function Hero() {
             }}
           >
             A campus{' '}
-            <span className="highlight-word">
-              built to
+            <span className="text-white">
+              <span className="highlight-word">
+                built
+              </span>{' '}
+              to help children actually
             </span>{' '}
-            help children actually{' '}
             <span className="highlight-word">
               learn.
             </span>
@@ -249,7 +249,7 @@ export default function Hero() {
               max-w-xl
               text-sm
               leading-6
-              text-bone/75
+              text-white
               sm:mt-5
               sm:text-base
               md:text-lg
@@ -282,7 +282,7 @@ export default function Hero() {
               items-center
               gap-2.5
               text-sm
-              text-bone/90
+              text-white
               transition-colors
               hover:text-[#b8872f]
               md:mt-7
@@ -295,7 +295,7 @@ export default function Hero() {
                 h-10 w-10
                 items-center justify-center
                 rounded-full
-                border border-bone/40
+                border border-white/50
                 text-xs
                 transition-all duration-300
                 group-hover:border-[#b8872f]
