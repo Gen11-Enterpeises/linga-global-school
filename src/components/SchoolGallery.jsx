@@ -27,6 +27,7 @@ function findPhoto(fileName) {
   Only a few strong photos are shown on the homepage.
   All other photos remain available on the Gallery page.
 */
+
 const PHOTOS = [
   {
     file: 'building.jpg',
@@ -56,6 +57,7 @@ export default function SchoolGallery() {
       <div className="mx-auto max-w-7xl">
 
         {/* Section heading */}
+
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +65,9 @@ export default function SchoolGallery() {
           transition={{ duration: 0.7 }}
           className="mb-12 max-w-4xl md:mb-16"
         >
+
           <div className="mb-5 flex items-center gap-3">
+
             <span className="section-number">
               02
             </span>
@@ -73,6 +77,7 @@ export default function SchoolGallery() {
             <span className="text-xs uppercase tracking-[0.18em] text-charcoal/50">
               Life at Linga
             </span>
+
           </div>
 
           <h2 className="font-display max-w-4xl text-3xl leading-tight text-charcoal sm:text-4xl md:text-5xl lg:text-6xl">
@@ -84,12 +89,15 @@ export default function SchoolGallery() {
             A glimpse of the campus, activities, innovation and moments
             that make everyday school life meaningful.
           </p>
+
         </motion.div>
 
         {/* Five selected photos */}
+
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 md:gap-5">
 
           {PHOTOS.map((photo, index) => {
+
             const src = findPhoto(photo.file)
 
             if (!src) return null
@@ -112,6 +120,7 @@ export default function SchoolGallery() {
                     : 'sm:col-span-1 md:col-span-1 aspect-[4/3]'
                 }`}
               >
+
                 <img
                   src={src}
                   alt={photo.title}
@@ -121,9 +130,12 @@ export default function SchoolGallery() {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090908]/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                <figcaption className="absolute bottom-0 left-0 right-0 translate-y-2 p-4 text-sm font-medium text-bone opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                {/* PHOTO TITLE - DUSTY ROSE */}
+
+                <figcaption className="absolute bottom-0 left-0 right-0 translate-y-2 p-4 text-sm font-medium !text-[#C98F9A] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                   {photo.title}
                 </figcaption>
+
               </motion.figure>
             )
           })}
@@ -131,6 +143,7 @@ export default function SchoolGallery() {
         </div>
 
         {/* Gallery link */}
+
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}

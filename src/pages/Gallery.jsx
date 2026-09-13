@@ -111,13 +111,11 @@ export default function Gallery() {
         </div>
       </section>
 
-
       {/* ================================
           ALL PHOTOS
       ================================= */}
 
       <section className="px-5 pb-24 md:px-8 md:pb-32">
-
         <div
           className="
             mx-auto max-w-7xl
@@ -213,7 +211,7 @@ export default function Gallery() {
                 "
               />
 
-              {/* PHOTO TITLE */}
+              {/* PHOTO TITLE - DUSTY ROSE */}
 
               <div
                 className="
@@ -230,11 +228,9 @@ export default function Gallery() {
                   group-hover:opacity-100
                 "
               >
-
-                <p className="text-sm font-medium capitalize text-[#292629]">
+                <p className="text-sm font-medium capitalize !text-[#C98F9A]">
                   {photo.title}
                 </p>
-
               </div>
 
             </motion.div>
@@ -242,7 +238,6 @@ export default function Gallery() {
           ))}
 
         </div>
-
       </section>
 
     </main>

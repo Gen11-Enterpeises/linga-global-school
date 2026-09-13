@@ -92,13 +92,13 @@ function Tile({ item, index }) {
           <p className="
             mb-1 text-[9px]
             uppercase tracking-[0.22em]
-            text-[#A87A2E]
+            text-[#C98F9A]
           ">
             Linga Global School
           </p>
 
           <h3
-            className="text-lg text-[#292629] sm:text-xl"
+            className="text-lg text-[#C98F9A] sm:text-xl"
             style={{
               fontFamily: 'Georgia, "Times New Roman", serif',
               fontWeight: 600,
@@ -115,8 +115,8 @@ function Tile({ item, index }) {
           border border-[#292629]/10
           text-[#716A6C]
           transition-all duration-300
-          group-hover:border-[#A87A2E]
-          group-hover:text-[#A87A2E]
+          group-hover:border-[#C98F9A]
+          group-hover:text-[#C98F9A]
           sm:flex
         ">
           ↗
@@ -166,7 +166,7 @@ export default function FacilitiesGallery() {
               <p className="
                 text-[10px] uppercase
                 tracking-[0.25em]
-                text-[#A87A2E]
+                text-[#C98F9A]
                 sm:text-xs
               ">
                 Campus & Facilities
