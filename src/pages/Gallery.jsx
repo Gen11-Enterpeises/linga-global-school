@@ -1,51 +1,27 @@
 import { motion } from 'framer-motion'
-
-/*
-  LOAD ALL IMAGE ASSETS AUTOMATICALLY
-
-  Assets folder mein jitne bhi photos hain,
-  sab automatically Gallery page par aa jayenge.
-
-  Future mein new photo add karoge,
-  woh bhi automatically include ho jayegi.
-*/
-
-const allAssets = import.meta.glob(
-  '../assets/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
-  {
-    eager: true,
-    query: '?url',
-    import: 'default',
-  }
-)
-
-/*
-  LOGOS KO EXCLUDE KARO
-  Logo branding ke liye hai, gallery photo nahi.
-*/
-
-const IMAGES = Object.entries(allAssets)
-  .filter(([path]) => {
-    const fileName = path.split('/').pop()?.toLowerCase() || ''
-    return !fileName.startsWith('logo')
-  })
-  .map(([path, image]) => {
-    const fileName = path.split('/').pop() || ''
-
-    const title = fileName
-      .replace(/\.(jpg|jpeg|png|webp)$/i, '')
-      .replace(/[-_]/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim()
-
-    return {
-      image,
-      title,
-      fileName,
-    }
-  })
+import { useEffect, useState } from 'react'
+import { supabase } from '../supabaseClient'
 
 export default function Gallery() {
+  const [photos, setPhotos] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadGallery() {
+      const { data, error } = await supabase
+        .from('documents')
+        .select('*')
+        .eq('category', 'gallery')
+        .order('created_at', { ascending: false })
+
+      if (!error && data) {
+        setPhotos(data)
+      }
+      setLoading(false)
+    }
+    loadGallery()
+  }, [])
+
   return (
     <main className="min-h-screen bg-[#F1E9E3]">
 
@@ -104,8 +80,9 @@ export default function Gallery() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-5 text-xs uppercase tracking-[0.18em] text-black/35"
           >
-            {IMAGES.length}{' '}
-            {IMAGES.length === 1 ? 'photo' : 'photos'}
+            {loading
+              ? 'Loading…'
+              : `${photos.length} ${photos.length === 1 ? 'photo' : 'photos'}`}
           </motion.p>
 
         </div>
@@ -116,6 +93,12 @@ export default function Gallery() {
       ================================= */}
 
       <section className="px-5 pb-24 md:px-8 md:pb-32">
+        {!loading && photos.length === 0 && (
+          <p className="mx-auto max-w-7xl text-sm text-black/45">
+            No photos added yet.
+          </p>
+        )}
+
         <div
           className="
             mx-auto max-w-7xl
@@ -127,10 +110,10 @@ export default function Gallery() {
           "
         >
 
-          {IMAGES.map((photo, index) => (
+          {photos.map((photo, index) => (
 
             <motion.div
-              key={photo.fileName}
+              key={photo.id}
               initial={{
                 opacity: 0,
                 y: 25,
@@ -161,7 +144,7 @@ export default function Gallery() {
               {/* IMAGE */}
 
               <img
-                src={photo.image}
+                src={photo.file_url}
                 alt={photo.title}
                 loading="lazy"
                 className="
