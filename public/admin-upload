@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin - LGS</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF6EE;
+    --ink: #2B2417;
+    --rule: #DCD0B4;
+    --marigold: #E0A526;
+    --maroon: #8C2F1B;
+    --sage: #5B7553;
+    --clay-light: #F1E6D0;
+    --muted: #6b5f45;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  #gate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: var(--muted);
+  }
+  .layout { display: none; min-height: 100vh; }
+  .layout.active { display: flex; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    background: var(--maroon);
+    color: var(--paper);
+    padding: 1.75rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar .mark {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 0.1rem;
+  }
+  .sidebar .sub {
+    font-size: 0.72rem;
+    opacity: 0.75;
+    margin: 0 0 2rem;
+  }
+  nav { display: flex; flex-direction: column; gap: 0.25rem; }
+  .tab-btn {
+    text-align: left;
+    background: none;
+    border: none;
+    color: var(--paper);
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.55rem 0.6rem;
+    cursor: pointer;
+    opacity: 0.75;
+    border-left: 2px solid transparent;
+  }
+  .tab-btn.active {
+    opacity: 1;
+    background: rgba(250,246,238,0.08);
+    border-left: 2px solid var(--marigold);
+  }
+  .sidebar-bottom { margin-top: auto; }
+  #logoutBtn {
+    background: none;
+    border: 1px solid rgba(250,246,238,0.35);
+    color: var(--paper);
+    font-family: inherit;
+    font-size: 0.82rem;
+    padding: 0.5rem 0.7rem;
+    width: 100%;
+    cursor: pointer;
+  }
+  #logoutBtn:hover { background: rgba(250,246,238,0.1); }
+
+  /* Main */
+  main {
+    flex: 1;
+    padding: 2.25rem 2.5rem;
+    max-width: 760px;
+  }
+  .panel { display: none; }
+  .panel.active { display: block; animation: slidein 0.18s ease-out; }
+  @keyframes slidein {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin: 0 0 0.2rem;
+  }
+  .panel-sub { font-size: 0.85rem; color: var(--muted); margin: 0 0 1.5rem; }
+
+  form {
+    border: 1px solid var(--rule);
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 2.25rem;
+  }
+  label { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.3rem; }
+  input[type=text], textarea {
+    width: 100%;
+    padding: 0.55rem 0.65rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 0.92rem;
+  }
+  textarea { min-height: 72px; resize: vertical; }
+  input:focus, textarea:focus { outline: 2px solid var(--marigold); outline-offset: 1px; }
+
+  .dropzone {
+    border: 1.5px dashed var(--rule);
+    padding: 1.4rem;
+    text-align: center;
+    margin-bottom: 1.1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    cursor: pointer;
+    background: var(--clay-light);
+  }
+  .dropzone.hasfile { border-style: solid; border-color: var(--sage); color: var(--ink); }
+  .dropzone input { display: none; }
+
+  button.primary {
+    padding: 0.65rem 1.3rem;
+    background: var(--marigold);
+    color: var(--ink);
+    border: none;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+  }
+  button.primary:hover { background: #c9911e; }
+  button.primary:disabled { opacity: 0.6; cursor: not-allowed; }
+  .status { font-size: 0.82rem; margin-top: 0.7rem; min-height: 1rem; }
+  .status.ok { color: var(--sage); }
+  .status.err { color: #a12f1f; }
+
+  /* Ledger list */
+  .ledger-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.25rem;
+  }
+  .ledger-head h2 { font-size: 0.95rem; margin: 0; font-weight: 600; }
+  .ledger-head span { font-size: 0.75rem; color: var(--muted); }
+  .ledger-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ledger-row img {
+    width: 40px; height: 40px;
+    object-fit: cover;
+    border: 1px solid var(--rule);
+    flex-shrink: 0;
+    background: var(--clay-light);
+  }
+  .ledger-row .info { flex: 1; min-width: 0; }
+  .ledger-row .title { font-size: 0.9rem; margin: 0; }
+  .ledger-row .desc {
+    font-size: 0.78rem; color: var(--muted); margin: 0.1rem 0 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .ledger-row .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .del-btn {
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--maroon);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .del-btn:hover { background: #fbe9e3; }
+  .empty { font-size: 0.85rem; color: var(--muted); padding: 1rem 0; }
+</style>
+</head>
+<body>
+
+<div id="gate">Checking access...</div>
+
+<div class="layout" id="layout">
+  <aside class="sidebar">
+    <p class="mark">LGS Office</p>
+    <p class="sub">Content admin</p>
+    <nav>
+      <button class="tab-btn active" data-tab="gallery">Gallery</button>
+      <button class="tab-btn" data-tab="announcement">Announcements</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <button id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Gallery panel -->
+    <section class="panel active" id="panel-gallery">
+      <h1>Gallery</h1>
+      <p class="panel-sub">Add a photo to the public gallery page.</p>
+
+      <form id="galleryForm">
+        <label class="dropzone" id="gDrop">
+          Click to choose a photo, or drag one here
+          <input type="file" id="gPhoto" accept="image/*" required />
+        </label>
+        <label for="gTitle">Title</label>
+        <input type="text" id="gTitle" required />
+        <label for="gDesc">Description</label>
+        <input type="text" id="gDesc" placeholder="Optional" />
+        <button type="submit" class="primary">Add to gallery</button>
+        <p class="status" id="gStatus"></p>
+      </form>
+
+      <div class="ledger-head">
+        <h2>Recent gallery entries</h2>
+        <span id="gCount"></span>
+      </div>
+      <div id="gList"><p class="empty">Loading…</p></div>
+    </section>
+
+    <!-- Announcement panel -->
+    <section class="panel" id="panel-announcement">
+      <h1>Announcements</h1>
+      <p class="panel-sub">Post a notice to the public announcements page.</p>
+
+      <form id="annForm">
+        <label class="dropzone" id="aDrop">
+          Click to attach an image, or drag one here (optional)
+          <input type="file" id="aPhoto" accept="image/*" />
+        </label>
+        <label for="aTitle">Title</label>
+        <input type="text" id="aTitle" required />
+        <label for="aDesc">Details</label>
+        <textarea id="aDesc"></textarea>
+        <button type="submit" class="primary">Post announcement</button>
+        <p class="status" id="aStatus"></p>
+      </form>
+
+      <div class="ledger-head">
+        <h2>Recent announcements</h2>
+        <span id="aCount"></span>
+      </div>
+      <div id="aList"><p class="empty">Loading…</p></div>
+    </section>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const supabase = window.supabase.createClient(
+    'https://fheuzsampabrzvkogodc.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZoZXV6c2FtcGFicnp2a29nb2RjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwNzk1MTUsImV4cCI6MjA5ODY1NTUxNX0.RQKsj983dtIuAWoFvC_ZE2EnadaQ8_J-d8-TWoFnYZc'
+  )
+  const BUCKET = 'school-files'
+
+  // --- Auth guard ---
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    if (!session) {
+      window.location.href = 'admin-login.html'
+    } else {
+      document.getElementById('gate').style.display = 'none'
+      document.getElementById('layout').classList.add('active')
+      loadList('gallery')
+      loadList('announcement')
+    }
+  })
+
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    await supabase.auth.signOut()
+    window.location.href = 'admin-login.html'
+  })
+
+  // --- Tab switching ---
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'))
+      btn.classList.add('active')
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active')
+    })
+  })
+
+  // --- Dropzone file-name feedback ---
+  function wireDropzone(dropId, inputId, label) {
+    const drop = document.getElementById(dropId)
+    const input = document.getElementById(inputId)
+    input.addEventListener('change', () => {
+      if (input.files[0]) {
+        drop.classList.add('hasfile')
+        drop.firstChild.textContent = input.files[0].name
+      } else {
+        drop.classList.remove('hasfile')
+        drop.firstChild.textContent = label
+      }
+    })
+  }
+  wireDropzone('gDrop', 'gPhoto', 'Click to choose a photo, or drag one here')
+  wireDropzone('aDrop', 'aPhoto', 'Click to attach an image, or drag one here (optional)')
+
+  function setStatus(el, text, ok) {
+    el.textContent = text
+    el.className = 'status ' + (ok ? 'ok' : 'err')
+  }
+
+  async function uploadFile(file, folder) {
+    const path = `${folder}/${Date.now()}_${file.name}`
+    const { error } = await supabase.storage.from(BUCKET).upload(path, file)
+    if (error) throw error
+    const { data } = supabase.storage.from(BUCKET).getPublicUrl(path)
+    return { url: data.publicUrl, type: file.type }
+  }
+
+  function fmtDate(iso) {
+    const d = new Date(iso)
+    return d.toISOString().slice(0, 10)
+  }
+
+  async function loadList(category) {
+    const listEl = document.getElementById(category === 'gallery' ? 'gList' : 'aList')
+    const countEl = document.getElementById(category === 'gallery' ? 'gCount' : 'aCount')
+
+    const { data, error } = await supabase
+      .from('documents')
+      .select('*')
+      .eq('category', category)
+      .order('created_at', { ascending: false })
+      .limit(20)
+
+    if (error) {
+      listEl.innerHTML = `<p class="empty">Couldn't load entries.</p>`
+      return
+    }
+    countEl.textContent = data.length + (data.length === 1 ? ' entry' : ' entries')
+    if (data.length === 0) {
+      listEl.innerHTML = `<p class="empty">Nothing posted yet.</p>`
+      return
+    }
+    listEl.innerHTML = data.map(item => `
+      <div class="ledger-row" data-id="${item.id}">
+        ${item.file_url
+          ? `<img src="${item.file_url}" alt="" />`
+          : `<div style="width:40px;height:40px;border:1px solid var(--rule);flex-shrink:0;background:var(--clay-light);"></div>`}
+        <div class="info">
+          <p class="title">${item.title}</p>
+          ${item.description ? `<p class="desc">${item.description}</p>` : ''}
+        </div>
+        <span class="date">${fmtDate(item.created_at)}</span>
+        <button class="del-btn" data-id="${item.id}" data-cat="${category}">Remove</button>
+      </div>
+    `).join('')
+
+    listEl.querySelectorAll('.del-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        if (!confirm('Remove this entry?')) return
+        const { error } = await supabase.from('documents').delete().eq('id', btn.dataset.id)
+        if (!error) loadList(btn.dataset.cat)
+      })
+    })
+  }
+
+  // --- Gallery form ---
+  document.getElementById('galleryForm').addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const btn = e.target.querySelector('button')
+    const statusEl = document.getElementById('gStatus')
+    const title = document.getElementById('gTitle').value
+    const description = document.getElementById('gDesc').value
+    const file = document.getElementById('gPhoto').files[0]
+
+    btn.disabled = true
+    setStatus(statusEl, 'Uploading…', true)
+    try {
+      const { url, type } = await uploadFile(file, 'gallery')
+      const { error } = await supabase.from('documents').insert([{
+        title, description, file_url: url, file_type: type, category: 'gallery'
+      }])
+      if (error) throw error
+      setStatus(statusEl, 'Added to gallery.', true)
+      e.target.reset()
+      document.getElementById('gDrop').classList.remove('hasfile')
+      document.getElementById('gDrop').firstChild.textContent = 'Click to choose a photo, or drag one here'
+      loadList('gallery')
+    } catch (err) {
+      setStatus(statusEl, err.message, false)
+    } finally {
+      btn.disabled = false
+    }
+  })
+
+  // --- Announcement form ---
+  document.getElementById('annForm').addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const btn = e.target.querySelector('button')
+    const statusEl = document.getElementById('aStatus')
+    const title = document.getElementById('aTitle').value
+    const description = document.getElementById('aDesc').value
+    const file = document.getElementById('aPhoto').files[0]
+
+    btn.disabled = true
+    setStatus(statusEl, 'Posting…', true)
+    try {
+      let url = null, type = null
+      if (file) ({ url, type } = await uploadFile(file, 'announcements'))
+      const { error } = await supabase.from('documents').insert([{
+        title, description, file_url: url, file_type: type, category: 'announcement'
+      }])
+      if (error) throw error
+      setStatus(statusEl, 'Announcement posted.', true)
+      e.target.reset()
+      document.getElementById('aDrop').classList.remove('hasfile')
+      document.getElementById('aDrop').firstChild.textContent = 'Click to attach an image, or drag one here (optional)'
+      loadList('announcement')
+    } catch (err) {
+      setStatus(statusEl, err.message, false)
+    } finally {
+      btn.disabled = false
+    }
+  })
+</script>
+
+</body>
+</html>
